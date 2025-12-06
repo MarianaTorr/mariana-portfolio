@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mariana Torres – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- TITLES: BEBAS KAI -->
+  <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
+  <!-- BODY: SOURCE SERIF 4 -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #050608;
+      --bg-soft: #090b10;
+      --text-main: #f5f5f5;
+      --text-muted: #a6a9b5;
+      --accent: #78d3ff; /* turquesa dos títulos */
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #141623 0, #050608 55%);
+      color: var(--text-main);
+      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Bebas Kai", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    p {
+      margin: 0 0 0.8rem;
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px 18px 60px;
+    }
+
+    @media (min-width: 768px) {
+      .shell {
+        padding: 28px 24px 80px;
+      }
+    }
+
+    /* NAV SIMPLES */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5, 6, 8, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .navbar-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      font-family: "Bebas Kai", sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: none;
+      gap: 18px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.16s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    @media (min-width: 820px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    /* HERO – CAPA ESTILO PDF */
+
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 18px 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      /* aqui podes trocar por uma imagem tua (projectors, película, etc.) */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(248, 210, 80, 0.4), transparent 55%),
+        radial-gradient(circle at 70% 30%, rgba(120, 211, 255, 0.35), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.9), #050608 80%);
+      opacity: 0.9;
+      z-index: -1;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+    }
+
+    .hero-tag {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      margin-bottom: 0.1rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 3.6rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-extra {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* SEÇÃO GENÉRICA */
+
+    section {
+      padding: 26px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    /* ARTISTIC STATEMENT – FOTO ESQ / TEXTO DIR */
+
+    .about-grid {
+      display: block;
+      gap: 32px;
+    }
+
+    @media (min-width: 880px) {
+      .about-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      }
+    }
+
+    .about-left {
+      text-align: left;
+    }
+
+    .portrait {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: #111;
+      overflow: hidden;
+      margin-bottom: 0.8rem;
+    }
+
+    .about-name {
+      font-family: "Bebas Kai", sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.3rem;
+    }
+
+    .about-contact p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    /* PROJECTS */
+
+    .project {
+      padding: 26px 0;
+      display: block;
+    }
+
+    .project + .project {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .project-grid {
+      display: block;
+    }
+
+    @media (min-width: 900px) {
+      .project-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        gap: 40px;
+        align-items: center;
+      }
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-link {
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+      word-break: break-all;
+    }
+
+    .project-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .project-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-image-placeholder {
+      width: 100%;
+      min-height: 200px;
+      background: radial-gradient(circle at top left, rgba(120, 211, 255, 0.3), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.8), #050608 75%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* SKILLS / INFO RÁPIDA */
+
+    .list-inline {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .list-inline li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* CONTACTO */
+
+    .contact-text p {
+      font-size: 0.96rem;
+    }
+
+    .footer {
+      padding: 20px 0 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="navbar-inner">
+        <div class="nav-logo">MARIANA <span>TORRES</span></div>
+        <nav class="nav-links">
+          <a href="#statement">Artistic Statement</a>
+          <a href="#projects">Projects</a>
+          <a href="#info">Info</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="shell">
+      <!-- HERO – PORTFOLIO TITLE -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-tag">Artistic Work · Research Moving Image</div>
+          <h1 class="hero-title">Portfolio</h1>
+          <p class="hero-subtitle">
+            Archival practice, analog film techniques and research on moving image.
+          </p>
+          <p class="hero-extra">
+            Projects in film preservation, experimental cinema and digital restoration.
+          </p>
+        </div>
+      </section>
+
+      <!-- ARTISTIC STATEMENT -->
+      <section id="statement">
+        <h2 class="section-title">Artistic Statement</h2>
+
+        <div class="about-grid">
+          <div class="about-left">
+            <!-- Substitui o background desta div por uma foto tua se quiseres -->
+            <div class="portrait">
+              <!-- <img src="foto-mariana.jpg" alt="Portrait of Mariana Torres" /> -->
+            </div>
+            <div class="about-name">MARIANA TORRES</div>
+            <div class="about-contact">
+              <p>Email · <a href="mailto:mariana1108.torres@gmail.com">mariana1108.torres@gmail.com</a></p>
+              <p>Phone · (+351) 912 473 730</p>
+              <p>Based in Lisbon, Portugal</p>
+            </div>
+          </div>
+
+          <div>
+            <p>
+              Mariana (Lisbon, 1997) is an archivist and film practitioner dedicated to the
+              preservation of analog film techniques and technologies, with a particular focus on
+              resisting technological obsolescence. Holding a background in Film Studies from ESTC
+              Lisbon and a postgraduate degree in Audiovisual Archiving from Elías Querejeta Zine
+              Eskola, her work spans archival research, material film practices and artistic
+              experimentation.
+            </p>
+            <p>
+              She has collaborated with institutions such as the Cinemateca Portuguesa and Cineric
+              P., contributing to digital migration, film duplication and inspection processes,
+              and has assisted artist and filmmaker Salomé Lamas on multidisciplinary projects.
+              Her archival path includes the “Z-A Filmmakers' Archive”, dedicated to the work of
+              Portuguese avant-garde artist Ernesto de Sousa, which led to a research grant at
+              Cinemateca Portuguesa in 2024.
+            </p>
+            <p>
+              Mariana is also involved in international research projects and collectives, focusing
+              on non-aligned film archives, countercultural film publications and the circulation
+              of militant cinema. Her practice unfolds at the intersection of Third Cinema memory,
+              film materiality and archival resistance through technological practice.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+          Selection of artistic, research and restoration work in moving image.
+        </p>
+
+        <!-- PROJECT 1 -->
+        <article class="project">
+          <div class="project-grid">
+            <div>
+              <div class="project-label">Film performance · 16mm</div>
+              <h3 class="project-title">Send Me a Color</h3>
+              <p class="project-link">
+                Vimeo ·
+                <a href="https://vimeo.com/1081106970?fl=pl&fe=sh" target="_blank" rel="noopener">
+                  https://vimeo.com/1081106970
+                </a>
+              </p>
+              <p class="project-text">
+                A filmic performance that explores the mechanical gestures of 16mm projectors and
+                the materiality of light and color. Through duplication processes and the use of
+                prisms and filters, the work revisits chromatic separation techniques to create a
+                dense field of chromatic variations where analog color becomes movement, vibration
+                and afterimage.
+              </p>
+              <p class="project-text">
+                On screen, thousands of chromatic possibilities unfold through crystals and
+                filters, exploring refraction, reflection and the fragile thresholds between
+                abstraction and figure. The piece was developed with institutional support from
+                different cultural partners and presented in performance and screening contexts.
+              </p>
+            </div>
+            <div class="project-image-placeholder">
+              <!-- aqui podes pôr um still do projecto -->
+              <span>Project still / image here</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="project">
+          <div class="project-grid">
+            <div>
+              <div class="project-label">Digital Restoration</div>
+              <h3 class="project-title">La Cruz de Mayo – Digital Restoration</h3>
+              <p class="project-link">
+                Vimeo ·
+                <a href="https://vimeo.com/1084541446?fl=pl&fe=sh" target="_blank" rel="noopener">
+                  https://vimeo.com/1084541446
+                </a>
+              </p>
+              <p class="project-text">
+                Collaborative digital restoration carried out with the Archivistas Salvajes
+                collective, dedicated to recovering the images of <em>La Cruz de Mayo</em> (1983),
+                directed by Miguel Secades and Miguel García in Cuba. The work respects the
+                materiality and limitations of the original format while improving stability,
+                contrast and legibility.
+              </p>
+              <p class="project-text">
+                Beyond its aesthetic power and revolutionary spirit, the film’s resonance is
+                deeply rooted in the technical and political conditions under which it was
+                produced. The restoration process becomes a way of reactivating this memory and
+                opening the work to new publics and contexts of exhibition and discussion.
+              </p>
+            </div>
+            <div class="project-image-placeholder">
+              <!-- still do filme restaurado -->
+              <span>Restoration frame / image here</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- AQUI PODES ADICIONAR MAIS PROJECTOS SE QUISERES -->
+      </section>
+
+      <!-- INFO RÁPIDA / SKILLS -->
+      <section id="info">
+        <h2 class="section-title">Info & Skills</h2>
+        <div class="about-grid">
+          <div>
+            <p class="section-subtitle">Technical & archival skills</p>
+            <ul class="list-inline">
+              <li>· Film inspection and repair (35mm / 16mm)</li>
+              <li>· Operation of ArriScan and Cineric custom scanners</li>
+              <li>· Digital workflows: TIFF / DPX, stabilization, grading, QC</li>
+              <li>· DCP ingest, playlist creation, projection tests</li>
+              <li>· Content organization, metadata and server workflows</li>
+            </ul>
+          </div>
+          <div>
+            <p class="section-subtitle">Languages & collaboration</p>
+            <ul class="list-inline">
+              <li>· Portuguese (native), Spanish (C1), English (C1), French (A2)</li>
+              <li>· Experience in international and festival environments</li>
+              <li>· Comfortable working in technical teams under time pressure</li>
+              <li>· Interest in collaborative, research-based projects</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-text">
+          <p>
+            For collaborations, screenings, research projects or technical work in film
+            digitization and preservation, you can reach me at:
+          </p>
+          <p>
+            Email ·
+            <a href="mailto:mariana1108.torres@gmail.com">mariana1108.torres@gmail.com</a><br />
+            Lisbon · Portugal
+          </p>
+        </div>
+      </section>
+
+      <div class="footer">
+        © <span id="year"></span> Mariana Torres · Artistic Work & Research Moving Image
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
