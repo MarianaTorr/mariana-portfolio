@@ -19,7 +19,8 @@
       --bg-soft: #090b10;
       --text-main: #f5f5f5;
       --text-muted: #a6a9b5;
-      --accent: #78d3ff; /* turquesa dos títulos */
+      --accent: #78d3ff;
+      --accent-soft: rgba(120, 211, 255, 0.16);
       --max-width: 1100px;
     }
 
@@ -74,12 +75,12 @@
       }
     }
 
-    /* NAV SIMPLES */
+    /* NAVBAR */
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(5, 6, 8, 0.96);
+      z-index: 30;
+      background: rgba(5, 6, 8, 0.94);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
@@ -105,8 +106,10 @@
     }
 
     .nav-links {
-      display: none;
-      gap: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px 18px;
       font-size: 0.9rem;
       color: var(--text-muted);
     }
@@ -114,6 +117,7 @@
     .nav-links a {
       position: relative;
       padding-bottom: 2px;
+      white-space: nowrap;
     }
 
     .nav-links a::after {
@@ -131,75 +135,21 @@
       width: 100%;
     }
 
-    @media (min-width: 820px) {
+    @media (max-width: 720px) {
       .nav-links {
-        display: flex;
+        font-size: 0.8rem;
       }
     }
 
-    /* HERO – CAPA ESTILO PDF */
-
-    .hero {
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 18px 30px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      /* aqui podes trocar por uma imagem tua (projectors, película, etc.) */
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(248, 210, 80, 0.4), transparent 55%),
-        radial-gradient(circle at 70% 30%, rgba(120, 211, 255, 0.35), transparent 55%),
-        radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.9), #050608 80%);
-      opacity: 0.9;
-      z-index: -1;
-    }
-
-    .hero-inner {
-      max-width: 720px;
-    }
-
-    .hero-tag {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 0.6rem;
-    }
-
-    .hero-title {
-      font-size: 3rem;
-      margin-bottom: 0.1rem;
-    }
-
-    @media (min-width: 768px) {
-      .hero-title {
-        font-size: 3.6rem;
-      }
-    }
-
-    .hero-subtitle {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-extra {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-    }
-
-    /* SEÇÃO GENÉRICA */
+    /* SEÇÕES BASE */
 
     section {
-      padding: 26px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 30px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    section:first-of-type {
+      border-top: none;
     }
 
     .section-title {
@@ -214,124 +164,159 @@
       margin-bottom: 1rem;
     }
 
-    /* ARTISTIC STATEMENT – FOTO ESQ / TEXTO DIR */
-
-    .about-grid {
+    .two-col {
       display: block;
-      gap: 32px;
     }
 
     @media (min-width: 880px) {
-      .about-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-      }
-    }
-
-    .about-left {
-      text-align: left;
-    }
-
-    .portrait {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      background: #111;
-      overflow: hidden;
-      margin-bottom: 0.8rem;
-    }
-
-    .about-name {
-      font-family: "Bebas Kai", sans-serif;
-      font-size: 1.6rem;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.3rem;
-    }
-
-    .about-contact p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 0.35rem;
-    }
-
-    /* PROJECTS */
-
-    .project {
-      padding: 26px 0;
-      display: block;
-    }
-
-    .project + .project {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .project-grid {
-      display: block;
-    }
-
-    @media (min-width: 900px) {
-      .project-grid {
+      .two-col {
         display: grid;
         grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-        gap: 40px;
-        align-items: center;
+        column-gap: 40px;
       }
     }
 
-    .project-title {
-      font-size: 1.4rem;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
+    .exp-block {
+      margin-bottom: 1.4rem;
     }
 
-    .project-link {
+    .exp-role {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .exp-meta {
       font-size: 0.9rem;
-      margin-bottom: 0.6rem;
-      word-break: break-all;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
     }
 
-    .project-text {
+    .subheading {
+      font-family: "Bebas Kai", sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+      color: #e9e9e9;
+    }
+
+    ul {
+      margin: 0.3rem 0 0.9rem;
+      padding-left: 1.2rem;
       font-size: 0.95rem;
       color: var(--text-muted);
     }
 
-    .project-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
+    li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* HERO (HOME) */
+
+    #home {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 18px 30px;
+      position: relative;
+      overflow: hidden;
+      border-top: none;
+    }
+
+    #home::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(248, 210, 80, 0.35), transparent 55%),
+        radial-gradient(circle at 70% 30%, rgba(120, 211, 255, 0.3), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.9), #050608 80%);
+      opacity: 0.9;
+      z-index: -1;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
       letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: 3.4rem;
+      margin-bottom: 0.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.8rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-extra {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* SMALL HELPERS */
+
+    .mono-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
       color: var(--text-muted);
       margin-bottom: 0.4rem;
     }
 
-    .project-image-placeholder {
-      width: 100%;
-      min-height: 200px;
-      background: radial-gradient(circle at top left, rgba(120, 211, 255, 0.3), transparent 55%),
-                  radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.8), #050608 75%);
+    .project-title {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .project-meta {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-link {
+      font-size: 0.86rem;
+      margin-bottom: 0.5rem;
+      word-break: break-all;
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 1rem;
+    }
+
+    .visual-thumb {
+      background: radial-gradient(circle at top left, rgba(120, 211, 255, 0.25), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.9), #050608 80%);
+      min-height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.8rem;
       color: var(--text-muted);
-    }
-
-    /* SKILLS / INFO RÁPIDA */
-
-    .list-inline {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      font-size: 0.95rem;
-    }
-
-    .list-inline li {
-      margin-bottom: 0.25rem;
-    }
-
-    /* CONTACTO */
-
-    .contact-text p {
-      font-size: 0.96rem;
     }
 
     .footer {
@@ -351,70 +336,76 @@
       <div class="navbar-inner">
         <div class="nav-logo">MARIANA <span>TORRES</span></div>
         <nav class="nav-links">
-          <a href="#statement">Artistic Statement</a>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
           <a href="#projects">Projects</a>
-          <a href="#info">Info</a>
+          <a href="#analogue">Analogue Film Practice</a>
+          <a href="#writing">Writing & Publications</a>
+          <a href="#visual">Visual Portfolio</a>
+          <a href="#cv">CV</a>
           <a href="#contact">Contact</a>
+          <a href="#lab-notes">Lab Notes</a>
         </nav>
       </div>
     </header>
 
     <main class="shell">
-      <!-- HERO – PORTFOLIO TITLE -->
-      <section class="hero">
+      <!-- HOME -->
+      <section id="home">
         <div class="hero-inner">
-          <div class="hero-tag">Artistic Work · Research Moving Image</div>
+          <div class="hero-tag">Artistic Work · Research Moving Image · Analogue Film Practice</div>
           <h1 class="hero-title">Portfolio</h1>
           <p class="hero-subtitle">
-            Archival practice, analog film techniques and research on moving image.
+            Archival practice, analogue film techniques and research on moving image,
+            bridging <strong>preservation, technical operations and artistic experimentation</strong>.
           </p>
           <p class="hero-extra">
-            Projects in film preservation, experimental cinema and digital restoration.
+            Projects in film preservation, experimental cinema, photochemical processes and digital restoration.
           </p>
         </div>
       </section>
 
-      <!-- ARTISTIC STATEMENT -->
-      <section id="statement">
-        <h2 class="section-title">Artistic Statement</h2>
+      <!-- ABOUT -->
+      <section id="about">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">
+          Background, archival trajectory and current lines of work.
+        </p>
 
-        <div class="about-grid">
-          <div class="about-left">
-            <!-- Substitui o background desta div por uma foto tua se quiseres -->
-            <div class="portrait">
-              <!-- <img src="foto-mariana.jpg" alt="Portrait of Mariana Torres" /> -->
-            </div>
-            <div class="about-name">MARIANA TORRES</div>
-            <div class="about-contact">
-              <p>Email · <a href="mailto:mariana1108.torres@gmail.com">mariana1108.torres@gmail.com</a></p>
-              <p>Phone · (+351) 912 473 730</p>
-              <p>Based in Lisbon, Portugal</p>
-            </div>
-          </div>
-
+        <div class="two-col">
           <div>
             <p>
               Mariana (Lisbon, 1997) is an archivist and film practitioner dedicated to the
-              preservation of analog film techniques and technologies, with a particular focus on
-              resisting technological obsolescence. Holding a background in Film Studies from ESTC
+              preservation of analogue film techniques and technologies, with a particular focus
+              on resisting technological obsolescence. With a background in Film Studies from ESTC
               Lisbon and a postgraduate degree in Audiovisual Archiving from Elías Querejeta Zine
               Eskola, her work spans archival research, material film practices and artistic
               experimentation.
             </p>
             <p>
               She has collaborated with institutions such as the Cinemateca Portuguesa and Cineric
-              P., contributing to digital migration, film duplication and inspection processes,
-              and has assisted artist and filmmaker Salomé Lamas on multidisciplinary projects.
-              Her archival path includes the “Z-A Filmmakers' Archive”, dedicated to the work of
-              Portuguese avant-garde artist Ernesto de Sousa, which led to a research grant at
-              Cinemateca Portuguesa in 2024.
+              P., contributing to film inspection, duplication and digital migration workflows.
+              She has also worked in festival environments, providing technical support for 35mm,
+              16mm and DCP projection.
             </p>
             <p>
-              Mariana is also involved in international research projects and collectives, focusing
-              on non-aligned film archives, countercultural film publications and the circulation
-              of militant cinema. Her practice unfolds at the intersection of Third Cinema memory,
-              film materiality and archival resistance through technological practice.
+              Her practice unfolds at the intersection of <strong>Third Cinema memory, film
+              materiality and archival resistance</strong>, often moving between the film lab,
+              the projection booth and the reading room.
             </p>
+          </div>
+          <div>
+            <div class="mono-label">Education</div>
+            <p>
+              <strong>Postgraduate Degree in Audiovisual Archiving</strong><br />
+              Elías Querejeta Zine Eskola · 2022–2023
+            </p>
+            <p>
+              <strong>Bachelor’s Degree in Film</strong><br />
+              Escola Superior de Teatro e Cinema · 2018–2021
+            </p>
+            <div class="mono-label" style="margin-top:1rem;">Based in</div>
+            <p>Lisbon, Portugal · Working in Portuguese, Spanish, English.</p>
           </div>
         </div>
       </section>
@@ -423,100 +414,195 @@
       <section id="projects">
         <h2 class="section-title">Projects</h2>
         <p class="section-subtitle">
-          Selection of artistic, research and restoration work in moving image.
+          Selected works organised between <strong>Artistic Works</strong> and
+          <strong>Research &amp; Preservation Works</strong>.
         </p>
 
-        <!-- PROJECT 1 -->
-        <article class="project">
-          <div class="project-grid">
-            <div>
-              <div class="project-label">Film performance · 16mm</div>
-              <h3 class="project-title">Send Me a Color</h3>
-              <p class="project-link">
-                Vimeo ·
-                <a href="https://vimeo.com/1081106970?fl=pl&fe=sh" target="_blank" rel="noopener">
-                  https://vimeo.com/1081106970
-                </a>
-              </p>
-              <p class="project-text">
-                A filmic performance that explores the mechanical gestures of 16mm projectors and
-                the materiality of light and color. Through duplication processes and the use of
-                prisms and filters, the work revisits chromatic separation techniques to create a
-                dense field of chromatic variations where analog color becomes movement, vibration
-                and afterimage.
-              </p>
-              <p class="project-text">
-                On screen, thousands of chromatic possibilities unfold through crystals and
-                filters, exploring refraction, reflection and the fragile thresholds between
-                abstraction and figure. The piece was developed with institutional support from
-                different cultural partners and presented in performance and screening contexts.
-              </p>
-            </div>
-            <div class="project-image-placeholder">
-              <!-- aqui podes pôr um still do projecto -->
-              <span>Project still / image here</span>
-            </div>
-          </div>
-        </article>
+        <!-- Artistic Works -->
+        <div class="subheading">Artistic Works</div>
 
-        <!-- PROJECT 2 -->
-        <article class="project">
-          <div class="project-grid">
-            <div>
-              <div class="project-label">Digital Restoration</div>
-              <h3 class="project-title">La Cruz de Mayo – Digital Restoration</h3>
-              <p class="project-link">
-                Vimeo ·
-                <a href="https://vimeo.com/1084541446?fl=pl&fe=sh" target="_blank" rel="noopener">
-                  https://vimeo.com/1084541446
-                </a>
-              </p>
-              <p class="project-text">
-                Collaborative digital restoration carried out with the Archivistas Salvajes
-                collective, dedicated to recovering the images of <em>La Cruz de Mayo</em> (1983),
-                directed by Miguel Secades and Miguel García in Cuba. The work respects the
-                materiality and limitations of the original format while improving stability,
-                contrast and legibility.
-              </p>
-              <p class="project-text">
-                Beyond its aesthetic power and revolutionary spirit, the film’s resonance is
-                deeply rooted in the technical and political conditions under which it was
-                produced. The restoration process becomes a way of reactivating this memory and
-                opening the work to new publics and contexts of exhibition and discussion.
-              </p>
-            </div>
-            <div class="project-image-placeholder">
-              <!-- still do filme restaurado -->
-              <span>Restoration frame / image here</span>
-            </div>
-          </div>
-        </article>
+        <div class="exp-block">
+          <div class="project-title">Send Me a Color</div>
+          <div class="project-meta">16mm film performance · Photochemical experimentation</div>
+          <p class="project-link">
+            Vimeo ·
+            <a href="https://vimeo.com/1081106970?fl=pl&fe=sh" target="_blank" rel="noopener">
+              https://vimeo.com/1081106970
+            </a>
+          </p>
+          <p>
+            A filmic performance exploring the mechanical gestures of 16mm projectors and the
+            materiality of light and colour. Through duplication processes and the use of prisms,
+            filters and chromatic separation techniques, the work turns analogue colour into
+            vibration, flicker and afterimage.
+          </p>
+        </div>
 
-        <!-- AQUI PODES ADICIONAR MAIS PROJECTOS SE QUISERES -->
+        <div class="exp-block">
+          <div class="project-title">Other Artistic Works</div>
+          <div class="project-meta">Super 8 / 16mm / digital · In progress</div>
+          <p>
+            Additional works in development include pieces that combine field recordings, optical
+            printing, hand-processing and expanded cinema gestures. This section can be expanded
+            with future screenings, residencies and collaborations.
+          </p>
+        </div>
+
+        <!-- Research & Preservation Works -->
+        <div class="subheading">Research &amp; Preservation Works</div>
+
+        <div class="exp-block">
+          <div class="project-title">La Cruz de Mayo – Digital Restoration</div>
+          <div class="project-meta">Digital restoration · Archivistas Salvajes collective</div>
+          <p class="project-link">
+            Vimeo ·
+            <a href="https://vimeo.com/1084541446?fl=pl&fe=sh" target="_blank" rel="noopener">
+              https://vimeo.com/1084541446
+            </a>
+          </p>
+          <p>
+            Collaborative digital restoration of <em>La Cruz de Mayo</em> (1983), focusing on
+            stabilisation, contrast and legibility while respecting the material limitations of
+            the original. The work engages with the political and technical conditions under
+            which the film was produced, activating its memory for contemporary audiences.
+          </p>
+        </div>
+
+        <div class="exp-block">
+          <div class="project-title">
+            Ernesto de Sousa – “A Quinta Experimental, Uma Nova Terra…”
+          </div>
+          <div class="project-meta">Archival research · Cinemateca Portuguesa</div>
+          <p>
+            Research on the unfinished project by Ernesto de Sousa, originally conceived as a
+            promotional film for Shell centred on a “pilot farm” in Santarém. Working with script
+            drafts, research notes and unedited footage preserved at the Cinemateca Portuguesa,
+            the project reads these fragments as traces of the film <em>The Promised Land</em>,
+            revealing the tensions between capitalist modernisation, rural life and experimental
+            cinema.
+          </p>
+        </div>
       </section>
 
-      <!-- INFO RÁPIDA / SKILLS -->
-      <section id="info">
-        <h2 class="section-title">Info & Skills</h2>
-        <div class="about-grid">
+      <!-- ANALOGUE FILM PRACTICE -->
+      <section id="analogue">
+        <h2 class="section-title">Analogue Film Practice</h2>
+        <p class="section-subtitle">
+          Focused on <strong>photochemical techniques, technical documentation and darkroom / lab work</strong>.
+        </p>
+
+        <!-- Photochemical Techniques -->
+        <div class="subheading">Photochemical Techniques</div>
+        <p>
+          Work with 16mm and 35mm film including inspection, splicing, manual repairs and
+          preparation for scanning and projection. This includes experience with
+          <strong>ArriScan</strong> and custom Cineric scanners, wet-gate workflows and RGB
+          separation for preservation.
+        </p>
+        <ul>
+          <li>Film inspection (perforations, emulsion damage, shrinkage, splices).</li>
+          <li>Preparation of reels for scanning and projection.</li>
+          <li>Basic duplication and printing workflows in collaboration with lab technicians.</li>
+          <li>Use of prisms, filters and optical devices for colour separation and recomposition.</li>
+        </ul>
+
+        <!-- Technical Documentation -->
+        <div class="subheading">Technical Documentation</div>
+        <p>
+          Documentation of workflows, scanner settings, file structures and quality control
+          procedures for archival projects. Emphasis on clarity, reproducibility and long-term
+          legibility of technical decisions.
+        </p>
+        <ul>
+          <li>Scanner logs, capture parameters and workflow diagrams.</li>
+          <li>File naming conventions, directory structures and metadata notes.</li>
+          <li>QC reports describing artefacts, fixes and pending issues.</li>
+        </ul>
+
+        <!-- Darkroom / Lab Work -->
+        <div class="subheading">Darkroom / Lab Work</div>
+        <p>
+          Lab-oriented practices involving handling of light-sensitive materials, controlled
+          environments and collaborative work with preservation and restoration teams. This
+          includes both analogue film contexts and hybrid analogue–digital workflows.
+        </p>
+        <ul>
+          <li>Handling and organisation of film elements in lab and archive environments.</li>
+          <li>Coordination between lab, archive and projection teams.</li>
+          <li>Participation in preservation-oriented projects that combine photochemical and digital steps.</li>
+        </ul>
+      </section>
+
+      <!-- WRITING & PUBLICATIONS -->
+      <section id="writing">
+        <h2 class="section-title">Writing &amp; Publications</h2>
+        <p class="section-subtitle">
+          Essays, program notes and research texts related to film, archives and analogue practice.
+        </p>
+
+        <p>
+          This section can include links to published texts, catalogue essays, theses and
+          unpublished writings. Examples might involve:
+        </p>
+        <ul>
+          <li>Texts on Ernesto de Sousa and Portuguese experimental cinema.</li>
+          <li>Reflections on analogue film as a technology of resistance and memory.</li>
+          <li>Notes on digital restoration ethics and archival decision-making.</li>
+        </ul>
+        <p>
+          <!-- Coloca aqui links reais quando os tiveres -->
+          Links to PDFs, journals or online publications can be added here as they become available.
+        </p>
+      </section>
+
+      <!-- VISUAL PORTFOLIO -->
+      <section id="visual">
+        <h2 class="section-title">Visual Portfolio</h2>
+        <p class="section-subtitle">
+          Stills, documentation images and visual materials from artistic, research and lab projects.
+        </p>
+
+        <p>
+          Below you can add stills from films, documentation of projection setups, images of film
+          strips, scanners, darkroom work or installation views. Replace the placeholders with
+          actual images when you are ready.
+        </p>
+
+        <div class="visual-grid">
+          <div class="visual-thumb">Still / frame from “Send Me a Color”</div>
+          <div class="visual-thumb">Restoration comparison – “La Cruz de Mayo”</div>
+          <div class="visual-thumb">Scanner / lab documentation</div>
+          <div class="visual-thumb">Projection / performance setup</div>
+        </div>
+      </section>
+
+      <!-- CV -->
+      <section id="cv">
+        <h2 class="section-title">CV</h2>
+        <p class="section-subtitle">
+          Short professional overview and link to full curriculum.
+        </p>
+
+        <div class="two-col">
           <div>
-            <p class="section-subtitle">Technical & archival skills</p>
-            <ul class="list-inline">
-              <li>· Film inspection and repair (35mm / 16mm)</li>
-              <li>· Operation of ArriScan and Cineric custom scanners</li>
-              <li>· Digital workflows: TIFF / DPX, stabilization, grading, QC</li>
-              <li>· DCP ingest, playlist creation, projection tests</li>
-              <li>· Content organization, metadata and server workflows</li>
-            </ul>
+            <p>
+              Experience in <strong>audiovisual archiving, film digitisation, quality control,
+              content preparation and technical support for projection</strong>. Work carried out
+              in institutions such as Cinemateca Portuguesa / Cineric and the San Sebastián
+              International Film Festival, complemented by production and backoffice experience
+              in Portuguese film companies.
+            </p>
+            <p>
+              The full CV includes detailed descriptions of technical skills, projects, education
+              and linguistic abilities.
+            </p>
           </div>
           <div>
-            <p class="section-subtitle">Languages & collaboration</p>
-            <ul class="list-inline">
-              <li>· Portuguese (native), Spanish (C1), English (C1), French (A2)</li>
-              <li>· Experience in international and festival environments</li>
-              <li>· Comfortable working in technical teams under time pressure</li>
-              <li>· Interest in collaborative, research-based projects</li>
-            </ul>
+            <p>
+              <!-- Substitui o # pelo link para o teu PDF ou DOCX -->
+              <strong>Download CV:</strong><br />
+              <a href="#" target="_blank" rel="noopener">Open full CV (PDF)</a>
+            </p>
           </div>
         </div>
       </section>
@@ -524,21 +610,38 @@
       <!-- CONTACT -->
       <section id="contact">
         <h2 class="section-title">Contact</h2>
-        <div class="contact-text">
-          <p>
-            For collaborations, screenings, research projects or technical work in film
-            digitization and preservation, you can reach me at:
-          </p>
-          <p>
-            Email ·
-            <a href="mailto:mariana1108.torres@gmail.com">mariana1108.torres@gmail.com</a><br />
-            Lisbon · Portugal
-          </p>
-        </div>
+        <p class="section-subtitle">
+          For collaborations, screenings, research projects or technical work in film
+          digitisation and preservation.
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:mariana1108.torres@gmail.com">mariana1108.torres@gmail.com</a><br />
+          <strong>Location:</strong> Lisbon, Portugal<br />
+          <strong>LinkedIn:</strong>
+          <a href="https://www.linkedin.com/in/mariana-torres-7816311b6" target="_blank" rel="noopener">
+            linkedin.com/in/mariana-torres-7816311b6
+          </a>
+        </p>
+      </section>
+
+      <!-- LAB NOTES (optional) -->
+      <section id="lab-notes">
+        <h2 class="section-title">Lab Notes</h2>
+        <p class="section-subtitle">
+          Optional space for working notes, experiments and ongoing observations.
+        </p>
+
+        <p>
+          This section can host informal notes from the lab, work-in-progress documentation,
+          screenshots of tests, small reflections on failures and discoveries in analogue and
+          digital workflows. It can function as a public notebook for future reference.
+        </p>
       </section>
 
       <div class="footer">
-        © <span id="year"></span> Mariana Torres · Artistic Work & Research Moving Image
+        © <span id="year"></span> Mariana Torres · Artistic Work, Research & Analogue Film Practice
       </div>
     </main>
   </div>
