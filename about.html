@@ -1,41 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mariana Torres – Portfolio</title>
+  <meta charset="UTF-8" />
+  <title>PAGE TITLE – Mariana Torres</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Link to shared stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Fonts -->
+  <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #050608;
+      --bg-soft: #090b10;
+      --text-main: #f5f5f5;
+      --text-muted: #a6a9b5;
+      --accent: #78d3ff;
+      --max-width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #141623 0, #050608 55%);
+      color: var(--text-main);
+      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Bebas Kai", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0;
+    }
+
+    p {
+      margin: 0 0 0.8rem;
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px 18px 60px;
+    }
+
+    @media (min-width: 768px) {
+      .shell {
+        padding: 28px 24px 80px;
+      }
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5, 6, 8, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .navbar-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      font-family: "Bebas Kai", sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: none;
+      gap: 18px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.16s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    @media (min-width: 820px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    /* MAIN LAYOUT */
+
+    main {
+      padding-top: 28px;
+    }
+
+    .page-header {
+      margin-bottom: 20px;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .page-header p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
+    .footer {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <!-- NAVBAR (igual em todas as páginas) -->
+    <header class="navbar">
+      <div class="navbar-inner">
+        <div class="nav-logo">MARIANA <span>TORRES</span></div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About / CV / Contact</a>
+          <a href="projects.html">Projects</a>
+          <a href="analogue-film.html">Analogue Film Practice</a>
+          <a href="writing.html">Writing & Publications</a>
+          <!-- Lab Notes é opcional; podes tirar se não usares -->
+          <a href="lab-notes.html">Lab Notes</a>
+        </nav>
+      </div>
+    </header>
 
-  <!-- ===================== -->
-  <!--       NAVBAR          -->
-  <!-- ===================== -->
-  <header class="navbar">
-    <nav class="nav-links">
-      <!-- ⚠️ COLAR AQUI O NAV REAL DO INDEX.HTML -->
-      <!-- Example (replace with your real nav):
-      <a href="index.html">Home</a>
-      <a href="about.html">About / CV / Contact</a>
-      <a href="projects.html">Projects</a>
-      <a href="analogue-film.html">Analogue Film Practice</a>
-      <a href="writing-publications.html">Writing & Publications</a>
-      -->
-    </nav>
-  </header>
+    <!-- CONTEÚDO ESPECÍFICO DE CADA PÁGINA -->
+    <main class="shell">
+      <section class="page-header">
+        <h1>PAGE TITLE</h1>
+        <p>Short intro / description for this page.</p>
+      </section>
 
+      <!-- Aqui vais pôr o conteúdo da página específica -->
+      <!-- Por agora podes deixar vazio e depois preencher. -->
 
-  <!-- ===================== -->
-  <!--     PAGE CONTENT      -->
-  <!-- ===================== -->
-  <main class="page-content">
-    <h1>Page Title</h1>
-    <p>Content coming soon…</p>
-  </main>
+    </main>
 
+    <div class="footer">
+      © <span id="year"></span> Mariana Torres
+    </div>
+  </div>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
