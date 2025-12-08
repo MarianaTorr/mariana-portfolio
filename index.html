@@ -30,16 +30,6 @@
       color: var(--text-main);
       font-family: "Source Serif 4", serif;
       -webkit-font-smoothing: antialiased;
-      position: relative;
-    }
-
-    /* LAYER SUAVE PARA NÃO FICAR ESTOURADO (opcional; ajusta a opacidade se quiseres) */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.35); /* escurece um pouco o gif */
-      z-index: -1;
     }
 
     /* ---------------- HEADER + MENU ---------------- */
@@ -50,11 +40,10 @@
       left: 0;
       right: 0;
       height: 68px;
-      background: rgba(5, 6, 8, 0.8); /* ligeiramente translúcido */
+      background: rgba(5, 6, 8, 0.80); /* ligeiramente translúcido */
       backdrop-filter: blur(6px);
       z-index: 1000;
-      /* sem linha de separação */
-      /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
+      /* sem linha de divisão */
     }
 
     nav {
@@ -74,6 +63,7 @@
       letter-spacing: 0.17em;
       color: var(--text-main);
       text-decoration: none;
+      white-space: nowrap;
     }
 
     /* Menu */
@@ -121,6 +111,11 @@
       position: relative;
     }
 
+    .dropdown-toggle .arrow {
+      font-size: 0.7em; /* seta mais discreta */
+      margin-left: 2px;
+    }
+
     .dropdown-content {
       display: none;
       position: absolute;
@@ -131,7 +126,7 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 10px 0;
       list-style: none;
-      z-index: 1500;
+      z-index: 999;
     }
 
     .dropdown-content li {
@@ -153,70 +148,85 @@
       display: block;
     }
 
-    /* ---------------- MAIN LAYOUT ---------------- */
-
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px 60px;
-    }
-
     /* ---------------- HERO SECTION ---------------- */
 
     .hero {
       padding-top: 160px; /* compensa altura do header */
-      padding-bottom: 60px;
+      padding-bottom: 120px; /* mais espaço antes da imagem */
       text-align: center;
-      max-width: 730px;
+      max-width: 700px; /* ligeiramente mais compacto */
       margin: 0 auto;
     }
 
     .hero h1 {
       font-family: "Bebas Kai";
-      font-size: 3.5rem;
-      letter-spacing: 0.15em;
+      font-size: 3.3rem;
+      letter-spacing: 0.13em; /* menos espaçado */
       margin-bottom: 0.4rem;
     }
 
     .hero-sub {
       color: var(--text-muted);
       margin-bottom: 1.6rem;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
+    }
+
+    .hero-text-block {
+      display: inline-block;
+      text-align: left;
+      background: rgba(5, 6, 8, 0.55); /* caixa subtil */
+      padding: 16px 20px;
+      border-radius: 14px;
+      max-width: 100%;
     }
 
     .hero-text {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       line-height: 1.75;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.7rem;
     }
 
-    /* ---------------- FEATURED IMAGE ---------------- */
+    .hero-text:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Imagem grande debaixo da hero */
 
     .featured-image {
       width: 100%;
-      max-width: 1200px;
-      margin: 30px auto 0;
+      max-width: 1100px;
+      margin: 40px auto 60px; /* espaço acima e abaixo */
+      padding: 0 20px;
     }
 
     .featured-image img {
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 4px; /* opcional – fica elegante */
+      border-radius: 4px;
     }
 
+    /* Responsivo: ajustar título em ecrãs pequenos */
+
     @media (max-width: 600px) {
+      .hero {
+        padding-top: 130px;
+        padding-bottom: 100px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
       .hero h1 {
         font-size: 2.6rem;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.10em;
       }
 
       .hero-sub {
         font-size: 1.05rem;
       }
 
-      .hero-text {
-        font-size: 0.98rem;
+      .hero-text-block {
+        padding: 14px 16px;
       }
     }
   </style>
@@ -227,14 +237,17 @@
   <!-- ---------------- HEADER ---------------- -->
   <header>
     <nav>
+      <!-- clicando no nome = "Home" -->
       <a href="index.html" class="brand">MARIANA TORRES</a>
 
       <ul class="menu">
-        <li><a href="index.html">Home</a></li>
+        <!-- sem item "Home" -->
         <li><a href="about.html">About</a></li>
 
         <li class="dropdown">
-          <a href="projects.html">Projects ▾</a>
+          <a href="projects.html" class="dropdown-toggle">
+            Projects <span class="arrow">▾</span>
+          </a>
           <ul class="dropdown-content">
             <li><a href="artistic-works.html">Artistic Works</a></li>
             <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
@@ -242,7 +255,9 @@
         </li>
 
         <li class="dropdown">
-          <a href="analogue-film.html">Analogue Film Practice ▾</a>
+          <a href="analogue-film.html" class="dropdown-toggle">
+            Analogue Film Practice <span class="arrow">▾</span>
+          </a>
           <ul class="dropdown-content">
             <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
             <li><a href="technical-documentation.html">Technical Documentation</a></li>
@@ -255,13 +270,12 @@
     </nav>
   </header>
 
-  <!-- ---------------- MAIN CONTENT ---------------- -->
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <h1>MARIANA TORRES</h1>
-      <div class="hero-sub">Audiovisual Archivist &amp; Moving Image Practitioner</div>
+  <!-- ---------------- HERO SECTION ---------------- -->
+  <section class="hero">
+    <h1>MARIANA TORRES</h1>
+    <div class="hero-sub">Audiovisual Archivist &amp; Moving Image Practitioner</div>
 
+    <div class="hero-text-block">
       <p class="hero-text">
         I work between <strong>film archives</strong>, <strong>analogue technologies</strong> and
         <strong>moving image practice</strong>. My interests cross preservation, projection,
@@ -273,13 +287,13 @@
         and <strong>analogue film practice</strong>, alongside documentation of projects
         developed with archives, festivals and cultural institutions.
       </p>
-    </section>
+    </div>
+  </section>
 
-    <!-- IMAGEM GRANDE -->
-    <section class="featured-image">
-      <img src="pag2.png" alt="Featured image from portfolio">
-    </section>
-  </main>
+  <!-- ---------------- FEATURED IMAGE SECTION ---------------- -->
+  <section class="featured-image">
+    <img src="pag2.png" alt="Featured work by Mariana Torres" />
+  </section>
 
 </body>
 </html>
