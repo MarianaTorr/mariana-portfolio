@@ -22,58 +22,86 @@
       --max-width: 1100px;
     }
 
-    body {
-      margin: 0;
-      background: radial-gradient(circle at top, #171a28 0, #050608 55%);
-      color: var(--text-main);
-      font-family: "Source Serif 4", serif;
-    }
+ /* RESET BÁSICO DO BODY PARA NÃO TER MARGEM */
+body {
+  margin: 0;
+}
 
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 40px 18px 80px;
-    }
+/* HEADER FIXO COM LOGO À ESQ E MENU À DIR */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(5, 6, 10, 0.96);
+}
 
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      position: relative;
-    }
+/* CONTENTOR INTERNO DO HEADER */
+.site-header__inner {
+  max-width: 1100px;          /* combina com o resto do site */
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(120, 211, 255, 0.3), transparent 60%),
-        radial-gradient(circle at 70% 30%, rgba(248, 210, 80, 0.3), transparent 60%),
-        radial-gradient(circle at bottom, rgba(0,0,0,0.95), #050608 70%);
-      z-index: -1;
-    }
+/* NOME "MARIANA TORRES" */
+.site-brand {
+  font-family: "Bebas Kai", system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.18em;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #f5f5f5;
+  text-decoration: none;
+}
 
-    .hero-inner {
-      max-width: 700px;
-      margin: 0 auto;
-    }
+/* LISTA DE LINKS DO MENU */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-size: 0.92rem;
+}
 
-    .hero-name {
-      font-family: "Bebas Kai", sans-serif;
-      font-size: 3rem;
-      letter-spacing: 0.15em;
-      margin-bottom: 0.4rem;
-    }
+/* LINKS NORMAIS */
+.nav-links a {
+  color: #f5f5f5;
+  text-decoration: none;
+  white-space: nowrap;
+}
 
-    .hero-role {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      margin-bottom: 1.6rem;
-    }
+/* HOVER */
+.nav-links a:hover {
+  color: #78d3ff;
+}
 
-    .hero-text {
-      font-size: 1rem;
-      line-hei
+/* DROPDOWNS SIMPLES */
+.has-dropdown {
+  position: relative;
+}
+
+.has-dropdown .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(5, 6, 10, 0.98);
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 8px 10px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.has-dropdown:hover .dropdown {
+  display: flex;
+}
+
+.has-dropdown .dropdown a {
+  font-size: 0.86rem;
+}
