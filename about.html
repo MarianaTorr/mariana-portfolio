@@ -1,4 +1,57 @@
-  /* ---------------- HEADER + MENU ---------------- */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About – Mariana Torres</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-soft: #090b10;
+      --text-main: #f5f5f5;
+      --text-muted: #a6a9b5;
+      --accent: #78d3ff;
+      --max-width: 1100px;
+    }
+
+    /* FUNDO GERAL COM GIF (mesmo do index) */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: url('Timeline2.gif.gif?v=2') center/cover no-repeat fixed;
+      color: var(--text-main);
+      font-family: "Source Serif 4", serif;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    /* camada muito subtil para melhorar legibilidade */
+    .page-overlay {
+      background: radial-gradient(circle at top, rgba(10, 10, 14, 0.65), rgba(5, 6, 8, 0.9));
+      min-height: 100vh;
+    }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    @media (min-width: 768px) {
+      .shell {
+        padding: 0 24px 80px;
+      }
+    }
+
+    /* ---------------- HEADER + MENU (igual ao index) ---------------- */
 
     header {
       position: fixed;
@@ -6,10 +59,10 @@
       left: 0;
       right: 0;
       height: 68px;
-      background: rgba(5, 6, 8, 0.8); /* ligeiramente translúcido */
+      background: rgba(5, 6, 8, 0.80);
       backdrop-filter: blur(6px);
       z-index: 1000;
-      /* sem linha de separação */
+      /* sem linha de divisão */
       /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
     }
 
@@ -26,8 +79,8 @@
     /* Logotipo / Nome */
     .brand {
       font-family: "Bebas Kai";
-      font-size: 1.2rem;
-      letter-spacing: 0.17em;
+      font-size: 1.15rem;
+      letter-spacing: 0.14em; /* um pouco menos agressivo */
       color: var(--text-main);
       text-decoration: none;
     }
@@ -56,7 +109,6 @@
       color: var(--accent);
     }
 
-    /* Underline hover */
     .menu a::after {
       content: "";
       position: absolute;
@@ -77,6 +129,11 @@
       position: relative;
     }
 
+    .dropdown > a::after {
+      content: " ▾";
+      font-size: 0.7em; /* seta mais discreta */
+    }
+
     .dropdown-content {
       display: none;
       position: absolute;
@@ -87,7 +144,7 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 10px 0;
       list-style: none;
-      z-index: 1500;
+      z-index: 999;
     }
 
     .dropdown-content li {
@@ -109,45 +166,179 @@
       display: block;
     }
 
-    /* ---------------- MAIN LAYOUT ---------------- */
+    /* ---------------- ABOUT CONTENT ---------------- */
 
     main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px 60px;
+      padding-top: 120px; /* compensa header fixo + espaço respirar */
     }
+
+    .page-title {
+      text-align: left;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-title h1 {
+      font-family: "Bebas Kai";
+      font-size: 2.2rem;
+      letter-spacing: 0.16em;
+      margin: 0;
+    }
+
+    .page-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+    }
+
+    .about-grid {
+      display: block;
+    }
+
+    @media (min-width: 880px) {
+      .about-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        column-gap: 40px;
+      }
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 0.9rem;
+    }
+
+    /* caixa subtil atrás do texto (para legibilidade) */
+    .about-box {
+      background: rgba(5, 6, 8, 0.55);
+      padding: 18px 18px 16px;
+      border-radius: 6px;
+    }
+
+    .side-block {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .side-block h2 {
+      font-family: "Bebas Kai";
+      font-size: 1.3rem;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.4rem;
+    }
+
+    .side-block p {
+      margin-bottom: 0.4rem;
+    }
+
+    .side-label {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .cv-link {
+      display: inline-block;
+      margin-top: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+  </style>
 </head>
 
 <body>
+  <div class="page-overlay">
+    <!-- HEADER -->
+    <header>
+      <nav>
+        <!-- clica no nome para ir ao Home -->
+        <a href="index.html" class="brand">MARIANA TORRES</a>
 
-  <!-- ---------------- HEADER ---------------- -->
-  <header>
-    <nav>
-      <a href="index.html" class="brand">MARIANA TORRES</a>
+        <ul class="menu">
+          <!-- removemos "Home" aqui, como combinámos -->
+          <li><a href="about.html">About</a></li>
 
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="projects.html">Projects</a>
+            <ul class="dropdown-content">
+              <li><a href="artistic-works.html">Artistic Works</a></li>
+              <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
+            </ul>
+          </li>
 
-        <li class="dropdown">
-          <a href="projects.html">Projects ▾</a>
-          <ul class="dropdown-content">
-            <li><a href="artistic-works.html">Artistic Works</a></li>
-            <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
-          </ul>
-        </li>
+          <li class="dropdown">
+            <a href="analogue-film.html">Analogue Film Practice</a>
+            <ul class="dropdown-content">
+              <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
+              <li><a href="technical-documentation.html">Technical Documentation</a></li>
+              <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
+            </ul>
+          </li>
 
-        <li class="dropdown">
-          <a href="analogue-film.html">Analogue Film Practice ▾</a>
-          <ul class="dropdown-content">
-            <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
-            <li><a href="technical-documentation.html">Technical Documentation</a></li>
-            <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
-          </ul>
-        </li>
+          <li><a href="writing-publications.html">Writing &amp; Publications</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        <li><a href="writing-publications.html">Writing &amp; Publications</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- MAIN ABOUT CONTENT -->
+    <div class="shell">
+      <main>
+        <div class="page-title">
+          <h1>ABOUT</h1>
+        </div>
+        <div class="page-subtitle">
+          Profile · CV summary · Contact
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <div class="about-box">
+              <p>
+                I am an audiovisual archivist and moving image practitioner working between
+                <strong>film archives</strong>, <strong>analogue technologies</strong> and
+                <strong>artistic research</strong>. My practice moves across preservation,
+                projection, photochemical experimentation and the afterlives of militant and
+                countercultural cinema.
+              </p>
+              <p>
+                Trained in Film Studies (ESTC, Lisbon) and Audiovisual Archiving (Elías Querejeta
+                Zine Eskola), I have collaborated with institutions such as Cinemateca Portuguesa
+                and Cineric, as well as film festivals and research collectives. I am particularly
+                interested in how analogue film techniques can function as a form of archival
+                resistance against technological obsolescence.
+              </p>
+              <p>
+                This page brings together a short overview of my trajectory, and how to reach me
+                for collaborations, screenings, technical work or research projects.
+              </p>
+            </div>
+          </div>
+
+          <aside class="side-block">
+            <h2>CV & CONTACT</h2>
+            <p><span class="side-label">Email</span><br>
+              <a href="mailto:mariana1108.torres@gmail.com">mariana1108.torres@gmail.com</a>
+            </p>
+            <p><span class="side-label">Location</span><br>
+              Lisbon, Portugal
+            </p>
+            <p><span class="side-label">Languages</span><br>
+              Portuguese · Spanish · English · French
+            </p>
+            <p><span class="side-label">LinkedIn</span><br>
+              <a href="https://www.linkedin.com/in/mariana-torres-7816311b6" target="_blank" rel="noopener">
+                linkedin.com/in/mariana-torres-7816311b6
+              </a>
+            </p>
+
+            <!-- Se mais tarde tiveres um CV em PDF, atualiza o href -->
+            <a class="cv-link" href="Mariana_Torres_CV.pdf" target="_blank" rel="noopener">
+              Download CV (PDF)
+            </a>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
 
