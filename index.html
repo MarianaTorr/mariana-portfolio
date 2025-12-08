@@ -14,33 +14,47 @@
 
   <style>
     :root {
+      --bg-soft: #090b10;
       --text-main: #f5f5f5;
       --text-muted: #a6a9b5;
       --accent: #78d3ff;
       --max-width: 1100px;
     }
 
-    /* BACKGROUND GIF */
+    /* FUNDO GERAL COM GIF */
     body {
       margin: 0;
       padding: 0;
       min-height: 100vh;
       background: url('Timeline2.gif.gif') center/cover no-repeat fixed;
-      font-family: "Source Serif 4", serif;
       color: var(--text-main);
+      font-family: "Source Serif 4", serif;
       -webkit-font-smoothing: antialiased;
+      position: relative;
     }
 
-    /* HEADER */
+    /* LAYER SUAVE PARA NÃO FICAR ESTOURADO (opcional; ajusta a opacidade se quiseres) */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35); /* escurece um pouco o gif */
+      z-index: -1;
+    }
+
+    /* ---------------- HEADER + MENU ---------------- */
+
     header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       height: 68px;
-      background: rgba(5, 6, 8, 0.75);
+      background: rgba(5, 6, 8, 0.8); /* ligeiramente translúcido */
       backdrop-filter: blur(6px);
       z-index: 1000;
+      /* sem linha de separação */
+      /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
     }
 
     nav {
@@ -53,6 +67,7 @@
       align-items: center;
     }
 
+    /* Logotipo / Nome */
     .brand {
       font-family: "Bebas Kai";
       font-size: 1.2rem;
@@ -61,25 +76,96 @@
       text-decoration: none;
     }
 
+    /* Menu */
     .menu {
       list-style: none;
       display: flex;
       gap: 22px;
-      padding: 0;
       margin: 0;
+      padding: 0;
       font-size: 0.92rem;
       color: var(--text-muted);
+      align-items: center;
     }
 
     .menu a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+      white-space: nowrap;
     }
 
-    /* HERO SECTION */
+    .menu a:hover {
+      color: var(--accent);
+    }
+
+    /* Underline hover */
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s;
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
+    /* Dropdowns */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 26px;
+      left: 0;
+      min-width: 220px;
+      background: rgba(5, 6, 8, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 0;
+      list-style: none;
+      z-index: 1500;
+    }
+
+    .dropdown-content li {
+      padding: 4px 14px;
+      white-space: nowrap;
+    }
+
+    .dropdown-content li a {
+      display: block;
+      color: var(--text-muted);
+    }
+
+    .dropdown-content li a:hover {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* ---------------- MAIN LAYOUT ---------------- */
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* ---------------- HERO SECTION ---------------- */
+
     .hero {
-      padding-top: 160px;
-      padding-bottom: 120px; /* dá espaço antes da imagem */
+      padding-top: 160px; /* compensa altura do header */
+      padding-bottom: 60px;
       text-align: center;
       max-width: 730px;
       margin: 0 auto;
@@ -101,30 +187,44 @@
     .hero-text {
       font-size: 1.05rem;
       line-height: 1.75;
-      color: var(--text-main);
+      margin-bottom: 0.9rem;
     }
 
-    /* FEATURED IMAGE SECTION */
+    /* ---------------- FEATURED IMAGE ---------------- */
+
     .featured-image {
       width: 100%;
       max-width: 1200px;
-      margin: 0 auto 120px; /* distância para respirar */
-      padding: 0 30px;
+      margin: 30px auto 0;
     }
 
     .featured-image img {
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 4px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.35);
+      border-radius: 4px; /* opcional – fica elegante */
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.6rem;
+        letter-spacing: 0.12em;
+      }
+
+      .hero-sub {
+        font-size: 1.05rem;
+      }
+
+      .hero-text {
+        font-size: 0.98rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- ---------------- HEADER ---------------- -->
   <header>
     <nav>
       <a href="index.html" class="brand">MARIANA TORRES</a>
@@ -137,7 +237,7 @@
           <a href="projects.html">Projects ▾</a>
           <ul class="dropdown-content">
             <li><a href="artistic-works.html">Artistic Works</a></li>
-            <li><a href="research-preservation.html">Research & Preservation Works</a></li>
+            <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
           </ul>
         </li>
 
@@ -150,33 +250,36 @@
           </ul>
         </li>
 
-        <li><a href="writing-publications.html">Writing & Publications</a></li>
+        <li><a href="writing-publications.html">Writing &amp; Publications</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <h1>MARIANA TORRES</h1>
-    <div class="hero-sub">Audiovisual Archivist & Moving Image Practitioner</div>
+  <!-- ---------------- MAIN CONTENT ---------------- -->
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <h1>MARIANA TORRES</h1>
+      <div class="hero-sub">Audiovisual Archivist &amp; Moving Image Practitioner</div>
 
-    <p class="hero-text">
-      I work between <strong>film archives</strong>, <strong>analogue technologies</strong>,
-      and <strong>moving image practice</strong>. My interests cross preservation, projection,
-      photochemical experimentation and the afterlives of militant and countercultural cinema.
-    </p>
+      <p class="hero-text">
+        I work between <strong>film archives</strong>, <strong>analogue technologies</strong> and
+        <strong>moving image practice</strong>. My interests cross preservation, projection,
+        photochemical experimentation and the afterlives of militant and countercultural cinema.
+      </p>
 
-    <p class="hero-text">
-      This portfolio gathers <strong>artistic works</strong>, <strong>research</strong>,
-      and <strong>analogue film practice</strong>, alongside documentation of projects
-      developed with archives, festivals and cultural institutions.
-    </p>
-  </section>
+      <p class="hero-text">
+        This portfolio gathers <strong>artistic works</strong>, <strong>research</strong>,
+        and <strong>analogue film practice</strong>, alongside documentation of projects
+        developed with archives, festivals and cultural institutions.
+      </p>
+    </section>
 
-  <!-- FEATURED IMAGE SECTION -->
-  <section class="featured-image">
-    <img src="pag2.png" alt="Featured Image">
-  </section>
+    <!-- IMAGEM GRANDE -->
+    <section class="featured-image">
+      <img src="pag2.png" alt="Featured image from portfolio">
+    </section>
+  </main>
 
 </body>
 </html>
