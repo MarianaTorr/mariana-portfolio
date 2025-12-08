@@ -14,38 +14,33 @@
 
   <style>
     :root {
-      --bg-soft: #090b10;
       --text-main: #f5f5f5;
       --text-muted: #a6a9b5;
       --accent: #78d3ff;
       --max-width: 1100px;
     }
 
-    /* FUNDO GERAL COM GIF */
+    /* BACKGROUND GIF */
     body {
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      background: url('Timeline2.gif?v=2') center/cover no-repeat;
-      color: var(--text-main);
+      background: url('Timeline2.gif') center/cover no-repeat fixed;
       font-family: "Source Serif 4", serif;
+      color: var(--text-main);
       -webkit-font-smoothing: antialiased;
-      position: relative;
     }
 
-    /* ---------------- HEADER + MENU ---------------- */
-
+    /* HEADER */
     header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       height: 68px;
-      background: rgba(5, 6, 8, 0.80); /* ligeiramente translúcido */
+      background: rgba(5, 6, 8, 0.75);
       backdrop-filter: blur(6px);
       z-index: 1000;
-      /* border-bottom removida para não haver linha de divisão */
-      /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
     }
 
     nav {
@@ -58,7 +53,6 @@
       align-items: center;
     }
 
-    /* Logotipo / Nome */
     .brand {
       font-family: "Bebas Kai";
       font-size: 1.2rem;
@@ -67,88 +61,25 @@
       text-decoration: none;
     }
 
-    /* Menu */
     .menu {
       list-style: none;
       display: flex;
       gap: 22px;
-      margin: 0;
       padding: 0;
+      margin: 0;
       font-size: 0.92rem;
       color: var(--text-muted);
-      align-items: center;
     }
 
     .menu a {
-      color: inherit;
       text-decoration: none;
-      position: relative;
-      padding-bottom: 2px;
-      white-space: nowrap;
+      color: inherit;
     }
 
-    .menu a:hover {
-      color: var(--accent);
-    }
-
-    /* Underline hover */
-    .menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0%;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.2s;
-    }
-
-    .menu a:hover::after {
-      width: 100%;
-    }
-
-    /* Dropdowns */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 26px;
-      left: 0;
-      min-width: 220px;
-      background: rgba(5, 6, 8, 0.97);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 0;
-      list-style: none;
-      z-index: 999;
-    }
-
-    .dropdown-content li {
-      padding: 4px 14px;
-      white-space: nowrap;
-    }
-
-    .dropdown-content li a {
-      display: block;
-      color: var(--text-muted);
-    }
-
-    .dropdown-content li a:hover {
-      color: var(--accent);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    /* ---------------- HERO SECTION ---------------- */
-
+    /* HERO SECTION */
     .hero {
-      padding-top: 160px; /* compensa altura do header */
-      padding-bottom: 40px;
+      padding-top: 160px;
+      padding-bottom: 120px; /* dá espaço antes da imagem */
       text-align: center;
       max-width: 730px;
       margin: 0 auto;
@@ -170,27 +101,30 @@
     .hero-text {
       font-size: 1.05rem;
       line-height: 1.75;
+      color: var(--text-main);
     }
 
-    /* Featured Image Section */
+    /* FEATURED IMAGE SECTION */
     .featured-image {
       width: 100%;
       max-width: 1200px;
-      margin: 40px auto 0;
+      margin: 0 auto 100px; /* distância para respirar */
+      padding: 0 20px;
     }
 
     .featured-image img {
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 4px; /* opcional – fica elegante */
+      border-radius: 4px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.35);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ---------------- HEADER ---------------- -->
+  <!-- HEADER -->
   <header>
     <nav>
       <a href="index.html" class="brand">MARIANA TORRES</a>
@@ -221,14 +155,14 @@
     </nav>
   </header>
 
-  <!-- ---------------- HERO SECTION ---------------- -->
+  <!-- HERO SECTION -->
   <section class="hero">
     <h1>MARIANA TORRES</h1>
     <div class="hero-sub">Audiovisual Archivist & Moving Image Practitioner</div>
 
     <p class="hero-text">
-      I work between <strong>film archives</strong>, <strong>analogue technologies</strong> and
-      <strong>moving image practice</strong>. My interests cross preservation, projection,
+      I work between <strong>film archives</strong>, <strong>analogue technologies</strong>,
+      and <strong>moving image practice</strong>. My interests cross preservation, projection,
       photochemical experimentation and the afterlives of militant and countercultural cinema.
     </p>
 
@@ -239,7 +173,7 @@
     </p>
   </section>
 
-  <!-- ---------------- FEATURED IMAGE ---------------- -->
+  <!-- FEATURED IMAGE SECTION -->
   <section class="featured-image">
     <img src="pag2.png" alt="Featured Image">
   </section>
