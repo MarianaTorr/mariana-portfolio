@@ -170,19 +170,19 @@
     }
 
     /* GIF subtil atrás da hero section */
-    .gif-bg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 700px;             /* podes ajustar */
-      height: 700px;            /* podes ajustar */
-      transform: translate(-50%, -50%);
-      background: url('Timeline2.gif') center/cover no-repeat;
-      opacity: 0.70;            /* suavidade */
-      filter: blur(2px);        /* desfocado para não competir com o texto */
-      z-index: -1;              /* fica atrás do texto */
-      pointer-events: none;     /* não interfere com cliques/hover */
-    }
+   .gif-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40vw;   /* 40% da largura do viewport */
+  height: 40vw;  /* mantém proporção quadrada */
+  transform: translate(-50%, -50%);
+  background: url('Timeline2.gif') center/cover no-repeat;
+  opacity: 0.22;
+  filter: blur(3px);
+  z-index: -1;
+  pointer-events: none;
+}
   </style>
 </head>
 
