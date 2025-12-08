@@ -219,6 +219,26 @@
       and <strong>analogue film practice</strong>, alongside documentation of projects
       developed with archives, festivals and cultural institutions.
     </p>
+    /* GIF subtil atrás da hero section */
+.hero {
+  position: relative; /* necessário para posicionar o GIF */
+  overflow: hidden;   /* para evitar que o GIF saia da hero */
+}
+
+.gif-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;       /* tamanho ajustável */
+  height: 500px;      /* tamanho ajustável */
+  transform: translate(-50%, -50%);
+  background: url('Timeline2.gif') center/cover no-repeat;
+  opacity: 0.22;      /* suavidade */
+  filter: blur(3px);  /* desfoca para ficar mais elegante */
+  z-index: -1;        /* fica por trás do texto */
+  pointer-events: none; /* o GIF não interfere com hover/click */
+}
+
   </section>
 
 </body>
