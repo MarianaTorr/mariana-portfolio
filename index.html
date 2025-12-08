@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <div class="gif-bg"></div>
   <title>Mariana Torres – Audiovisual Archivist & Moving Image Practitioner</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -141,12 +140,15 @@
       display: block;
     }
 
-    /* Compensa altura do header */
+    /* ---------------- HERO ---------------- */
+
     .hero {
       padding-top: 160px;
       text-align: center;
       max-width: 730px;
       margin: 0 auto;
+      position: relative;  /* para o GIF se posicionar dentro da hero */
+      overflow: hidden;
     }
 
     .hero h1 {
@@ -165,6 +167,21 @@
     .hero-text {
       font-size: 1.05rem;
       line-height: 1.75;
+    }
+
+    /* GIF subtil atrás da hero section */
+    .gif-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 500px;             /* podes ajustar */
+      height: 500px;            /* podes ajustar */
+      transform: translate(-50%, -50%);
+      background: url('Timeline2.gif') center/cover no-repeat;
+      opacity: 0.22;            /* suavidade */
+      filter: blur(3px);        /* desfocado para não competir com o texto */
+      z-index: -1;              /* fica atrás do texto */
+      pointer-events: none;     /* não interfere com cliques/hover */
     }
   </style>
 </head>
@@ -205,6 +222,7 @@
   <!-- ---------------- HERO SECTION ---------------- -->
   <section class="hero">
     <div class="gif-bg"></div>
+
     <h1>MARIANA TORRES</h1>
     <div class="hero-sub">Audiovisual Archivist & Moving Image Practitioner</div>
 
@@ -219,11 +237,6 @@
       and <strong>analogue film practice</strong>, alongside documentation of projects
       developed with archives, festivals and cultural institutions.
     </p>
-    /* GIF subtil atrás da hero section */
-.hero {
-  position: relative; /* necessário para posicionar o GIF */
-  overflow: hidden;   /* para evitar que o GIF saia da hero */
-
   </section>
 
 </body>
