@@ -113,4 +113,111 @@
       position: absolute;
       top: 26px;
       left: 0;
+      min-width: 220px;
+      background: rgba(5, 6, 8, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 0;
+      list-style: none;
+      z-index: 999;
+    }
 
+    .dropdown-content li {
+      padding: 4px 14px;
+      white-space: nowrap;
+    }
+
+    .dropdown-content li a {
+      display: block;
+      color: var(--text-muted);
+    }
+
+    .dropdown-content li a:hover {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Compensa altura do header */
+    .hero {
+      padding-top: 160px;
+      text-align: center;
+      max-width: 730px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: "Bebas Kai";
+      font-size: 3.5rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-sub {
+      color: var(--text-muted);
+      margin-bottom: 1.6rem;
+      font-size: 1.2rem;
+    }
+
+    .hero-text {
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ---------------- HEADER ---------------- -->
+  <header>
+    <nav>
+      <a href="index.html" class="brand">MARIANA TORRES</a>
+
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+
+        <li class="dropdown">
+          <a href="projects.html">Projects ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="artistic-works.html">Artistic Works</a></li>
+            <li><a href="research-preservation.html">Research & Preservation Works</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="analogue-film.html">Analogue Film Practice ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
+            <li><a href="technical-documentation.html">Technical Documentation</a></li>
+            <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
+          </ul>
+        </li>
+
+        <li><a href="writing-publications.html">Writing & Publications</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ---------------- HERO SECTION ---------------- -->
+  <section class="hero">
+    <h1>MARIANA TORRES</h1>
+    <div class="hero-sub">Audiovisual Archivist & Moving Image Practitioner</div>
+
+    <p class="hero-text">
+      I work between <strong>film archives</strong>, <strong>analogue technologies</strong> and 
+      <strong>moving image practice</strong>. My interests cross preservation, projection,
+      photochemical experimentation and the afterlives of militant and countercultural cinema.
+    </p>
+
+    <p class="hero-text">
+      This portfolio gathers <strong>artistic works</strong>, <strong>research</strong>,
+      and <strong>analogue film practice</strong>, alongside documentation of projects
+      developed with archives, festivals and cultural institutions.
+    </p>
+  </section>
+
+</body>
+</html>
