@@ -170,20 +170,39 @@
 <body>
   <div class="page">
     <!-- NAVBAR (igual em todas as páginas) -->
-    <header class="navbar">
-      <div class="navbar-inner">
-        <div class="nav-logo">MARIANA <span>TORRES</span></div>
-        <nav class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="about.html">About / CV / Contact</a>
-          <a href="projects.html">Projects</a>
-          <a href="analogue-film.html">Analogue Film Practice</a>
-          <a href="writing.html">Writing & Publications</a>
-          <!-- Lab Notes é opcional; podes tirar se não usares -->
-          <a href="lab-notes.html">Lab Notes</a>
-        </nav>
-      </div>
-    </header>
+  <nav class="nav-links">
+  <div class="nav-item">
+    <a href="index.html">Home</a>
+  </div>
+
+  <div class="nav-item">
+    <a href="about.html">About</a>
+  </div>
+
+  <div class="nav-item has-dropdown">
+    <a href="projects.html">Projects</a>
+    <div class="dropdown-menu">
+      <a href="artistic-works.html">Artistic Works</a>
+      <a href="research-preservation.html">Research &amp; Preservation Works</a>
+    </div>
+  </div>
+
+  <div class="nav-item has-dropdown">
+    <a href="analogue-film.html">Analogue Film Practice</a>
+    <div class="dropdown-menu">
+      <a href="photochemical-techniques.html">Photochemical Techniques</a>
+      <a href="technical-documentation.html">Technical Documentation</a>
+      <a href="darkroom-lab.html">Darkroom / Lab Work</a>
+      <!-- Aqui pode aparecer uma âncora dentro de analogue-film.html se quiseres ter "Lab Notes" como secção interna -->
+      <!-- <a href="analogue-film.html#lab-notes">Lab Notes</a> -->
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <a href="writing.html">Writing &amp; Publications</a>
+  </div>
+</nav>
+
 
     <!-- CONTEÚDO ESPECÍFICO DE CADA PÁGINA -->
     <main class="shell">
