@@ -23,6 +23,54 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
+/* NAV items base */
+.nav-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Se já existia .nav-links, mantém o que tens e só garante que tem display:flex e gap, sem apagar o resto */
+
+.nav-item {
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.nav-item > a {
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+
+/* DROPDOWN BASE */
+.has-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: rgba(5, 6, 8, 0.97);  /* ajusta se o teu fundo for claro */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 0;
+  z-index: 30;
+}
+
+.has-dropdown .dropdown-menu a {
+  display: block;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Mostrar dropdown ao passar o rato */
+.nav-item.has-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Hover simples */
+.nav-item a:hover {
+  text-decoration: underline;
+}
 
     body {
       margin: 0;
