@@ -1,232 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>PAGE TITLE – Mariana Torres</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  /* ---------------- HEADER + MENU ---------------- */
 
-  <!-- Fonts -->
-  <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root {
-      --bg: #050608;
-      --bg-soft: #090b10;
-      --text-main: #f5f5f5;
-      --text-muted: #a6a9b5;
-      --accent: #78d3ff;
-      --max-width: 960px;
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 68px;
+      background: rgba(5, 6, 8, 0.8); /* ligeiramente translúcido */
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      /* sem linha de separação */
+      /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
     }
 
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      height: 100%;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    body {
-      margin: 0;
-      background: radial-gradient(circle at top, #141623 0, #050608 55%);
+    /* Logotipo / Nome */
+    .brand {
+      font-family: "Bebas Kai";
+      font-size: 1.2rem;
+      letter-spacing: 0.17em;
       color: var(--text-main);
-      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--accent);
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: "Bebas Kai", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 0;
-    }
-
-    p {
-      margin: 0 0 0.8rem;
-      line-height: 1.7;
-      font-size: 0.98rem;
-    }
-
-    .page {
-      min-height: 100vh;
-    }
-
-    .shell {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 18px 18px 60px;
-    }
-
-    @media (min-width: 768px) {
-      .shell {
-        padding: 28px 24px 80px;
-      }
-    }
-
-    /* NAVBAR */
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(5, 6, 8, 0.96);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .navbar-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 10px 18px;
+    /* Menu */
+    .menu {
+      list-style: none;
       display: flex;
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
     }
 
-    .nav-logo {
-      font-family: "Bebas Kai", sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.18em;
+    .menu a {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+      white-space: nowrap;
     }
 
-    .nav-logo span {
+    .menu a:hover {
       color: var(--accent);
     }
 
-    .nav-links {
-      display: none;
-      gap: 18px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 2px;
-    }
-
-    .nav-links a::after {
+    /* Underline hover */
+    .menu a::after {
       content: "";
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 0;
+      width: 0%;
       height: 1px;
       background: var(--accent);
-      transition: width 0.16s ease-out;
+      transition: width 0.2s;
     }
 
-    .nav-links a:hover::after {
+    .menu a:hover::after {
       width: 100%;
     }
 
-    @media (min-width: 820px) {
-      .nav-links {
-        display: flex;
-      }
+    /* Dropdowns */
+    .dropdown {
+      position: relative;
     }
 
-    /* MAIN LAYOUT */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 26px;
+      left: 0;
+      min-width: 220px;
+      background: rgba(5, 6, 8, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 0;
+      list-style: none;
+      z-index: 1500;
+    }
+
+    .dropdown-content li {
+      padding: 4px 14px;
+      white-space: nowrap;
+    }
+
+    .dropdown-content li a {
+      display: block;
+      color: var(--text-muted);
+    }
+
+    .dropdown-content li a:hover {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* ---------------- MAIN LAYOUT ---------------- */
 
     main {
-      padding-top: 28px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px 60px;
     }
-
-    .page-header {
-      margin-bottom: 20px;
-    }
-
-    .page-header h1 {
-      font-size: 2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .page-header p {
-      color: var(--text-muted);
-      font-size: 0.96rem;
-    }
-
-    .footer {
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-align: center;
-      margin-top: 40px;
-    }
-  </style>
-</head>
-<body>
-  <div id="navbar-placeholder"></div>
-<script src="navbar-loader.js"></script>
-
-  <div class="page">
-    <!-- NAVBAR (igual em todas as páginas) -->
- <nav class="nav-links">
-  <div class="nav-item">
-    <a href="index.html">Home</a>
-  </div>
-
-  <div class="nav-item">
-    <a href="about.html">About</a>
-  </div>
-
-  <div class="nav-item has-dropdown">
-    <a href="projects.html">Projects</a>
-    <div class="dropdown-menu">
-      <a href="artistic-works.html">Artistic Works</a>
-      <a href="research-preservation.html">Research &amp; Preservation Works</a>
-    </div>
-  </div>
-
-  <div class="nav-item has-dropdown">
-    <a href="analogue-film.html">Analogue Film Practice</a>
-    <div class="dropdown-menu">
-      <a href="photochemical-techniques.html">Photochemical Techniques</a>
-      <a href="technical-documentation.html">Technical Documentation</a>
-      <a href="darkroom-lab.html">Darkroom / Lab Work</a>
-      <!-- Aqui pode aparecer uma âncora dentro de analogue-film.html se quiseres ter "Lab Notes" como secção interna -->
-      <!-- <a href="analogue-film.html#lab-notes">Lab Notes</a> -->
-    </div>
-  </div>
-
-  <div class="nav-item">
-    <a href="writing.html">Writing &amp; Publications</a>
-  </div>
-</nav>
-
-
-    <!-- CONTEÚDO ESPECÍFICO DE CADA PÁGINA -->
-    <main class="shell">
-      <section class="page-header">
-        <h1>PAGE TITLE</h1>
-        <p>Short intro / description for this page.</p>
-      </section>
-
-      <!-- Aqui vais pôr o conteúdo da página específica -->
-      <!-- Por agora podes deixar vazio e depois preencher. -->
-
-    </main>
-
-    <div class="footer">
-      © <span id="year"></span> Mariana Torres
-    </div>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
-
