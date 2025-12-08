@@ -1,21 +1,15 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("navbar-container");
-  if (!container) {
-    console.error("Navbar container not found");
-    return;
-  }
 
   fetch("navbar.html")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Navbar HTML not found");
-      }
-      return response.text();
+    .then(res => {
+      if (!res.ok) throw new Error("Navbar file not found");
+      return res.text();
     })
     .then(html => {
       container.innerHTML = html;
     })
-    .catch(error => {
-      console.error("Error loading navbar:", error);
+    .catch(err => {
+      console.error("Error loading navbar:", err);
     });
 });
