@@ -1,103 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <title>Mariana Torres – Audiovisual Archivist & Moving Image Practitioner</title>
+  <title>Research & Preservation Works — Mariana Torres</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
   <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg-soft: #090b10;
-      --text-main: #f5f5f5;
-      --text-muted: #a6a9b5;
+      --text: #f5f5f5;
+      --muted: #a6a9b5;
       --accent: #78d3ff;
-      --max-width: 1100px;
+      --max: 1100px;
     }
 
-    /* FUNDO GERAL COM GIF */
+    html, body {
+      height: 100%;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background: url('Timeline2.gif.gif') center/cover no-repeat fixed;
-      color: var(--text-main);
+      background: url('Timeline2.gif.gif') center/cover fixed no-repeat;
+      color: var(--text);
       font-family: "Source Serif 4", serif;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ---------------- HEADER + MENU ---------------- */
-
+    /* HEADER */
     header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       height: 68px;
-      background: rgba(5, 6, 8, 0.80); /* ligeiramente translúcido */
+      background: rgba(5, 6, 8, 0.80);
       backdrop-filter: blur(6px);
       z-index: 1000;
-      /* sem linha de divisão */
     }
 
     nav {
-      max-width: var(--max-width);
+      max-width: var(--max);
       margin: 0 auto;
       height: 100%;
       padding: 0 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
 
-    /* Logotipo / Nome */
     .brand {
       font-family: "Bebas Kai";
-      font-size: 1.2rem;
-      letter-spacing: 0.17em;
-      color: var(--text-main);
+      font-size: 1.15rem;
+      letter-spacing: 0.16em;
+      color: var(--text);
       text-decoration: none;
-      white-space: nowrap;
     }
 
-    /* Menu */
     .menu {
       list-style: none;
-      display: flex;
-      gap: 22px;
       margin: 0;
       padding: 0;
-      font-size: 0.92rem;
-      color: var(--text-muted);
+      display: flex;
+      gap: 22px;
       align-items: center;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
     .menu a {
       color: inherit;
       text-decoration: none;
-      position: relative;
-      padding-bottom: 2px;
       white-space: nowrap;
+      padding-bottom: 2px;
+      position: relative;
     }
 
     .menu a:hover {
       color: var(--accent);
     }
 
-    /* Underline hover */
     .menu a::after {
       content: "";
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 0%;
       height: 1px;
+      width: 0%;
       background: var(--accent);
       transition: width 0.2s;
     }
@@ -106,14 +98,8 @@
       width: 100%;
     }
 
-    /* Dropdowns */
     .dropdown {
       position: relative;
-    }
-
-    .dropdown-toggle .arrow {
-      font-size: 0.7em; /* seta mais discreta */
-      margin-left: 2px;
     }
 
     .dropdown-content {
@@ -121,133 +107,108 @@
       position: absolute;
       top: 26px;
       left: 0;
-      min-width: 220px;
       background: rgba(5, 6, 8, 0.97);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 0;
       list-style: none;
+      padding: 10px 0;
+      min-width: 220px;
       z-index: 999;
-    }
-
-    .dropdown-content li {
-      padding: 4px 14px;
-      white-space: nowrap;
-    }
-
-    .dropdown-content li a {
-      display: block;
-      color: var(--text-muted);
-    }
-
-    .dropdown-content li a:hover {
-      color: var(--accent);
-      background: rgba(255, 255, 255, 0.06);
     }
 
     .dropdown:hover .dropdown-content {
       display: block;
     }
 
-    /* ---------------- HERO SECTION ---------------- */
+    .dropdown-content li {
+      padding: 4px 14px;
+    }
 
+    .dropdown-content a {
+      color: var(--muted);
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .caret {
+      font-size: 0.85em;
+      opacity: 0.6;
+      margin-left: 4px;
+    }
+
+    /* HERO */
     .hero {
-      padding-top: 160px; /* compensa altura do header */
-      padding-bottom: 120px; /* mais espaço antes da imagem */
+      padding: 150px 20px 30px;
       text-align: center;
-      max-width: 700px; /* ligeiramente mais compacto */
+      max-width: 720px;
       margin: 0 auto;
     }
 
     .hero h1 {
       font-family: "Bebas Kai";
-      font-size: 3.3rem;
-      letter-spacing: 0.13em; /* menos espaçado */
+      font-size: 3rem;
+      letter-spacing: 0.12em;
       margin-bottom: 0.4rem;
     }
 
-    .hero-sub {
-      color: var(--text-muted);
-      margin-bottom: 1.6rem;
-      font-size: 1.15rem;
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-top: 0.3rem;
     }
 
-    .hero-text-block {
-      display: inline-block;
-      text-align: left;
-      background: rgba(5, 6, 8, 0.55); /* caixa subtil */
-      padding: 16px 20px;
-      border-radius: 14px;
-      max-width: 100%;
+    /* PAGE STRUCTURE */
+    .wrapper {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px 80px;
     }
 
-    .hero-text {
+    .card {
+      background: rgba(8, 10, 14, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(2px);
+      border-radius: 10px;
+      padding: 18px 20px 16px;
+      margin: 22px 0;
+    }
+
+    .card h2 {
+      font-family: "Bebas Kai";
+      font-size: 1.55rem;
+      letter-spacing: 0.1em;
+      margin: 0 0 0.5rem;
+      color: var(--accent);
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      line-height: 1.7;
       font-size: 1.02rem;
-      line-height: 1.75;
-      margin-bottom: 0.7rem;
     }
 
-    .hero-text:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Imagem grande debaixo da hero */
-
-    .featured-image {
-      width: 100%;
-      max-width: 1100px;
-      margin: 40px auto 60px; /* espaço acima e abaixo */
-      padding: 0 20px;
-    }
-
-    .featured-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 4px;
-    }
-
-    /* Responsivo: ajustar título em ecrãs pequenos */
-
-    @media (max-width: 600px) {
-      .hero {
-        padding-top: 130px;
-        padding-bottom: 100px;
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-
-      .hero h1 {
-        font-size: 2.6rem;
-        letter-spacing: 0.10em;
-      }
-
-      .hero-sub {
-        font-size: 1.05rem;
-      }
-
-      .hero-text-block {
-        padding: 14px 16px;
-      }
+    ul {
+      margin: 0.4rem 0 0.2rem 1.1rem;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ---------------- HEADER ---------------- -->
+  <!-- HEADER -->
   <header>
     <nav>
-      <!-- clicando no nome = "Home" -->
       <a href="index.html" class="brand">MARIANA TORRES</a>
 
       <ul class="menu">
-        <!-- sem item "Home" -->
         <li><a href="about.html">About</a></li>
 
         <li class="dropdown">
-          <a href="projects.html" class="dropdown-toggle">
-            Projects <span class="arrow">▾</span>
-          </a>
+          <a href="projects.html">Projects <span class="caret">▾</span></a>
           <ul class="dropdown-content">
             <li><a href="artistic-works.html">Artistic Works</a></li>
             <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
@@ -255,9 +216,7 @@
         </li>
 
         <li class="dropdown">
-          <a href="analogue-film.html" class="dropdown-toggle">
-            Analogue Film Practice <span class="arrow">▾</span>
-          </a>
+          <a href="analogue-film.html">Analogue Film Practice <span class="caret">▾</span></a>
           <ul class="dropdown-content">
             <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
             <li><a href="technical-documentation.html">Technical Documentation</a></li>
@@ -270,30 +229,55 @@
     </nav>
   </header>
 
-  <!-- ---------------- HERO SECTION ---------------- -->
+  <!-- HERO -->
   <section class="hero">
-    <h1>MARIANA TORRES</h1>
-    <div class="hero-sub">Audiovisual Archivist &amp; Moving Image Practitioner</div>
-
-    <div class="hero-text-block">
-      <p class="hero-text">
-        I work between <strong>film archives</strong>, <strong>analogue technologies</strong> and
-        <strong>moving image practice</strong>. My interests cross preservation, projection,
-        photochemical experimentation and the afterlives of militant and countercultural cinema.
-      </p>
-
-      <p class="hero-text">
-        This portfolio gathers <strong>artistic works</strong>, <strong>research</strong>,
-        and <strong>analogue film practice</strong>, alongside documentation of projects
-        developed with archives, festivals and cultural institutions.
-      </p>
-    </div>
+    <h1>RESEARCH & PRESERVATION WORKS</h1>
+    <p>Archival study · reconstruction · cataloguing · historical research</p>
   </section>
 
-  <!-- ---------------- FEATURED IMAGE SECTION ---------------- -->
-  <section class="featured-image">
-    <img src="pag2.png" alt="Featured work by Mariana Torres" />
-  </section>
+  <!-- MAIN CONTENT -->
+  <main class="wrapper">
 
+    <section class="card">
+      <h2>Archival Investigations</h2>
+      <p>
+        Research projects carried out within film archives, involving identification,
+        inspection, cataloguing and contextual analysis of analogue film materials.
+      </p>
+      <ul>
+        <li>Filmographic reconstruction based on incomplete or fragmentary reels.</li>
+        <li>Inspection reports: shrinkage, perforation damage, base type, sound formats.</li>
+        <li>Contextual research on militant, countercultural and orphan film collections.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Preservation & Restoration Processes</h2>
+      <p>
+        Workflows documenting the steps involved in stabilising, duplicating and preparing
+        film elements for digitisation or photochemical preservation.
+      </p>
+      <ul>
+        <li>Cleaning and repair of film elements prior to scanning or duplication.</li>
+        <li>Registry of printer-lights, shrinkage measurements and splice types.</li>
+        <li>Collaborative preservation projects with institutions and film labs.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Case Studies & Research Notes</h2>
+      <p>
+        Notes from ongoing investigations into Portuguese and international archives,
+        including unfinished films, activist cinema and alternative film cultures.
+      </p>
+      <ul>
+        <li>Reconstruction notes for incomplete or abandoned film projects.</li>
+        <li>Analysis of archival metadata and provenance documentation.</li>
+        <li>Comparative study between analogue and digital reconstruction strategies.</li>
+      </ul>
+    </section>
+
+  </main>
 </body>
+
 </html>
