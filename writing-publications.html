@@ -2,208 +2,316 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PAGE TITLE – Mariana Torres</title>
+  <title>Writing & Publications – Mariana Torres</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
   <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
   <style>
     :root {
-      --bg: #050608;
       --bg-soft: #090b10;
       --text-main: #f5f5f5;
       --text-muted: #a6a9b5;
       --accent: #78d3ff;
-      --max-width: 960px;
+      --max-width: 1100px;
     }
 
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
+    /* FUNDO GERAL COM GIF */
     body {
       margin: 0;
-      background: radial-gradient(circle at top, #141623 0, #050608 55%);
+      padding: 0;
+      min-height: 100vh;
+      background: url('Timeline2.gif.gif') center/cover no-repeat fixed;
       color: var(--text-main);
-      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+      font-family: "Source Serif 4", serif;
       -webkit-font-smoothing: antialiased;
+      position: relative;
     }
 
-    a {
-      color: var(--accent);
+    /* ---------------- HEADER + MENU ---------------- */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 68px;
+      background: rgba(5, 6, 8, 0.80); /* ligeiramente translúcido */
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      /* sem linha de divisão em baixo */
+      /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
+    }
+
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      height: 100%;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Logotipo / Nome (link para Home) */
+    .brand {
+      font-family: "Bebas Kai";
+      font-size: 1.15rem;
+      letter-spacing: 0.16em;
+      color: var(--text-main);
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: "Bebas Kai", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 0;
-    }
-
-    p {
-      margin: 0 0 0.8rem;
-      line-height: 1.7;
-      font-size: 0.98rem;
-    }
-
-    .page {
-      min-height: 100vh;
-    }
-
-    .shell {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 18px 18px 60px;
-    }
-
-    @media (min-width: 768px) {
-      .shell {
-        padding: 28px 24px 80px;
-      }
-    }
-
-    /* NAVBAR */
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(5, 6, 8, 0.96);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .navbar-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 10px 18px;
+    /* Menu */
+    .menu {
+      list-style: none;
       display: flex;
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
     }
 
-    .nav-logo {
-      font-family: "Bebas Kai", sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.18em;
+    .menu a {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+      white-space: nowrap;
     }
 
-    .nav-logo span {
+    .menu a:hover {
       color: var(--accent);
     }
 
-    .nav-links {
-      display: none;
-      gap: 18px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 2px;
-    }
-
-    .nav-links a::after {
+    /* Underline hover */
+    .menu a::after {
       content: "";
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 0;
+      width: 0%;
       height: 1px;
       background: var(--accent);
-      transition: width 0.16s ease-out;
+      transition: width 0.2s;
     }
 
-    .nav-links a:hover::after {
+    .menu a:hover::after {
       width: 100%;
     }
 
-    @media (min-width: 820px) {
-      .nav-links {
-        display: flex;
-      }
+    /* Dropdowns */
+    .dropdown {
+      position: relative;
     }
 
-    /* MAIN LAYOUT */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 26px;
+      left: 0;
+      min-width: 220px;
+      background: rgba(5, 6, 8, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 0;
+      list-style: none;
+      z-index: 999;
+    }
+
+    .dropdown-content li {
+      padding: 4px 14px;
+      white-space: nowrap;
+    }
+
+    .dropdown-content li a {
+      display: block;
+      color: var(--text-muted);
+    }
+
+    .dropdown-content li a:hover {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* ---------------- LAYOUT GERAL DA PÁGINA ---------------- */
 
     main {
-      padding-top: 28px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px 80px;
     }
 
-    .page-header {
-      margin-bottom: 20px;
+    /* Hero mais pequeno para subpáginas */
+    .hero {
+      padding-top: 140px; /* compensa header fixo */
+      padding-bottom: 40px;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
     }
 
-    .page-header h1 {
-      font-size: 2rem;
+    .hero h1 {
+      font-family: "Bebas Kai";
+      font-size: 2.6rem;
+      letter-spacing: 0.12em;
       margin-bottom: 0.3rem;
     }
 
-    .page-header p {
+    .hero-sub {
       color: var(--text-muted);
-      font-size: 0.96rem;
+      font-size: 1rem;
+      margin-bottom: 1.4rem;
     }
 
-    .footer {
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 0.8rem;
+    /* Caixa subtil atrás do texto (conteúdo principal) */
+    .page-box {
+      background: rgba(5, 6, 8, 0.72); /* fundo escuro subtil */
+      border-radius: 6px;
+      padding: 18px 18px 20px;
+      max-width: 860px;
+      margin: 0 auto 28px;
+    }
+
+    .page-box h2 {
+      font-family: "Bebas Kai";
+      font-size: 1.4rem;
+      letter-spacing: 0.12em;
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+    }
+
+    .page-box p {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-main);
+      margin-bottom: 0.7rem;
+    }
+
+    .page-box small {
+      font-size: 0.85rem;
       color: var(--text-muted);
-      text-align: center;
-      margin-top: 40px;
+    }
+
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.4rem 0 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .pub-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    .pub-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+        letter-spacing: 0.10em;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <!-- NAVBAR (igual em todas as páginas) -->
-    <header class="navbar">
-      <div class="navbar-inner">
-        <div class="nav-logo">MARIANA <span>TORRES</span></div>
-        <nav class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="about.html">About / CV / Contact</a>
-          <a href="projects.html">Projects</a>
-          <a href="analogue-film.html">Analogue Film Practice</a>
-          <a href="writing.html">Writing & Publications</a>
-          <!-- Lab Notes é opcional; podes tirar se não usares -->
-          <a href="lab-notes.html">Lab Notes</a>
-        </nav>
+  <!-- ---------------- HEADER ---------------- -->
+  <header>
+    <nav>
+      <!-- Nome leva sempre à Home -->
+      <a href="index.html" class="brand">MARIANA TORRES</a>
+
+      <ul class="menu">
+        <li><a href="about.html">About</a></li>
+
+        <li class="dropdown">
+          <a href="projects.html">Projects ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="artistic-works.html">Artistic Works</a></li>
+            <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="analogue-film.html">Analogue Film Practice ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
+            <li><a href="technical-documentation.html">Technical Documentation</a></li>
+            <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
+          </ul>
+        </li>
+
+        <li><a href="writing-publications.html">Writing &amp; Publications</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ---------------- MAIN ---------------- -->
+  <main>
+    <!-- Hero da página -->
+    <section class="hero">
+      <h1>WRITING &amp; PUBLICATIONS</h1>
+      <div class="hero-sub">
+        Essays, research notes and texts around moving image, archives and analogue practice.
       </div>
-    </header>
+    </section>
 
-    <!-- CONTEÚDO ESPECÍFICO DE CADA PÁGINA -->
-    <main class="shell">
-      <section class="page-header">
-        <h1>PAGE TITLE</h1>
-        <p>Short intro / description for this page.</p>
-      </section>
+    <!-- Caixa 1: Featured / Selected Writing -->
+    <section class="page-box">
+      <h2>Selected Writing</h2>
+      <p>
+        Here you can add a short introduction to your written work: critical essays, research
+        texts, program notes or reflections on analogue film practice and archival projects.
+      </p>
+      <ul class="pub-list">
+        <li>
+          <strong>Title of essay or article #1</strong><br />
+          <span class="pub-meta">Publication / Journal · Year · Language</span>
+        </li>
+        <li>
+          <strong>Title of essay or article #2</strong><br />
+          <span class="pub-meta">Catalogue / Online publication · Year</span>
+        </li>
+      </ul>
+      <small>(You can replace these items with real titles, links and details.)</small>
+    </section>
 
-      <!-- Aqui vais pôr o conteúdo da página específica -->
-      <!-- Por agora podes deixar vazio e depois preencher. -->
-
-    </main>
-
-    <div class="footer">
-      © <span id="year"></span> Mariana Torres
-    </div>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <!-- Caixa 2: Research & Program Notes -->
+    <section class="page-box">
+      <h2>Research &amp; Program Notes</h2>
+      <p>
+        This space can be used for program notes, archival reflections or texts accompanying
+        screenings, restorations and curatorial work related to film archives and moving image.
+      </p>
+      <ul class="pub-list">
+        <li>
+          <strong>Program note for [screening / event]</strong><br />
+          <span class="pub-meta">Institution / Festival · Year</span>
+        </li>
+        <li>
+          <strong>Research note on [film / archive / practice]</strong><br />
+          <span class="pub-meta">Project / Residency · Year</span>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
