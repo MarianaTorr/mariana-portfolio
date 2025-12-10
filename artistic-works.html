@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Send me a Color – Mariana Torres</title>
+  <title>Send Me a Color – Mariana Torres</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
@@ -96,7 +96,6 @@
       width: 100%;
     }
 
-    /* Dropdowns */
     .dropdown {
       position: relative;
     }
@@ -133,42 +132,44 @@
       display: block;
     }
 
-    /* ---------------- PAGE STRUCTURE ---------------- */
+    /* ---------------- PAGE LAYOUT ---------------- */
 
     .page-wrapper {
-      padding-top: 110px; /* espaço para o header fixo */
+      padding-top: 130px; /* deixa espaço para o header fixo */
       max-width: var(--max-width);
-      margin: 0 auto 80px;
+      margin: 0 auto;
       padding-left: 20px;
       padding-right: 20px;
+      padding-bottom: 60px;
     }
 
-    /* --- Media Blocks for Artistic Works --- */
+    /* Media layout para as imagens + vídeo */
+
     .media-block {
       max-width: 900px;
       margin: 0 auto;
     }
 
-    .media-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 24px;
+    .media-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
     }
 
-    .media-col {
-      flex: 1 1 0;
-      min-width: 260px;
+    @media (min-width: 900px) {
+      .media-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    .media-col img {
+    .media-cell img {
       width: 100%;
       height: auto;
       display: block;
       border-radius: 6px;
     }
 
-    /* Vimeo video com as mesmas dimensões visuais das imagens */
+    /* Vídeo Vimeo com proporção fixa 16:9 */
     .video-fixed {
       position: relative;
       width: 100%;
@@ -183,12 +184,6 @@
       width: 100%;
       height: 100%;
       border: none;
-    }
-
-    @media (max-width: 700px) {
-      .media-row {
-        flex-direction: column;
-      }
     }
   </style>
 </head>
@@ -206,7 +201,7 @@
         <li class="dropdown">
           <a href="projects.html">Projects ▾</a>
           <ul class="dropdown-content">
-            <li><a href="artistic-works.html">Send me a Color</a></li>
+            <li><a href="artistic-works.html">Artistic Works</a></li>
             <li><a href="research-preservation.html">Research & Preservation Works</a></li>
           </ul>
         </li>
@@ -227,36 +222,33 @@
 
   <!-- ---------------- CONTENT ---------------- -->
   <div class="page-wrapper">
-
     <section class="media-block">
-      <!-- LINHA 1: IMG1 + VÍDEO -->
-      <div class="media-row">
-        <div class="media-col">
-          <img src="color1.png" alt="Send Me a Color – image 1">
+      <div class="media-grid">
+        <!-- TOPO: IMG1 + VÍDEO LADO A LADO EM ECRÃ GRANDE -->
+        <div class="media-cell">
+          <img src="color1.png" alt="Send Me a Color – image 1" />
         </div>
 
-        <div class="media-col">
+        <div class="media-cell">
           <div class="video-fixed">
             <iframe
-              src="https://player.vimeo.com/video/SEU_VIDEO_ID"
+              src="https://player.vimeo.com/video/1081106970?h=70594f4e3f"
               allow="autoplay; fullscreen; picture-in-picture"
               allowfullscreen>
             </iframe>
           </div>
         </div>
-      </div>
 
-      <!-- LINHA 2: IMG2 + IMG3 -->
-      <div class="media-row">
-        <div class="media-col">
-          <img src="color2.png" alt="Send Me a Color – image 2">
+        <!-- BAIXO: IMG2 + IMG3 -->
+        <div class="media-cell">
+          <img src="color2.png" alt="Send Me a Color – image 2" />
         </div>
-        <div class="media-col">
-          <img src="color3.png" alt="Send Me a Color – image 3">
+
+        <div class="media-cell">
+          <img src="color3.png" alt="Send Me a Color – image 3" />
         </div>
       </div>
     </section>
-
   </div>
 
 </body>
