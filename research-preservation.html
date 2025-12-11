@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Send Me a Color – Mariana Torres</title>
+  <title>Research & Preservation Works – Mariana Torres</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
@@ -135,30 +135,52 @@
     /* ---------------- PAGE LAYOUT ---------------- */
 
     .page-wrapper {
-      padding-top: 130px; /* deixa espaço para o header fixo */
+      padding-top: 130px; /* espaço para o header fixo */
       max-width: var(--max-width);
       margin: 0 auto;
       padding-left: 20px;
       padding-right: 20px;
-      padding-bottom: 60px;
+      padding-bottom: 80px;
     }
 
-    /* Media layout para as imagens + vídeo */
+    /* TÍTULO / INTRO */
+
+    .section-header {
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    .section-header h1 {
+      font-family: "Bebas Kai";
+      font-size: 2.6rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-header p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      max-width: 780px;
+    }
+
+    /* BLOCO PRINCIPAL: IMG + VÍDEO LADO A LADO */
 
     .media-block {
-      max-width: 900px;
-      margin: 0 auto;
+      max-width: 1000px;
+      margin: 0 auto 50px;
     }
 
-    .media-grid {
+    .media-grid-top {
       display: grid;
       grid-template-columns: 1fr;
       gap: 24px;
+      margin-bottom: 32px;
     }
 
     @media (min-width: 900px) {
-      .media-grid {
-        grid-template-columns: 1fr 1fr;
+      .media-grid-top {
+        grid-template-columns: 1fr 1fr; /* imagem + vídeo lado a lado */
       }
     }
 
@@ -169,7 +191,6 @@
       border-radius: 6px;
     }
 
-    /* Vídeo Vimeo com proporção fixa 16:9 */
     .video-fixed {
       position: relative;
       width: 100%;
@@ -184,6 +205,50 @@
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    /* IMAGENS EXTRA POR BAIXO (2 COLUNAS EM ECRÃ GRANDE) */
+
+    .media-grid-bottom {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 900px) {
+      .media-grid-bottom {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .media-grid-bottom img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
+
+    /* BLOCO PARA OUTROS PROJECTOS (VAZIO PARA TU PREENCHERES) */
+
+    .project-section {
+      max-width: 1000px;
+      margin: 60px auto 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 32px;
+    }
+
+    .project-section h2 {
+      font-family: "Bebas Kai";
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-section p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 780px;
     }
   </style>
 </head>
@@ -222,29 +287,60 @@
 
   <!-- ---------------- CONTENT ---------------- -->
   <div class="page-wrapper">
+
+    <!-- TÍTULO + INTRO -->
+    <section class="section-header">
+      <h1>Research &amp; Preservation Works</h1>
+      <p>
+        This section gathers restoration, archival and research-based projects developed
+        with film collections, institutions and collaborative initiatives. You can briefly
+        introduce what types of works appear here: digital restorations, research on unfinished
+        films, collaborations with archives, etc.
+      </p>
+    </section>
+
+    <!-- BLOCO PRINCIPAL: IMAGEM + VÍDEO LADO A LADO -->
     <section class="media-block">
-      <div class="media-grid">
-        <!-- TOPO: IMG1 + VÍDEO LADO A LADO EM ECRÃ GRANDE -->
+      <div class="media-grid-top">
+        <!-- LEFT: MAIN IMAGE (substitui o src pelo ficheiro que quiseres) -->
         <div class="media-cell">
-          <img src="pag4.png" alt="pag4.png />
+          <img src="pag4.png" alt="Main still – Research & Preservation work" />
         </div>
 
+        <!-- RIGHT: VIMEO VIDEO -->
         <div class="media-cell">
           <div class="video-fixed">
             <iframe
-              src="https://player.vimeo.com/1084541446/b19ced0966"
+              src="https://player.vimeo.com/video/1084541446?h=b19ced0966"
               allow="autoplay; fullscreen; picture-in-picture"
               allowfullscreen>
             </iframe>
           </div>
         </div>
+      </div>
 
-        <div class="media-cell">
-          <img src="color3.png" alt="Send Me a Color – image 3" />
-        </div>
+      <!-- IMAGENS EXTRA POR BAIXO (PODES ACRESCENTAR / TROCAR) -->
+      <div class="media-grid-bottom">
+        <!-- EXEMPLO IMAGEM EXTRA 1 -->
+        <img src="color3.png" alt="Additional still 1" />
+
+        <!-- EXEMPLO IMAGEM EXTRA 2 -->
+        <img src="color2.png" alt="Additional still 2" />
       </div>
     </section>
+
+    <!-- SE QUISERES MAIS PROJECTOS, DUPLICA ESTE BLOCO -->
+    <section class="project-section">
+      <h2>[Another Research / Preservation Project]</h2>
+      <p>
+        Aqui podes escrever uma breve descrição de outro trabalho de investigação ou preservação.
+        Podes duplicar esta secção e, se quiseres, abaixo dela voltar a usar uma estrutura
+        semelhante à media-block (imagem + vídeo + stills).
+      </p>
+    </section>
+
   </div>
 
 </body>
 </html>
+
