@@ -136,77 +136,78 @@
 
     .page-wrapper {
       padding-top: 130px; /* espaço para o header fixo */
-      max-width: var(--max-width);
+      max-width: 1200px;  /* MESMA ESCALA do Artistic Works */
       margin: 0 auto;
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-bottom: 80px;
+      padding: 0 20px 70px;
     }
 
-    /* TÍTULO / INTRO */
-
-    .section-header {
+    .intro-text {
       text-align: left;
-      margin-bottom: 40px;
-    }
-
-    .section-header h1 {
-      font-family: "Bebas Kai";
-      font-size: 2.6rem;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.4rem;
-    }
-
-    .section-header p {
-      font-size: 1rem;
-      line-height: 1.8;
       color: var(--text-muted);
-      max-width: 780px;
+      max-width: 850px;
+      margin: 0 auto 40px;
+      font-size: 1.02rem;
+      line-height: 1.7;
     }
 
-  /* Media layout para as imagens + vídeo — VERSÃO MAIOR */
+    /* Media layout (igual filosofia do Artistic Works) */
 
-.media-block {
-  max-width: 150px;    /* ← AUMENTADO! */
-  margin: 0 auto;
-}
+    .media-block {
+      max-width: 1200px;
+      margin: 0 auto 50px;
+    }
 
-.media-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;            /* mais espaçamento */
-}
+    /* PRIMEIRA LINHA: imagem + vídeo lado a lado em ecrã grande */
+    .media-row-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-bottom: 32px;
+    }
 
-@media (min-width: 1100px) {
-  .media-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
+    @media (min-width: 900px) {
+      .media-row-top {
+        grid-template-columns: 1.1fr 1fr; /* ligeiro destaque para o slide */
+      }
+    }
 
-.media-cell img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 6px;
-}
+    .media-cell img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
 
-/* Vídeo Vimeo com proporção 16:9 */
-.video-fixed {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 */
-  border-radius: 6px;
-  overflow: hidden;
-}
+    /* Vídeo Vimeo com proporção fixa 16:9 */
+    .video-fixed {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      border-radius: 6px;
+      overflow: hidden;
+    }
 
-.video-fixed iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-  <style>
+    .video-fixed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* STILLS EM BAIXO (se adicionares mais) */
+    .stills-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 900px) {
+      .stills-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -222,7 +223,7 @@
         <li class="dropdown">
           <a href="projects.html">Projects ▾</a>
           <ul class="dropdown-content">
-            <li><a href="artistic-works.html">Send me a Colord</a></li>
+            <li><a href="artistic-works.html">Artistic Works</a></li>
             <li><a href="research-preservation.html">Research & Preservation Works</a></li>
           </ul>
         </li>
@@ -243,27 +244,18 @@
 
   <!-- ---------------- CONTENT ---------------- -->
   <div class="page-wrapper">
+    <p class="intro-text">
+      Digital restorations, research on unfinished films, collaborations with archives and collectives,
+      technical tests and documentation around analogue and digital workflows.
+    </p>
 
-    <!-- TÍTULO + INTRO -->
-    <section class="section-header">
-      <h1>Research &amp; Preservation Works</h1>
-      <p>
-        This section gathers restoration, archival and research-based projects developed
-        with film collections, institutions and collaborative initiatives. You can briefly
-        introduce what types of works appear here: digital restorations, research on unfinished
-        films, collaborations with archives, etc.
-      </p>
-    </section>
-
-    <!-- BLOCO PRINCIPAL: IMAGEM + VÍDEO LADO A LADO -->
     <section class="media-block">
-      <div class="media-grid-top">
-        <!-- LEFT: MAIN IMAGE (substitui o src pelo ficheiro que quiseres) -->
+      <!-- TOPO: SLIDE + VÍDEO COM A MESMA ESCALA DO ARTISTIC WORKS -->
+      <div class="media-row-top">
         <div class="media-cell">
-          <img src="pag4.png" alt="Main still – Research & Preservation work" />
+          <img src="pag4.png" alt="La Cruz de Mayo – digital restoration slide" />
         </div>
 
-        <!-- RIGHT: VIMEO VIDEO -->
         <div class="media-cell">
           <div class="video-fixed">
             <iframe
@@ -274,36 +266,22 @@
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- SE QUISERES MAIS PROJECTOS, DUPLICA ESTE BLOCO -->
-    <section class="project-section">
-      <h2>C3 Non-Aligned Film Archives</h2>
-      <p>
-     Research project committed to the preservation, restoration, and circulation of archives of a 
-        cinema in struggle against authoritarian narratives and models (colonial, state,
-        capitalist, patriarchal, etc.), a cinema that has struggled to exist, 
-        and still struggles not to disappear into the margins of dominant histories.
-     <p>
-        <section class="media-block">
-      <div class="media-grid-top">
-        <!-- LEFT: MAIN IMAGE (substitui o src pelo ficheiro que quiseres) -->
+      <!-- STILLS EM BAIXO (podes acrescentar mais se quiseres) -->
+      <div class="stills-row">
         <div class="media-cell">
-          <img src="pag4.png" alt="Main still – Research & Preservation work" />
+          <img src="color3.png" alt="Additional still 1" />
         </div>
-
-        <!-- RIGHT: VIMEO VIDEO -->
+        <!-- Se tiveres outra still, duplica este bloco:
         <div class="media-cell">
-          <div class="video-fixed">
-            <iframe
-              src="https://player.vimeo.com/1081232328/6937280239"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen>
-            </iframe>
+          <img src="NOME_DA_TUA_IMAGEM.png" alt="Additional still 2" />
+        </div>
+        -->
+      </div>
     </section>
-
   </div>
 
 </body>
 </html>
+
 
