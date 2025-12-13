@@ -11,56 +11,47 @@
 
   <style>
     :root{
-      --bg-soft:#090b10;
-      --text-main:#f5f5f5;
-      --text-muted:#a6a9b5;
+      --bg:#06070b;
+      --text:#f2f4f7;
+      --muted: rgba(242,244,247,.72);
+      --muted2: rgba(242,244,247,.56);
       --accent:#78d3ff;
 
-      --max-width:1100px;
-      --max-width-wide:1240px;
+      --max: 1160px;
+      --hdr-h: 72px;
 
-      --hdr-h:72px;
       --border: rgba(255,255,255,.10);
-      --surface: rgba(8,10,12,.72);
-      --surface-strong: rgba(8,10,12,.92);
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --radius: 14px;
+      --border2: rgba(255,255,255,.14);
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --radius: 18px;
     }
 
-    /* Base */
     *{ box-sizing:border-box; }
-    html, body{ height:100%; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      min-height:100vh;
-      color:var(--text-main);
+      color: var(--text);
       font-family:"Source Serif 4", serif;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-
-      /* BACKGROUND GIF (your asset) */
       background:
-        radial-gradient(1200px 600px at 50% 0%, rgba(120,211,255,.10), transparent 60%),
-        radial-gradient(900px 500px at 20% 30%, rgba(255,255,255,.06), transparent 55%),
+        radial-gradient(900px 520px at 18% 18%, rgba(120,211,255,.10), transparent 60%),
+        radial-gradient(700px 420px at 78% 30%, rgba(255,255,255,.06), transparent 60%),
         url("Timeline2.gif.gif") center/cover no-repeat fixed;
-      background-color: var(--bg-soft);
+      background-color: var(--bg);
     }
 
-    a{ color:inherit; }
-
-    /* HEADER */
-    .site-header{
+    /* ===== Header (simples e “clean”) ===== */
+    header{
       position: fixed;
       inset: 0 0 auto 0;
       height: var(--hdr-h);
       z-index: 1000;
-      background: linear-gradient(to bottom, rgba(5,6,8,.88), rgba(5,6,8,.62));
+      background: linear-gradient(to bottom, rgba(6,7,11,.86), rgba(6,7,11,.55));
       border-bottom: 1px solid rgba(255,255,255,.08);
       backdrop-filter: blur(10px);
     }
-
-    .nav{
-      max-width: var(--max-width-wide);
+    nav{
+      max-width: var(--max);
       margin: 0 auto;
       height: 100%;
       padding: 0 22px;
@@ -69,18 +60,13 @@
       justify-content:space-between;
       gap: 18px;
     }
-
     .brand{
       font-family:"Bebas Kai", system-ui, sans-serif;
-      font-size: 1.15rem;
       letter-spacing: .18em;
       text-decoration:none;
-      color: var(--text-main);
-      line-height:1;
+      color: var(--text);
       padding: 10px 10px;
       border-radius: 12px;
-      transition: background .15s ease;
-      white-space: nowrap;
     }
     .brand:hover{ background: rgba(255,255,255,.04); }
 
@@ -88,54 +74,28 @@
       list-style:none;
       display:flex;
       align-items:center;
-      gap: 14px;
+      gap: 10px;
       margin:0;
       padding:0;
-      color: var(--text-muted);
-      font-size: .94rem;
+      font-size:.94rem;
+      color: var(--muted);
     }
-
     .menu > li > a{
       display:inline-flex;
       align-items:center;
       gap: 8px;
-      color: inherit;
       text-decoration:none;
+      color: inherit;
       padding: 10px 10px;
       border-radius: 12px;
-      position:relative;
-      white-space:nowrap;
-      transition: color .15s ease, background .15s ease;
+      transition: background .15s ease, color .15s ease;
+      white-space: nowrap;
     }
-
     .menu > li > a:hover{
-      color: var(--text-main);
+      color: var(--text);
       background: rgba(255,255,255,.04);
     }
-
-    .menu > li > a::after{
-      content:"";
-      position:absolute;
-      left: 10px;
-      right: 10px;
-      bottom: 7px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform .18s ease;
-      opacity: .95;
-    }
-    .menu > li > a:hover::after{ transform: scaleX(1); }
-
-    .chev{
-      color: rgba(166,169,181,.95);
-      font-size: .9em;
-      transform: translateY(1px);
-    }
-
-    .dropdown{ position: relative; }
-
+    .dropdown{ position:relative; }
     .dropdown-content{
       position:absolute;
       top: calc(100% + 10px);
@@ -144,96 +104,108 @@
       margin:0;
       padding: 10px;
       list-style:none;
-
-      background: var(--surface-strong);
+      border-radius: 16px;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      background: rgba(8,10,14,.92);
       box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
-
-      opacity:0;
-      visibility:hidden;
+      opacity: 0;
+      visibility: hidden;
       transform: translateY(-4px);
       transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
-      z-index: 1001;
     }
-
     .dropdown:hover .dropdown-content,
     .dropdown:focus-within .dropdown-content{
-      opacity:1;
-      visibility:visible;
+      opacity: 1;
+      visibility: visible;
       transform: translateY(0);
     }
-
-    .dropdown-content li a{
+    .dropdown-content a{
       display:block;
       padding: 10px 10px;
-      border-radius: 10px;
-      color: var(--text-muted);
+      border-radius: 12px;
+      color: var(--muted);
       text-decoration:none;
-      transition: background .14s ease, color .14s ease;
     }
-    .dropdown-content li a:hover{
-      color: var(--text-main);
+    .dropdown-content a:hover{
+      color: var(--text);
       background: rgba(255,255,255,.06);
     }
-    .dropdown-content li + li{ margin-top: 2px; }
 
-    .nav-actions{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      white-space: nowrap;
-    }
-
-    .nav-link{
+    .nav-actions{ display:flex; gap:10px; align-items:center; }
+    .nav-actions a{
       text-decoration:none;
-      font-size: .93rem;
+      font-size:.93rem;
       padding: 9px 12px;
       border-radius: 12px;
       border: 1px solid transparent;
-      color: var(--text-main);
-      transition: background .15s ease, border-color .15s ease, color .15s ease;
+      color: var(--text);
+      transition: background .15s ease, border-color .15s ease;
+      white-space: nowrap;
     }
-    .nav-link.subtle{
-      color: var(--text-muted);
+    .nav-actions .subtle{
+      color: var(--muted);
     }
-    .nav-link.subtle:hover{
-      color: var(--text-main);
+    .nav-actions .subtle:hover{
+      color: var(--text);
       background: rgba(255,255,255,.04);
     }
-    .nav-link.btn{
-      border-color: rgba(120,211,255,.35);
+    .nav-actions .btn{
+      border-color: rgba(120,211,255,.40);
       background: rgba(120,211,255,.10);
     }
-    .nav-link.btn:hover{
+    .nav-actions .btn:hover{
+      border-color: rgba(120,211,255,.62);
       background: rgba(120,211,255,.16);
-      border-color: rgba(120,211,255,.55);
     }
 
-    /* Avoid content hidden under fixed header */
     main{ padding-top: var(--hdr-h); }
 
-    /* HERO */
+    /* ===== Hero (mais editorial / menos “UI-feio”) ===== */
     .hero{
       min-height: calc(100vh - var(--hdr-h));
       display:flex;
-      justify-content:center;
-      align-items:flex-start;
-      padding: 96px 22px 72px;
+      align-items:center;
+      padding: 56px 22px;
     }
 
-    .hero-inner{
+    .hero-shell{
+      max-width: var(--max);
+      margin: 0 auto;
       width: 100%;
-      max-width: 860px;
-      text-align: center;
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 22px;
+      align-items: stretch;
+    }
 
-      background: rgba(5,6,8,.68);
+    .hero-card{
+      border-radius: 22px;
       border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 25px 70px rgba(0,0,0,.45);
-      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
 
-      border-radius: 18px;
+      /* “glass” mais bonito: gradiente, não um bloco cinza */
+      background:
+        linear-gradient(135deg, rgba(8,10,14,.82), rgba(8,10,14,.52));
+      backdrop-filter: blur(12px);
+      position: relative;
+    }
+
+    /* linha/acento discreto */
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset: 0;
+      background:
+        radial-gradient(700px 280px at 20% 15%, rgba(120,211,255,.14), transparent 55%),
+        radial-gradient(600px 240px at 80% 30%, rgba(255,255,255,.06), transparent 60%);
+      pointer-events:none;
+      opacity: .9;
+    }
+
+    .hero-content{
+      position: relative;
       padding: 34px 34px 28px;
     }
 
@@ -241,124 +213,134 @@
       display:inline-flex;
       align-items:center;
       gap: 10px;
-      color: var(--text-muted);
-      font-size: .95rem;
-      letter-spacing: .08em;
+      letter-spacing: .18em;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      font-size: .78rem;
+      color: var(--muted2);
     }
-
     .dot{
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
+      width: 6px; height: 6px; border-radius: 999px;
       background: var(--accent);
       box-shadow: 0 0 0 6px rgba(120,211,255,.10);
     }
 
-    .hero h1{
+    h1{
+      margin: 14px 0 8px;
       font-family:"Bebas Kai", system-ui, sans-serif;
-      font-size: 3.4rem;
-      letter-spacing: .14em;
-      margin: 0 0 10px;
+      font-size: 3.55rem;
+      letter-spacing: .12em; /* menos “espalhado” = mais elegante */
       line-height: 1.02;
     }
 
-    .hero-sub{
-      margin: 0 auto 18px;
-      max-width: 52ch;
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      line-height: 1.55;
+    .role{
+      margin: 0 0 16px;
+      font-size: 1.1rem;
+      color: var(--muted);
     }
 
-    .hero-copy{
-      margin: 0 auto;
-      max-width: 72ch;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: rgba(245,245,245,.92);
+    .bio{
+      margin: 0;
+      max-width: 68ch;
+      font-size: 1.06rem;
+      line-height: 1.78;
+      color: rgba(242,244,247,.90);
     }
 
-    .hero-meta{
-      display:flex;
-      justify-content:center;
-      flex-wrap: wrap;
-      gap: 10px 14px;
+    .cta-row{
       margin-top: 22px;
-      color: var(--text-muted);
-      font-size: .93rem;
-    }
-
-    .pill{
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      backdrop-filter: blur(6px);
-      white-space: nowrap;
-    }
-
-    .hero-cta{
       display:flex;
-      justify-content:center;
       gap: 10px;
-      margin-top: 22px;
+      flex-wrap: wrap;
     }
 
     .cta{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap: 10px;
       padding: 10px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
       text-decoration:none;
-      color: var(--text-main);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
     .cta:hover{
       transform: translateY(-1px);
       background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.16);
     }
     .cta.primary{
-      border-color: rgba(120,211,255,.35);
-      background: rgba(120,211,255,.12);
+      border-color: rgba(120,211,255,.55);
+      background: rgba(120,211,255,.14);
     }
     .cta.primary:hover{
-      background: rgba(120,211,255,.18);
-      border-color: rgba(120,211,255,.55);
+      background: rgba(120,211,255,.20);
+      border-color: rgba(120,211,255,.75);
     }
 
-    /* Small divider line inside hero */
-    .rule{
-      height: 1px;
-      width: 100%;
-      margin: 22px auto 0;
-      background: linear-gradient(90deg, transparent, rgba(120,211,255,.45), transparent);
-      opacity: .9;
+    /* Coluna direita: “Highlights” limpos (em vez de pills gordos) */
+    .side{
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(8,10,14,.62), rgba(8,10,14,.38));
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      padding: 26px;
     }
 
-    /* Desktop-friendly: keep nav centered and readable */
+    .side h2{
+      margin: 0 0 12px;
+      font-size: .92rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      font-weight: 600;
+    }
+
+    .meta-list{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .meta-item{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .meta-item strong{
+      display:block;
+      color: rgba(242,244,247,.92);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    /* Desktop-only focus; se quiseres depois fazemos o mobile */
     @media (max-width: 980px){
       .menu{ display:none; }
+      .hero-shell{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <header class="site-header">
-    <nav class="nav" aria-label="Primary">
-      <a href="index.html" class="brand" aria-label="Home">MARIANA TORRES</a>
+  <header>
+    <nav aria-label="Primary">
+      <a class="brand" href="index.html">MARIANA TORRES</a>
 
       <ul class="menu" role="menubar">
         <li role="none"><a role="menuitem" href="about.html">About</a></li>
 
         <li class="dropdown" role="none">
-          <a role="menuitem" href="projects.html" aria-haspopup="true">Projects <span class="chev">▾</span></a>
+          <a role="menuitem" href="projects.html" aria-haspopup="true">Projects ▾</a>
           <ul class="dropdown-content" role="menu" aria-label="Projects submenu">
             <li role="none"><a role="menuitem" href="artistic-works.html">Send me a Color</a></li>
             <li role="none"><a role="menuitem" href="research-preservation.html">Research &amp; Preservation Works</a></li>
@@ -366,7 +348,7 @@
         </li>
 
         <li class="dropdown" role="none">
-          <a role="menuitem" href="analogue-film.html" aria-haspopup="true">Analogue Film Practice <span class="chev">▾</span></a>
+          <a role="menuitem" href="analogue-film.html" aria-haspopup="true">Analogue Film Practice ▾</a>
           <ul class="dropdown-content" role="menu" aria-label="Analogue Film submenu">
             <li role="none"><a role="menuitem" href="photochemical-techniques.html">Photochemical Techniques</a></li>
             <li role="none"><a role="menuitem" href="technical-documentation.html">Technical Documentation</a></li>
@@ -378,43 +360,58 @@
       </ul>
 
       <div class="nav-actions">
-        <a class="nav-link subtle" href="Mariana_Torres_CV.pdf" target="_blank" rel="noopener">CV</a>
-        <a class="nav-link btn" href="mailto:youremail@domain.com">Email</a>
+        <a class="subtle" href="Mariana_Torres_CV.pdf" target="_blank" rel="noopener">CV</a>
+        <a class="btn" href="mailto:youremail@domain.com">Email</a>
       </div>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-inner">
-        <div class="kicker"><span class="dot"></span> Moving image · archives · analogue processes</div>
+      <div class="hero-shell">
+        <div class="hero-card">
+          <div class="hero-content">
+            <div class="kicker"><span class="dot"></span> MOVING IMAGE · ARCHIVES · ANALOGUE PROCESSES</div>
 
-        <h1>MARIANA TORRES</h1>
+            <h1>MARIANA TORRES</h1>
+            <p class="role">Audiovisual Archivist &amp; Moving Image Practitioner</p>
 
-        <p class="hero-sub">
-          Audiovisual Archivist &amp; Moving Image Practitioner
-        </p>
+            <p class="bio">
+              Working across moving image archives, preservation practices, and analogue film processes.
+              My work connects research, technical practice, and artistic approaches to the materiality of film.
+            </p>
 
-        <p class="hero-copy">
-          Working across moving image archives, preservation practices, and analogue film processes.
-          My work connects research, technical practice, and artistic approaches to the materiality of film.
-        </p>
-
-        <div class="hero-cta">
-          <a class="cta primary" href="projects.html">View projects</a>
-          <a class="cta" href="about.html">About</a>
+            <div class="cta-row">
+              <a class="cta primary" href="projects.html">View projects</a>
+              <a class="cta" href="about.html">About</a>
+            </div>
+          </div>
         </div>
 
-        <div class="rule"></div>
-
-        <div class="hero-meta" aria-label="Highlights">
-          <span class="pill">Preservation &amp; access</span>
-          <span class="pill">Photochemical techniques</span>
-          <span class="pill">Technical documentation</span>
-          <span class="pill">Writing &amp; research</span>
-        </div>
+        <aside class="side" aria-label="Highlights">
+          <h2>Focus</h2>
+          <ul class="meta-list">
+            <li class="meta-item">
+              <strong>Preservation &amp; access</strong>
+              workflows, standards, collections
+            </li>
+            <li class="meta-item">
+              <strong>Photochemical techniques</strong>
+              16mm/35mm, lab &amp; process
+            </li>
+            <li class="meta-item">
+              <strong>Technical documentation</strong>
+              reports, condition, metadata
+            </li>
+            <li class="meta-item">
+              <strong>Writing &amp; research</strong>
+              essays, publishing, context
+            </li>
+          </ul>
+        </aside>
       </div>
     </section>
   </main>
 </body>
 </html>
+
