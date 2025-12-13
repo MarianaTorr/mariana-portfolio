@@ -14,20 +14,19 @@
       --bg:#06070b;
       --text:#f2f4f7;
       --muted: rgba(242,244,247,.72);
-      --muted2: rgba(242,244,247,.56);
+      --muted2: rgba(242,244,247,.55);
       --accent:#78d3ff;
 
-      --max: 1160px;
-      --hdr-h: 72px;
+      --max: 1120px;
+      --hdr-h: 64px;
 
       --border: rgba(255,255,255,.10);
-      --border2: rgba(255,255,255,.14);
+      --border2: rgba(255,255,255,.16);
       --shadow: 0 22px 70px rgba(0,0,0,.55);
-      --radius: 18px;
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    html, body{ height:100%; }
     body{
       margin:0;
       color: var(--text);
@@ -40,16 +39,19 @@
       background-color: var(--bg);
     }
 
-    /* ===== Header (simples e “clean”) ===== */
+    a{ color:inherit; }
+
+    /* ===== Minimal Header ===== */
     header{
       position: fixed;
       inset: 0 0 auto 0;
       height: var(--hdr-h);
       z-index: 1000;
-      background: linear-gradient(to bottom, rgba(6,7,11,.86), rgba(6,7,11,.55));
+      background: linear-gradient(to bottom, rgba(6,7,11,.86), rgba(6,7,11,.45));
       border-bottom: 1px solid rgba(255,255,255,.08);
       backdrop-filter: blur(10px);
     }
+
     nav{
       max-width: var(--max);
       margin: 0 auto;
@@ -57,18 +59,19 @@
       padding: 0 22px;
       display:flex;
       align-items:center;
-      justify-content:space-between;
+      justify-content: space-between;
       gap: 18px;
     }
+
+    /* brand in the middle feels “poster-ish”, but keep it left if you prefer */
     .brand{
       font-family:"Bebas Kai", system-ui, sans-serif;
       letter-spacing: .18em;
       text-decoration:none;
       color: var(--text);
-      padding: 10px 10px;
-      border-radius: 12px;
+      white-space: nowrap;
+      padding: 8px 10px;
     }
-    .brand:hover{ background: rgba(255,255,255,.04); }
 
     .menu{
       list-style:none;
@@ -80,22 +83,25 @@
       font-size:.94rem;
       color: var(--muted);
     }
+
     .menu > li > a{
       display:inline-flex;
       align-items:center;
       gap: 8px;
       text-decoration:none;
       color: inherit;
-      padding: 10px 10px;
-      border-radius: 12px;
-      transition: background .15s ease, color .15s ease;
+      padding: 8px 10px;
+      transition: color .15s ease, opacity .15s ease;
       white-space: nowrap;
+      opacity: .9;
     }
     .menu > li > a:hover{
       color: var(--text);
-      background: rgba(255,255,255,.04);
+      opacity: 1;
     }
+
     .dropdown{ position:relative; }
+
     .dropdown-content{
       position:absolute;
       top: calc(100% + 10px);
@@ -104,109 +110,69 @@
       margin:0;
       padding: 10px;
       list-style:none;
-      border-radius: 16px;
+
       border: 1px solid var(--border);
       background: rgba(8,10,14,.92);
       box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
+
+      /* square corners */
+      border-radius: 0;
+
       opacity: 0;
       visibility: hidden;
       transform: translateY(-4px);
       transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
     }
+
     .dropdown:hover .dropdown-content,
     .dropdown:focus-within .dropdown-content{
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
+
     .dropdown-content a{
       display:block;
       padding: 10px 10px;
-      border-radius: 12px;
       color: var(--muted);
       text-decoration:none;
+      border-radius: 0;
     }
     .dropdown-content a:hover{
       color: var(--text);
       background: rgba(255,255,255,.06);
     }
 
-    .nav-actions{ display:flex; gap:10px; align-items:center; }
-    .nav-actions a{
-      text-decoration:none;
-      font-size:.93rem;
-      padding: 9px 12px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      color: var(--text);
-      transition: background .15s ease, border-color .15s ease;
-      white-space: nowrap;
-    }
-    .nav-actions .subtle{
-      color: var(--muted);
-    }
-    .nav-actions .subtle:hover{
-      color: var(--text);
-      background: rgba(255,255,255,.04);
-    }
-    .nav-actions .btn{
-      border-color: rgba(120,211,255,.40);
-      background: rgba(120,211,255,.10);
-    }
-    .nav-actions .btn:hover{
-      border-color: rgba(120,211,255,.62);
-      background: rgba(120,211,255,.16);
-    }
-
     main{ padding-top: var(--hdr-h); }
 
-    /* ===== Hero (mais editorial / menos “UI-feio”) ===== */
+    /* ===== Hero ===== */
     .hero{
       min-height: calc(100vh - var(--hdr-h));
       display:flex;
       align-items:center;
-      padding: 56px 22px;
+      justify-content:center;
+      padding: 44px 22px 64px;
     }
 
-    .hero-shell{
-      max-width: var(--max);
-      margin: 0 auto;
-      width: 100%;
-      display:grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .hero-card{
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.10);
+    /* single centered “column” */
+    .panel{
+      width: min(780px, 100%);
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
-      overflow: hidden;
-
-      /* “glass” mais bonito: gradiente, não um bloco cinza */
-      background:
-        linear-gradient(135deg, rgba(8,10,14,.82), rgba(8,10,14,.52));
+      background: linear-gradient(135deg, rgba(8,10,14,.78), rgba(8,10,14,.44));
       backdrop-filter: blur(12px);
-      position: relative;
+
+      /* square corners */
+      border-radius: 0;
+
+      overflow: hidden;
     }
 
-    /* linha/acento discreto */
-    .hero-card::before{
-      content:"";
-      position:absolute;
-      inset: 0;
-      background:
-        radial-gradient(700px 280px at 20% 15%, rgba(120,211,255,.14), transparent 55%),
-        radial-gradient(600px 240px at 80% 30%, rgba(255,255,255,.06), transparent 60%);
-      pointer-events:none;
-      opacity: .9;
-    }
-
-    .hero-content{
-      position: relative;
-      padding: 34px 34px 28px;
+    /* Top intro stays fixed (not scroll) */
+    .panel-top{
+      padding: 26px 28px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
     .kicker{
@@ -225,45 +191,131 @@
     }
 
     h1{
-      margin: 14px 0 8px;
+      margin: 14px 0 6px;
       font-family:"Bebas Kai", system-ui, sans-serif;
-      font-size: 3.55rem;
-      letter-spacing: .12em; /* menos “espalhado” = mais elegante */
+      font-size: 3.25rem;
+      letter-spacing: .12em;
       line-height: 1.02;
+      text-align: center; /* user asked to center */
     }
 
     .role{
-      margin: 0 0 16px;
-      font-size: 1.1rem;
+      margin: 0;
+      text-align:center;
       color: var(--muted);
+      font-size: 1.05rem;
     }
 
-    .bio{
+    .scroll-hint{
+      margin-top: 16px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap: 10px;
+      color: var(--muted2);
+      font-size: .88rem;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      user-select: none;
+    }
+    .scroll-hint .arrow{
+      transform: translateY(-1px);
+      animation: bob 1.8s ease-in-out infinite;
+      color: rgba(120,211,255,.9);
+    }
+    @keyframes bob{
+      0%,100%{ transform: translateY(-1px); opacity:.85; }
+      50%{ transform: translateY(3px); opacity:1; }
+    }
+
+    /* Scroll area (your photo + bio phrases) */
+    .panel-scroll{
+      height: 380px;              /* desktop “dossier window” */
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(120,211,255,.35) rgba(255,255,255,.06);
+    }
+    .panel-scroll::-webkit-scrollbar{ width: 10px; }
+    .panel-scroll::-webkit-scrollbar-track{ background: rgba(255,255,255,.04); }
+    .panel-scroll::-webkit-scrollbar-thumb{
+      background: rgba(120,211,255,.22);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    .section{
+      scroll-snap-align: start;
+      padding: 24px 28px;
+    }
+
+    .lead{
       margin: 0;
-      max-width: 68ch;
       font-size: 1.06rem;
-      line-height: 1.78;
-      color: rgba(242,244,247,.90);
+      line-height: 1.8;
+      color: rgba(242,244,247,.92);
+      text-align: center; /* requested */
+    }
+
+    .divider{
+      height: 1px;
+      margin: 0;
+      background: linear-gradient(90deg, transparent, rgba(120,211,255,.35), transparent);
+      opacity: .9;
+    }
+
+    /* Photo + bio layout */
+    .bio-grid{
+      display:grid;
+      grid-template-columns: 160px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .portrait{
+      width: 160px;
+      height: 200px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 0; /* square */
+      filter: contrast(1.02) saturate(.95);
+    }
+
+    .bio-lines{
+      margin: 0;
+      padding: 0;
+      list-style:none;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 1.02rem;
+    }
+
+    .bio-lines strong{
+      color: rgba(242,244,247,.92);
+      font-weight: 600;
     }
 
     .cta-row{
-      margin-top: 22px;
       display:flex;
+      justify-content:center;
       gap: 10px;
       flex-wrap: wrap;
+      margin-top: 8px;
     }
-
     .cta{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       padding: 10px 14px;
-      border-radius: 14px;
+      border-radius: 0; /* square */
       text-decoration:none;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
       color: var(--text);
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      font-size: .95rem;
     }
     .cta:hover{
       transform: translateY(-1px);
@@ -272,61 +324,19 @@
     }
     .cta.primary{
       border-color: rgba(120,211,255,.55);
-      background: rgba(120,211,255,.14);
+      background: rgba(120,211,255,.12);
     }
     .cta.primary:hover{
-      background: rgba(120,211,255,.20);
+      background: rgba(120,211,255,.18);
       border-color: rgba(120,211,255,.75);
     }
 
-    /* Coluna direita: “Highlights” limpos (em vez de pills gordos) */
-    .side{
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(8,10,14,.62), rgba(8,10,14,.38));
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
-      padding: 26px;
-    }
-
-    .side h2{
-      margin: 0 0 12px;
-      font-size: .92rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--muted2);
-      font-weight: 600;
-    }
-
-    .meta-list{
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display:flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .meta-item{
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
-      line-height: 1.35;
-    }
-
-    .meta-item strong{
-      display:block;
-      color: rgba(242,244,247,.92);
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    /* Desktop-only focus; se quiseres depois fazemos o mobile */
+    /* desktop-first; hide menu on smaller screens for now */
     @media (max-width: 980px){
       .menu{ display:none; }
-      .hero-shell{ grid-template-columns: 1fr; }
+      .panel-scroll{ height: 420px; }
+      .bio-grid{ grid-template-columns: 1fr; }
+      .portrait{ width: 100%; height: 260px; }
     }
   </style>
 </head>
@@ -358,25 +368,26 @@
 
         <li role="none"><a role="menuitem" href="writing-publications.html">Writing &amp; Publications</a></li>
       </ul>
-
-      <div class="nav-actions">
-        <a class="subtle" href="Mariana_Torres_CV.pdf" target="_blank" rel="noopener">CV</a>
-        <a class="btn" href="mailto:youremail@domain.com">Email</a>
-      </div>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-shell">
-        <div class="hero-card">
-          <div class="hero-content">
-            <div class="kicker"><span class="dot"></span> MOVING IMAGE · ARCHIVES · ANALOGUE PROCESSES</div>
+      <div class="panel" aria-label="Intro panel">
+        <div class="panel-top">
+          <div class="kicker"><span class="dot"></span> MOVING IMAGE · ARCHIVES · ANALOGUE PROCESSES</div>
+          <h1>MARIANA TORRES</h1>
+          <p class="role">Audiovisual Archivist &amp; Moving Image Practitioner</p>
 
-            <h1>MARIANA TORRES</h1>
-            <p class="role">Audiovisual Archivist &amp; Moving Image Practitioner</p>
+          <div class="scroll-hint" aria-hidden="true">
+            Scroll <span class="arrow">↓</span>
+          </div>
+        </div>
 
-            <p class="bio">
+        <div class="panel-scroll" id="panelScroll">
+          <!-- Section 1: short intro -->
+          <div class="section">
+            <p class="lead">
               Working across moving image archives, preservation practices, and analogue film processes.
               My work connects research, technical practice, and artistic approaches to the materiality of film.
             </p>
@@ -386,32 +397,69 @@
               <a class="cta" href="about.html">About</a>
             </div>
           </div>
-        </div>
 
-        <aside class="side" aria-label="Highlights">
-          <h2>Focus</h2>
-          <ul class="meta-list">
-            <li class="meta-item">
-              <strong>Preservation &amp; access</strong>
-              workflows, standards, collections
-            </li>
-            <li class="meta-item">
-              <strong>Photochemical techniques</strong>
-              16mm/35mm, lab &amp; process
-            </li>
-            <li class="meta-item">
-              <strong>Technical documentation</strong>
-              reports, condition, metadata
-            </li>
-            <li class="meta-item">
-              <strong>Writing &amp; research</strong>
-              essays, publishing, context
-            </li>
-          </ul>
-        </aside>
+          <div class="divider"></div>
+
+          <!-- Section 2: photo + bio lines -->
+          <div class="section">
+            <div class="bio-grid">
+              <img class="portrait" src="me.jpg" alt="Portrait of Mariana Torres" />
+              <ul class="bio-lines">
+                <li><strong>Based in:</strong> Lisbon (PT) / available for collaborations</li>
+                <li><strong>Focus:</strong> preservation workflows, analogue film practice, moving image research</li>
+                <li><strong>Approach:</strong> care, material thinking, technical documentation &amp; artistic inquiry</li>
+                <li><strong>Tools:</strong> film handling, inspection, metadata, digitization coordination, writing</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Section 3: a few “bio phrases” (tight + punchy) -->
+          <div class="section">
+            <p class="lead" style="color: var(--muted);">
+              I’m interested in the ethics of preservation, the poetics of obsolescence, and the tactile intelligence of film.
+              <br /><br />
+              I work between institutions, labs, and personal practice—building bridges between access, process, and meaning.
+            </p>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Section 4: optional quick contact teaser (still no email in header) -->
+          <div class="section">
+            <p class="lead" style="color: var(--muted);">
+              For commissions, collaborations, or archival work, please use the contact details on the About page.
+            </p>
+            <div class="cta-row">
+              <a class="cta" href="about.html">Go to About</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
+
+  <script>
+    // Optional nicety: if you want the mouse wheel to scroll inside the panel
+    // even when the cursor is over the background.
+    (function(){
+      const scroller = document.getElementById("panelScroll");
+      if (!scroller) return;
+
+      window.addEventListener("wheel", (e) => {
+        // only intercept if panel is visible in viewport
+        const rect = scroller.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (!inView) return;
+
+        // if user is actively scrolling page (rare here), don't fight them
+        // just gently nudge the panel scroll.
+        scroller.scrollBy({ top: e.deltaY, left: 0, behavior: "auto" });
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
+
 
