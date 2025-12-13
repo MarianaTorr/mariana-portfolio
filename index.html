@@ -26,25 +26,25 @@
 
     *{ box-sizing:border-box; }
     html, body{ height:100%; }
+
     body{
       margin:0;
       color: var(--text);
       font-family:"Source Serif 4", serif;
       -webkit-font-smoothing: antialiased;
 
-      background:
-        url("Timeline2.gif.gif") center/cover no-repeat fixed;
+      background: url("Timeline2.gif.gif") center/cover no-repeat fixed;
       background-color: var(--bg);
     }
 
-    /* Soft overlay ABOVE the gif (helps text) */
+    /* Soft overlay ABOVE the gif for legibility */
     body::before{
       content:"";
       position: fixed;
       inset: 0;
       background:
         radial-gradient(1200px 680px at 50% 35%, rgba(6,7,11,.60), rgba(6,7,11,.18) 60%, rgba(6,7,11,.35) 100%),
-        linear-gradient(to bottom, rgba(6,7,11,.25), rgba(6,7,11,.25));
+        linear-gradient(to bottom, rgba(6,7,11,.22), rgba(6,7,11,.22));
       pointer-events: none;
       z-index: 0;
     }
@@ -54,7 +54,7 @@
     a{ color:inherit; text-decoration:none; }
     a:hover{ color: var(--text); }
 
-    /* ===== Minimal header ===== */
+    /* ===== Minimal header (no CV/email) ===== */
     header{
       position: fixed;
       inset: 0 0 auto 0;
@@ -64,6 +64,7 @@
       border-bottom: 1px solid rgba(255,255,255,.08);
       backdrop-filter: blur(10px);
     }
+
     nav{
       max-width: var(--max);
       margin: 0 auto;
@@ -74,6 +75,7 @@
       justify-content: space-between;
       gap: 18px;
     }
+
     .brand{
       font-family:"Bebas Kai", system-ui, sans-serif;
       letter-spacing: .18em;
@@ -81,6 +83,7 @@
       white-space: nowrap;
       padding: 6px 0;
     }
+
     .menu{
       list-style:none;
       display:flex;
@@ -91,6 +94,7 @@
       font-size:.94rem;
       color: var(--muted);
     }
+
     .menu > li > a{
       padding: 8px 0;
       opacity: .9;
@@ -100,6 +104,7 @@
     .menu > li > a:hover{ opacity: 1; color: var(--text); }
 
     .dropdown{ position:relative; }
+
     .dropdown-content{
       position:absolute;
       top: calc(100% + 10px);
@@ -114,19 +119,21 @@
       box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
 
-      border-radius: 0; /* square */
+      border-radius: 0;
 
       opacity: 0;
       visibility: hidden;
       transform: translateY(-4px);
       transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
     }
+
     .dropdown:hover .dropdown-content,
     .dropdown:focus-within .dropdown-content{
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
+
     .dropdown-content a{
       display:block;
       padding: 10px 10px;
@@ -139,7 +146,7 @@
 
     main{ padding-top: var(--hdr-h); }
 
-    /* ===== HERO (text + two “light/sombra” plates aligned to grid) ===== */
+    /* ===== HERO: text on background + 3D cube behind ===== */
     .hero{
       min-height: calc(100vh - var(--hdr-h));
       display:flex;
@@ -148,7 +155,7 @@
       padding: 56px 22px 76px;
     }
 
-    /* This is your grid anchor */
+    /* Grid anchor */
     .hero-wrap{
       width: min(980px, 100%);
       position: relative;
@@ -156,93 +163,23 @@
       justify-content: center;
     }
 
-    /* The text column (grid) */
+    /* Text column */
     .hero-content{
       width: min(760px, 100%);
       text-align: center;
       position: relative;
-      z-index: 3; /* above plates */
+      z-index: 3; /* above cube */
       padding: 10px 0;
     }
 
-    /* Plates layer */
-    .plates{
-      position: absolute;
-      inset: 0;
-      pointer-events:none;
-      z-index: 2; /* above background overlay, under text */
-    }
-
-    /* Shared plate base */
-    .plate{
-      position:absolute;
-      border-radius: 0;            /* square corners */
-      border: 1px solid rgba(255,255,255,.10);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 18px 55px rgba(0,0,0,.35);
-      opacity: .95;
-    }
-
-    /*
-      Alignment logic:
-      - we treat the text column as center line,
-      - plates are placed using left: 50% + translateX(-50%)
-      - then offset in X/Y to get overlap but still “systematic”
-    */
-
-    /* Plate A = “luz” (cool / cyan spill) */
-    .plate.light{
-      left: 50%;
-      top: 6px;
-      width: 720px;
-      height: 360px;
-      transform: translateX(-50%) translateX(-110px); /* shift left */
-      background:
-        linear-gradient(135deg, rgba(120,211,255,.18), rgba(8,10,14,.08) 55%, rgba(255,255,255,.06)),
-        radial-gradient(700px 260px at 18% 18%, rgba(120,211,255,.22), transparent 55%);
-      mix-blend-mode: screen; /* makes it feel like projected light */
-      border-color: rgba(120,211,255,.18);
-    }
-
-    /* Plate B = “sombra” (warm-ish dark) */
-    .plate.shadow{
-      left: 50%;
-      top: -18px;
-      width: 660px;
-      height: 410px;
-      transform: translateX(-50%) translateX(150px); /* shift right */
-      background:
-        linear-gradient(180deg, rgba(8,10,14,.62), rgba(8,10,14,.28)),
-        radial-gradient(680px 320px at 70% 25%, rgba(255,255,255,.08), transparent 60%);
-      border-color: rgba(255,255,255,.10);
-      opacity: .90;
-    }
-
-    /* optional: a super subtle grain overlay on plates */
-    .plate::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,.05) 0, rgba(255,255,255,0) 40%),
-        radial-gradient(circle at 70% 60%, rgba(255,255,255,.04) 0, rgba(255,255,255,0) 45%);
-      opacity: .35;
-      pointer-events:none;
-    }
-
+    /* Kicker (NO dot) */
     .kicker{
       display:inline-flex;
       align-items:center;
-      gap: 10px;
       letter-spacing: .18em;
       text-transform: uppercase;
       font-size: .78rem;
       color: var(--muted2);
-    }
-    .dot{
-      width: 6px; height: 6px; border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(120,211,255,.10);
     }
 
     h1{
@@ -271,31 +208,105 @@
       text-shadow: 0 10px 32px rgba(0,0,0,.42);
     }
 
-    .scroll-cue{
-      margin: 18px auto 0;
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      color: var(--muted2);
-      font-size: .82rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      user-select:none;
-    }
-    .scroll-cue span{
-      color: rgba(120,211,255,.95);
-      animation: bob 1.8s ease-in-out infinite;
-    }
-    @keyframes bob{
-      0%,100%{ transform: translateY(-1px); opacity:.85; }
-      50%{ transform: translateY(4px); opacity:1; }
+    /* ===== 3D cube (light/sombra) ===== */
+    .cube-wrap{
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2; /* under text */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    /* quick mobile fallback */
+    .cube{
+      width: 720px;     /* front face width */
+      height: 360px;    /* front face height */
+      position: relative;
+      transform-style: preserve-3d;
+
+      /* perspective illusion + angle */
+      transform:
+        translateX(45px)
+        translateY(-10px)
+        rotateY(-18deg)
+        rotateX(8deg);
+    }
+
+    .face{
+      position: absolute;
+      inset: 0;
+      border-radius: 0;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 55px rgba(0,0,0,.30);
+      background: rgba(8,10,14,.20);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Front = “projected light” */
+    .face.front{
+      background:
+        radial-gradient(800px 360px at 18% 25%, rgba(120,211,255,.26), transparent 56%),
+        linear-gradient(135deg, rgba(120,211,255,.14), rgba(8,10,14,.12) 58%, rgba(255,255,255,.06));
+      border-color: rgba(120,211,255,.16);
+      mix-blend-mode: screen;
+      opacity: .92;
+    }
+
+    /* Side = depth */
+    .face.side{
+      width: 120px;      /* depth */
+      left: auto;
+      right: -120px;
+      transform-origin: left center;
+      transform: rotateY(90deg);
+
+      background:
+        linear-gradient(180deg, rgba(8,10,14,.72), rgba(8,10,14,.26)),
+        radial-gradient(220px 260px at 30% 30%, rgba(255,255,255,.10), transparent 60%);
+      border-color: rgba(255,255,255,.10);
+      mix-blend-mode: normal;
+      opacity: .92;
+    }
+
+    /* Top = subtle highlight */
+    .face.top{
+      height: 120px;     /* depth */
+      top: -120px;
+      bottom: auto;
+      transform-origin: bottom center;
+      transform: rotateX(90deg);
+
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.08), rgba(120,211,255,.08), rgba(255,255,255,.05)),
+        linear-gradient(180deg, rgba(8,10,14,.22), rgba(8,10,14,.06));
+      border-color: rgba(255,255,255,.10);
+      opacity: .78;
+    }
+
+    /* super subtle filmic texture */
+    .face::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.05) 0, rgba(255,255,255,0) 42%),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,.04) 0, rgba(255,255,255,0) 46%);
+      opacity: .22;
+      pointer-events:none;
+    }
+
+    /* Mobile fallback */
     @media (max-width: 980px){
       .menu{ display:none; }
-      .plate.light{ width: 92vw; transform: translateX(-50%) translateX(-6vw); }
-      .plate.shadow{ width: 86vw; transform: translateX(-50%) translateX(6vw); }
+      .cube{
+        width: 92vw;
+        height: 42vw;
+        max-height: 360px;
+        transform: translateX(0) translateY(-8px) rotateY(-14deg) rotateX(7deg);
+      }
+      .face.side{ width: 12vw; right: -12vw; }
+      .face.top{ height: 12vw; top: -12vw; }
     }
   </style>
 </head>
@@ -333,29 +344,30 @@
   <main>
     <section class="hero" id="top">
       <div class="hero-wrap">
-        <!-- light/sombra plates -->
-        <div class="plates" aria-hidden="true">
-          <div class="plate shadow"></div>
-          <div class="plate light"></div>
+        <!-- 3D cube light object -->
+        <div class="cube-wrap" aria-hidden="true">
+          <div class="cube">
+            <div class="face front"></div>
+            <div class="face side"></div>
+            <div class="face top"></div>
+          </div>
         </div>
 
-        <!-- text column -->
+        <!-- text -->
         <div class="hero-content">
-          <div class="kicker"><span class="dot"></span> MOVING IMAGE · ARCHIVES · ANALOGUE PROCESSES</div>
+          <div class="kicker">MOVING IMAGE · ARCHIVES · ANALOGUE PROCESSES</div>
           <h1>MARIANA TORRES</h1>
           <p class="role">Audiovisual Archivist &amp; Moving Image Practitioner</p>
           <p class="intro">
             Working across moving image archives, preservation practices, and analogue film processes.
             My work connects research, technical practice, and artistic approaches to the materiality of film.
           </p>
-          <div class="scroll-cue">Scroll <span>↓</span></div>
         </div>
       </div>
     </section>
 
-    <!-- rest of page follows (full-page scroll) -->
+    <!-- placeholder so you can scroll and see it working -->
     <section style="max-width:1120px;margin:0 auto;padding:84px 22px;color:rgba(242,244,247,.75);">
-      <!-- placeholder section just so you can see the scroll working -->
       <p style="margin:0;line-height:1.8;">
         Next section here (photo / selected work / etc).
       </p>
@@ -363,3 +375,4 @@
   </main>
 </body>
 </html>
+
