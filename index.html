@@ -138,21 +138,34 @@
       align-items:center;
       justify-content:center;
       padding: 52px 22px 64px;
-    }
+/* HERO without box: just text + subtle gradient for legibility */
+.hero{
+  position: relative;
+  min-height: calc(100vh - var(--hdr-h));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 52px 22px 64px;
+}
 
-    .hero-card{
-      width: min(860px, 100%);
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow);
+/* gradient “sheet” behind text (no border, no box) */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 420px at 50% 42%, rgba(6,7,11,.78), rgba(6,7,11,.18) 62%, transparent 78%),
+    linear-gradient(to bottom, rgba(6,7,11,.22), rgba(6,7,11,.10));
+  pointer-events:none;
+}
 
-      /* square */
-      border-radius: 0;
-
-      background: linear-gradient(135deg, rgba(8,10,14,.78), rgba(8,10,14,.42));
-      backdrop-filter: blur(12px);
-      padding: 34px 34px 28px;
-      text-align:center;
-    }
+/* wrapper for the text block */
+.hero-content{
+  position: relative;
+  width: min(860px, 100%);
+  text-align: center;
+  padding: 10px 0; /* breathing, but no “card” */
+}
 
     .kicker{
       display:inline-flex;
@@ -175,6 +188,9 @@
       font-size: 3.35rem;
       letter-spacing: .12em;
       line-height: 1.02;
+  text-shadow: 0 10px 35px rgba(0,0,0,.55);
+}
+
     }
 
     .role{
@@ -190,6 +206,9 @@
       font-size: 1.06rem;
       line-height: 1.85;
       color: rgba(242,244,247,.90);
+  text-shadow: 0 8px 28px rgba(0,0,0,.45);
+}
+
     }
 
     .scroll-cue{
@@ -327,12 +346,14 @@
   <main>
     <!-- HERO: only name + description -->
     <section class="hero" id="top">
-      <div class="hero-card">
-        <div class="kicker"><span class="dot"></span> MOVING IMAGE · ARCHIVES · ANALOGUE PROCESSES</div>
-        <h1>MARIANA TORRES</h1>
-        <p class="role">Audiovisual Archivist &amp; Moving Image Practitioner</p>
-        <p class="intro">
-          Working across moving image archives, preservation practices, and analogue film processes.
-          My work connects research, technical practice, and artistic approaches to the materiality of film.
-        </p>
-        <div class="scroll-cue">Scroll <span>↓</span
+  <div class="hero-content">
+    <div class="kicker"><span class="dot"></span> MOVING IMAGE · ARCHIVES · ANALOGUE PROCESSES</div>
+    <h1>MARIANA TORRES</h1>
+    <p class="role">Audiovisual Archivist &amp; Moving Image Practitioner</p>
+    <p class="intro">
+      Working across moving image archives, preservation practices, and analogue film processes.
+      My work connects research, technical practice, and artistic approaches to the materiality of film.
+    </p>
+  </div>
+</section>
+
