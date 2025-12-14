@@ -123,8 +123,8 @@
       aspect-ratio: 1.66 / 1;
 
       /* (1) micro horizontal move in px */
-      right: 120px;
-      top: 30px;
+      right: 130px;
+      top: 25px;
       border-color: rgba(255,255,255,.10);
 
       /* subtle grey veil (screen behind) */
@@ -275,6 +275,40 @@
 
   pointer-events:none;
 }
+    /* breathing zone after hero */
+.hero-breath{
+  height: 30vh;
+  background: transparent;
+}
+
+/* about section */
+.about{
+  background: #0a0c11; /* almost imperceptible grey */
+  padding: 80px 22px 120px;
+}
+
+.about-inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* photo */
+.about-photo{
+  width: 220px;
+  height: auto;
+  opacity: .92;
+}
+
+/* text */
+.about-text{
+  max-width: 520px;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
   </style>
 </head>
 
@@ -310,6 +344,20 @@
         </div>
       </div>
     </section>
+    <!-- breathing space -->
+<div class="hero-breath"></div>
+
+<section class="about">
+  <div class="about-inner">
+    <img src="about.jpg" alt="Mariana Torres" class="about-photo" />
+
+    <p class="about-text">
+      I work with moving image preservation, analogue film practices,
+      and archival processes, focusing on the transmission of
+      photochemical knowledge and its contemporary relevance.
+    </p>
+  </div>
+</section>
   </main>
 </body>
 </html>
