@@ -121,7 +121,10 @@
     .frame.back{
       width: 74%;
       aspect-ratio: 1.66 / 1;
+
+      /* (1) micro horizontal move in px */
       right: -6px;
+
       top: 10px;
       border-color: rgba(255,255,255,.10);
 
@@ -130,20 +133,23 @@
       opacity: .72;
     }
 
-    /* front frame: shift right so it contains full “TORRES” */
+    /* front frame */
     .frame.front{
-      width: 70%;                 /* slightly wider so name fits */
+      width: 70%;
       aspect-ratio: 1.66 / 1;
-      left: 6%;                   /* moved right (was 0) */
+      left: 6%;
       bottom: 10px;
       border-color: var(--line);
       opacity: .92;
     }
 
-    /* kicker belongs to the top-right frame zone */
+    /* kicker */
     .kicker{
       position: absolute;
-      right: 8%;
+
+      /* (2) use px instead of % for micro control */
+      right: 18px;
+
       top: 70px;
       width: 60%;
       text-align: right;
@@ -154,11 +160,9 @@
       color: var(--muted2);
     }
 
-    /* title block now sits inside the FRONT frame */
+    /* title block sits inside front frame */
     .title-block{
       position: absolute;
-
-      /* anchor to the front frame “box” */
       left: 6%;
       bottom: 10px;
 
@@ -171,8 +175,10 @@
       flex-direction: column;
       text-align:center;
 
-      /* keep text comfortably inside */
       padding: 0 40px;
+
+      /* (4) lift title a bit to make room for corner subtitle */
+      padding-bottom: 34px;
     }
 
     h1{
@@ -182,11 +188,24 @@
       letter-spacing: .12em;
       line-height: 1.02;
       text-shadow: 0 12px 42px rgba(0,0,0,.55);
-      white-space: nowrap; /* prevents awkward line breaks */
+      white-space: nowrap;
     }
 
-    .role{
-      margin: 0;
+    /* (3) subtitle pinned to bottom-left INSIDE front frame */
+    .front-role{
+      position: absolute;
+      left: 6%;
+      bottom: 10px;
+
+      width: 70%;
+      aspect-ratio: 1.66 / 1;
+
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-start;
+
+      padding: 0 0 18px 22px;
+
       font-size: 1.08rem;
       color: var(--muted);
       text-shadow: 0 10px 35px rgba(0,0,0,.45);
@@ -198,6 +217,7 @@
       .stage{ height: 520px; }
 
       .frame.back{ width: 88%; }
+
       .frame.front{
         width: 84%;
         left: 4%;
@@ -207,16 +227,24 @@
         width: 84%;
         left: 4%;
         padding: 0 22px;
+        padding-bottom: 30px; /* keep the lift on mobile too */
+      }
+
+      .front-role{
+        width: 84%;
+        left: 4%;
+        padding: 0 0 16px 18px;
+        font-size: 1.02rem;
       }
 
       .kicker{
         top: 62px;
-        right: 5%;
+        right: 18px; /* keep px; stable */
         width: 76%;
         font-size: .82rem;
       }
+
       h1{ font-size: 2.7rem; }
-      .role{ font-size: 1.02rem; }
     }
 
     @media (max-width: 520px){
@@ -246,17 +274,20 @@
         <div class="frame back" aria-hidden="true"></div>
         <div class="frame front" aria-hidden="true"></div>
 
+        <!-- (3) subtitle pinned to bottom-left of front frame -->
+        <div class="front-role">Audiovisual Archivist &amp; Moving Image Practitioner</div>
+
         <!-- kicker (top-right zone) -->
         <div class="kicker">MOVING IMAGE · ARCHIVES · ANALOGUE PROCESSES</div>
 
-        <!-- title + role inside the FRONT frame -->
+        <!-- title only -->
         <div class="title-block">
           <h1>MARIANA TORRES</h1>
-          <p class="role">Audiovisual Archivist &amp; Moving Image Practitioner</p>
         </div>
       </div>
     </section>
   </main>
 </body>
 </html>
+
 
