@@ -15,13 +15,12 @@
       --text:#f2f4f7;
       --muted: rgba(242,244,247,.72);
       --muted2: rgba(242,244,247,.55);
-      --accent:#78d3ff;
 
       --max: 1120px;
       --hdr-h: 64px;
 
-      --border: rgba(255,255,255,.12);
       --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --border: rgba(255,255,255,.12);
     }
 
     *{ box-sizing:border-box; }
@@ -29,347 +28,197 @@
 
     body{
       margin:0;
-      color: var(--text);
       font-family:"Source Serif 4", serif;
-      -webkit-font-smoothing: antialiased;
-
+      color: var(--text);
       background: url("Timeline2.gif.gif") center/cover no-repeat fixed;
       background-color: var(--bg);
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Soft overlay ABOVE the gif for legibility */
+    /* Soft global overlay */
     body::before{
       content:"";
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(1200px 680px at 50% 35%, rgba(6,7,11,.60), rgba(6,7,11,.18) 60%, rgba(6,7,11,.35) 100%),
-        linear-gradient(to bottom, rgba(6,7,11,.22), rgba(6,7,11,.22));
-      pointer-events: none;
-      z-index: 0;
+        radial-gradient(1200px 680px at 50% 35%, rgba(6,7,11,.55), rgba(6,7,11,.20) 60%, rgba(6,7,11,.35) 100%),
+        linear-gradient(to bottom, rgba(6,7,11,.20), rgba(6,7,11,.20));
+      pointer-events:none;
+      z-index:0;
     }
 
-    header, main{ position: relative; z-index: 1; }
+    header, main{ position:relative; z-index:1; }
 
-    a{ color:inherit; text-decoration:none; }
-    a:hover{ color: var(--text); }
-
-    /* ===== Minimal header (no CV/email) ===== */
+    /* ===== Header minimal ===== */
     header{
       position: fixed;
       inset: 0 0 auto 0;
       height: var(--hdr-h);
-      z-index: 1000;
       background: linear-gradient(to bottom, rgba(6,7,11,.88), rgba(6,7,11,.40));
       border-bottom: 1px solid rgba(255,255,255,.08);
       backdrop-filter: blur(10px);
+      z-index:1000;
     }
 
     nav{
       max-width: var(--max);
-      margin: 0 auto;
-      height: 100%;
-      padding: 0 22px;
+      margin:0 auto;
+      height:100%;
+      padding:0 22px;
       display:flex;
       align-items:center;
       justify-content: space-between;
-      gap: 18px;
     }
 
     .brand{
-      font-family:"Bebas Kai", system-ui, sans-serif;
-      letter-spacing: .18em;
-      color: var(--text);
-      white-space: nowrap;
-      padding: 6px 0;
+      font-family:"Bebas Kai", sans-serif;
+      letter-spacing:.18em;
     }
 
     .menu{
       list-style:none;
       display:flex;
-      align-items:center;
-      gap: 14px;
+      gap:14px;
       margin:0;
       padding:0;
       font-size:.94rem;
       color: var(--muted);
     }
-
-    .menu > li > a{
-      padding: 8px 0;
-      opacity: .9;
-      transition: opacity .15s ease, color .15s ease;
-      white-space: nowrap;
+    .menu a{
+      text-decoration:none;
+      color:inherit;
+      opacity:.9;
     }
-    .menu > li > a:hover{ opacity: 1; color: var(--text); }
-
-    .dropdown{ position:relative; }
-
-    .dropdown-content{
-      position:absolute;
-      top: calc(100% + 10px);
-      left: 0;
-      min-width: 260px;
-      margin:0;
-      padding: 10px;
-      list-style:none;
-
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(8,10,14,.92);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-
-      border-radius: 0;
-
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-4px);
-      transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
-    }
-
-    .dropdown:hover .dropdown-content,
-    .dropdown:focus-within .dropdown-content{
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .dropdown-content a{
-      display:block;
-      padding: 10px 10px;
-      color: var(--muted);
-    }
-    .dropdown-content a:hover{
-      color: var(--text);
-      background: rgba(255,255,255,.06);
-    }
+    .menu a:hover{ opacity:1; color:var(--text); }
 
     main{ padding-top: var(--hdr-h); }
 
-    /* ===== HERO: text on background + 3D cube behind ===== */
+    /* ===== HERO ===== */
     .hero{
       min-height: calc(100vh - var(--hdr-h));
       display:flex;
       align-items:center;
       justify-content:center;
-      padding: 56px 22px 76px;
+      padding: 60px 22px 80px;
     }
 
-    /* Grid anchor */
     .hero-wrap{
-      width: min(980px, 100%);
       position: relative;
-      display: flex;
-      justify-content: center;
+      width: min(920px, 100%);
+      display:flex;
+      justify-content:center;
     }
 
-    /* Text column */
-    .hero-content{
-      width: min(760px, 100%);
-      text-align: center;
-      position: relative;
-      z-index: 3; /* above cube */
-      padding: 10px 0;
+    /* Shared rect base */
+    .rect{
+      position:absolute;
+      aspect-ratio: 1.66 / 1;
+      width: 100%;
+      border-radius: 0;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
     }
 
-    /* Kicker (NO dot) */
-    .kicker{
-      display:inline-flex;
+    /* Retângulo B — fundo / sombra */
+    .rect.back{
+      width: 92%;
+      left: 4%;
+      top: -22px;
+      background: rgba(8,10,14,.28);
+      opacity: .65;
+      z-index:1;
+    }
+
+    /* Retângulo A — principal */
+    .rect.front{
+      position: relative;
+      background: rgba(10,12,16,.42);
+      border: 1px solid var(--border);
+      z-index:2;
+      display:flex;
       align-items:center;
-      letter-spacing: .18em;
+      justify-content:center;
+      padding: 42px 48px;
+    }
+
+    /* ===== Text ===== */
+    .hero-content{
+      text-align:center;
+      max-width: 640px;
+    }
+
+    .kicker{
+      letter-spacing:.18em;
       text-transform: uppercase;
-      font-size: .78rem;
+      font-size:.78rem;
       color: var(--muted2);
+      margin-bottom: 14px;
     }
 
     h1{
-      margin: 14px 0 8px;
-      font-family:"Bebas Kai", system-ui, sans-serif;
-      font-size: 3.35rem;
-      letter-spacing: .12em;
-      line-height: 1.02;
+      font-family:"Bebas Kai", sans-serif;
+      font-size: 3.3rem;
+      letter-spacing:.12em;
+      margin: 0 0 10px;
+      line-height:1.05;
       text-shadow: 0 12px 42px rgba(0,0,0,.55);
     }
 
     .role{
-      margin: 0 auto 16px;
-      max-width: 60ch;
-      font-size: 1.08rem;
+      font-size:1.06rem;
       color: var(--muted);
-      text-shadow: 0 10px 35px rgba(0,0,0,.45);
+      margin-bottom: 18px;
     }
 
     .intro{
-      margin: 0 auto;
-      max-width: 72ch;
-      font-size: 1.06rem;
-      line-height: 1.85;
-      color: rgba(242,244,247,.92);
-      text-shadow: 0 10px 32px rgba(0,0,0,.42);
+      font-size:1.05rem;
+      line-height:1.8;
+      color: rgba(242,244,247,.9);
     }
 
-    /* ===== 3D cube (light/sombra) ===== */
-    .cube-wrap{
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 2; /* under text */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .cube{
-      width: 720px;     /* front face width */
-      height: 360px;    /* front face height */
-      position: relative;
-      transform-style: preserve-3d;
-
-      /* perspective illusion + angle */
-      transform:
-        translateX(45px)
-        translateY(-10px)
-        rotateY(-18deg)
-        rotateX(8deg);
-    }
-
-    .face{
-      position: absolute;
-      inset: 0;
-      border-radius: 0;
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 18px 55px rgba(0,0,0,.30);
-      background: rgba(8,10,14,.20);
-      backdrop-filter: blur(10px);
-    }
-
-    /* Front = “projected light” */
-    .face.front{
-      background:
-        radial-gradient(800px 360px at 18% 25%, rgba(120,211,255,.26), transparent 56%),
-        linear-gradient(135deg, rgba(120,211,255,.14), rgba(8,10,14,.12) 58%, rgba(255,255,255,.06));
-      border-color: rgba(120,211,255,.16);
-      mix-blend-mode: screen;
-      opacity: .92;
-    }
-
-    /* Side = depth */
-    .face.side{
-      width: 120px;      /* depth */
-      left: auto;
-      right: -120px;
-      transform-origin: left center;
-      transform: rotateY(90deg);
-
-      background:
-        linear-gradient(180deg, rgba(8,10,14,.72), rgba(8,10,14,.26)),
-        radial-gradient(220px 260px at 30% 30%, rgba(255,255,255,.10), transparent 60%);
-      border-color: rgba(255,255,255,.10);
-      mix-blend-mode: normal;
-      opacity: .92;
-    }
-
-    /* Top = subtle highlight */
-    .face.top{
-      height: 120px;     /* depth */
-      top: -120px;
-      bottom: auto;
-      transform-origin: bottom center;
-      transform: rotateX(90deg);
-
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.08), rgba(120,211,255,.08), rgba(255,255,255,.05)),
-        linear-gradient(180deg, rgba(8,10,14,.22), rgba(8,10,14,.06));
-      border-color: rgba(255,255,255,.10);
-      opacity: .78;
-    }
-
-    /* super subtle filmic texture */
-    .face::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,.05) 0, rgba(255,255,255,0) 42%),
-        radial-gradient(circle at 70% 60%, rgba(255,255,255,.04) 0, rgba(255,255,255,0) 46%);
-      opacity: .22;
-      pointer-events:none;
-    }
-
-    /* Mobile fallback */
-    @media (max-width: 980px){
-      .menu{ display:none; }
-      .cube{
-        width: 92vw;
-        height: 42vw;
-        max-height: 360px;
-        transform: translateX(0) translateY(-8px) rotateY(-14deg) rotateX(7deg);
-      }
-      .face.side{ width: 12vw; right: -12vw; }
-      .face.top{ height: 12vw; top: -12vw; }
+    /* Responsive */
+    @media (max-width: 900px){
+      .rect.front{ padding: 30px 26px; }
+      h1{ font-size: 2.6rem; }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <nav aria-label="Primary">
-      <a class="brand" href="index.html">MARIANA TORRES</a>
-
-      <ul class="menu" role="menubar">
-        <li role="none"><a role="menuitem" href="about.html">About</a></li>
-
-        <li class="dropdown" role="none">
-          <a role="menuitem" href="projects.html" aria-haspopup="true">Projects ▾</a>
-          <ul class="dropdown-content" role="menu" aria-label="Projects submenu">
-            <li role="none"><a role="menuitem" href="artistic-works.html">Send me a Color</a></li>
-            <li role="none"><a role="menuitem" href="research-preservation.html">Research &amp; Preservation Works</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown" role="none">
-          <a role="menuitem" href="analogue-film.html" aria-haspopup="true">Analogue Film Practice ▾</a>
-          <ul class="dropdown-content" role="menu" aria-label="Analogue Film submenu">
-            <li role="none"><a role="menuitem" href="photochemical-techniques.html">Photochemical Techniques</a></li>
-            <li role="none"><a role="menuitem" href="technical-documentation.html">Technical Documentation</a></li>
-            <li role="none"><a role="menuitem" href="darkroom-lab.html">Darkroom / Lab Work</a></li>
-          </ul>
-        </li>
-
-        <li role="none"><a role="menuitem" href="writing-publications.html">Writing &amp; Publications</a></li>
+    <nav>
+      <div class="brand">MARIANA TORRES</div>
+      <ul class="menu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="analogue-film.html">Analogue Film Practice</a></li>
+        <li><a href="writing-publications.html">Writing & Publications</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section class="hero" id="top">
+    <section class="hero">
       <div class="hero-wrap">
-        <!-- 3D cube light object -->
-        <div class="cube-wrap" aria-hidden="true">
-          <div class="cube">
-            <div class="face front"></div>
-            <div class="face side"></div>
-            <div class="face top"></div>
+
+        <!-- Retângulo B (sombra / luz de fundo) -->
+        <div class="rect back" aria-hidden="true"></div>
+
+        <!-- Retângulo A (principal) -->
+        <div class="rect front">
+          <div class="hero-content">
+            <div class="kicker">MOVING IMAGE · ARCHIVES · ANALOGUE PROCESSES</div>
+            <h1>MARIANA TORRES</h1>
+            <div class="role">Audiovisual Archivist & Moving Image Practitioner</div>
+            <p class="intro">
+              Working across moving image archives, preservation practices, and analogue film processes.
+              My work connects research, technical practice, and artistic approaches to the materiality of film.
+            </p>
           </div>
         </div>
 
-        <!-- text -->
-        <div class="hero-content">
-          <div class="kicker">MOVING IMAGE · ARCHIVES · ANALOGUE PROCESSES</div>
-          <h1>MARIANA TORRES</h1>
-          <p class="role">Audiovisual Archivist &amp; Moving Image Practitioner</p>
-        
-        </div>
       </div>
-    </section>
-
-    <!-- placeholder so you can scroll and see it working -->
-    <section style="max-width:1120px;margin:0 auto;padding:84px 22px;color:rgba(242,244,247,.75);">
-      <p style="margin:0;line-height:1.8;">
-        Next section here (photo / selected work / etc).
-      </p>
     </section>
   </main>
 </body>
 </html>
-
