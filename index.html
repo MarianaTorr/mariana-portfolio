@@ -123,8 +123,8 @@
       aspect-ratio: 1.66 / 1;
 
       /* (1) micro horizontal move in px */
-      right: 90px;
-      top: 12px;
+      right: 100px;
+      top: 20px;
       border-color: rgba(255,255,255,.10);
 
       /* subtle grey veil (screen behind) */
@@ -250,6 +250,31 @@
       .stage{ height: 560px; }
       h1{ font-size: 2.3rem; }
     }
+    /* ===== intersection layer: darkened + implicit texture ===== */
+
+.frame.front::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  /* darker intersection */
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,.035),
+      rgba(0,0,0,.035) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+
+  /* optical blending */
+  mix-blend-mode: multiply;
+
+  /* control intensity */
+  opacity: .35;
+
+  pointer-events:none;
+}
   </style>
 </head>
 
