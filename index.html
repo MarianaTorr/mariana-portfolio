@@ -252,7 +252,7 @@
     /* ===== intersection layer: darkened + implicit texture ===== */
 
 .frame.front::after{
-  content:"";
+  content:".frame.back";
   position:absolute;
   inset:0;
 
@@ -261,12 +261,12 @@
     repeating-linear-gradient(
       0deg,
       rgba(0,0,0,.035),
-      rgba(0,0,0,.035) 1px,
+      rgba(0, 0, 0, 0.035) 1px,
       transparent 1px,
       transparent 2px
-      rgba(0,0,0,.035) 4px,
-      transparent 2px,
-      transparent 3px
+      rgba(0, 0, 0, 0.035) 4px,
+      transparent 1px,
+      transparent 2px
     );
 
   /* optical blending */
