@@ -280,8 +280,7 @@
 }
     /* breathing zone after hero */
 .hero-breath{
-  height: 30vh;
-  height: 20vh;
+  height: 10vh;
   background: transparent;
 }
 
@@ -302,10 +301,11 @@
 /* photo */
 .about-photo{
   width: 220px;
-  height: auto;
+  height: 220px;        /* define o frame */
+  object-fit: cover;   /* ativa o crop */
+  object-position: left center;
   opacity: .92;
 }
-
 /* text */
 .about-text{
   max-width: 520px;
