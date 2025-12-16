@@ -348,12 +348,16 @@
 .about-photo{
   width: 220px;
   height: 220px;
-  object-fit: cover;        /* mantém a cara centrada */
-  object-position: center;  /* sem offsets manuais */
+  object-fit: none;
+  object-position: -150px -60px;
   border-radius: 50%;
   opacity: .92;
-  filter: contrast(1.08);
-  display: block;           /* imagem volta a ser imagem */
+  filter: contrast(1.08) sharpen(1);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 /* nome */
