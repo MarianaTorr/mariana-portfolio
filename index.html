@@ -361,15 +361,11 @@
   align-items: flex-start;
   gap: 12px;
 }
-//* cria uma linha comum para nome + contactos */
-.about-name{
-  display: grid;
-  grid-template-columns: auto 1fr; /* nome | contactos */
-  column-gap: 18px;
-  align-items: baseline;
-
-  margin-top: 14px;
-
+/* nome */
+.about-name {
+  display: inline-flex;        /* flex horizontal só para o nome + contactos */
+  align-items: baseline;       /* alinha verticalmente */
+  gap: 16px;                   /* espaço entre nome e contactos */
   font-family: "Bebas Kai", system-ui, sans-serif;
   letter-spacing: .18em;
   font-size: 1rem;
@@ -377,20 +373,44 @@
   text-transform: uppercase;
 }
 
-/* força os contactos a “entrarem” na linha do nome */
-.about-contact{
+/* contactos em linha */
+.about-contact {
   display: flex;
   gap: 16px;
-  margin: 0;
+  margin-top: 0; /* remove o espaçamento vertical */
   font-size: .9rem;
   color: var(--muted2);
 }
 
-/* cada item continua normal */
+/* cada linha */
 .contact-item{
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px; /* espaço entre símbolo e texto */
+}
+
+/* ícones */
+.contact-item .icon{
+  font-size: .85rem;
+  opacity: .75;
+}
+
+/* links */
+.contact-item a{
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.contact-item a:hover{
+  border-bottom-color: var(--muted2);
+}
+/* text */
+.about-text{
+  max-width: 520px;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--muted);
 }
   </style>
 </head>
