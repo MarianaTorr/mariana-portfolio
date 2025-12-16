@@ -112,10 +112,11 @@
     .about-photo{
       width: 220px;
       height: 220px;
-      object-fit: cover;
+      object-fit: none;   /* ativa o crop */
+      object-position: -150px -60px;
       border-radius: 50%;
       opacity: .92;
-      filter: contrast(1.08) sharpen(1);
+      filter: contrast(1.08) saturation(1);
     }
 
     /* info: nome + contactos + texto */
