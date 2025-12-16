@@ -372,12 +372,18 @@
 
 /* bloco contacto */
 .about-contact{
-  margin-top: 18px;
   display: flex;
   flex-direction: column;
   gap: 10px; /* espaçamento entre infos */
   font-size: .9rem;
   color: var(--muted2);
+  margin-top: calc(1.55em + 6px);
+}
+.about-info{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 8px;
 }
 
 /* cada linha */
@@ -450,38 +456,43 @@
 
 <section class="about">
   <div class="about-inner">
-    <!-- coluna da foto -->
+
+    <!-- coluna esquerda: FOTO -->
     <div class="about-photo-col">
-  <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
-  <div class="about-name">Mariana Torres</div>
-
-  <div class="about-contact">
-    <div class="contact-item">
-      <span class="icon">✉</span>
-      <a href="mariana1108.torres@gmail.com">mariana1108.torres@gmail.com</a>
+      <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
     </div>
 
-    <div class="contact-item">
-      <span class="icon">☎</span>
-      <a href="tel:+351912473730">+351 912 473 730</a>
-    </div>
+    <!-- coluna direita: TEXTO + CONTACTOS -->
+    <div class="about-info">
+      <div class="about-name">Mariana Torres</div>
 
-    <div class="contact-item">
-      <span class="icon">↗</span>
-      <a href="https://vimeo.com/user116342399" target="_blank" rel="noopener">
-        Vimeo
-      </a>
+      <div class="about-contact">
+        <div class="contact-item">
+          <span class="icon">✉</span>
+          <a href="mailto:teuemail@email.com">teuemail@email.com</a>
+        </div>
+
+        <div class="contact-item">
+          <span class="icon">☎</span>
+          <a href="tel:+351912345678">+351 912 345 678</a>
+        </div>
+
+        <div class="contact-item">
+          <span class="icon">↗</span>
+          <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
+            Vimeo
+          </a>
+        </div>
+      </div>
+
+      <p class="about-text">
+        I work with moving image preservation, analogue film practices,
+        and archival processes, focusing on the transmission of
+        photochemical knowledge and its contemporary relevance,
+        in correlation with the imaterial digital possibilitys through research and
+        cinematic expanded cinema proposels.
+      </p>
     </div>
-  </div>
-</div>
-    <!-- texto à direita -->
-    <p class="about-text">
-      I work with moving image preservation, analogue film practices,
-      and archival processes, focusing on the transmission of
-      photochemical knowledge and its contemporary relevance,
-      in correlation with the imaterial digital possibilitys through research and
-      cinematic expanded cinema proposels.
-    </p>
 
   </div>
 </section>
