@@ -190,6 +190,7 @@
       text-transform: uppercase;
       font-size: .9rem;
       color: var(--muted2);
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     /* title block sits inside front frame */
@@ -211,6 +212,7 @@
 
       /* (4) lift title a bit to make room for corner subtitle */
       padding-bottom: 34px;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     h1{
@@ -260,6 +262,7 @@
         left: 4%;
         padding: 0 22px;
         padding-bottom: 30px; /* keep the lift on mobile too */
+        transition: transform 0.3s ease, color 0.3s ease;
       }
 
       .front-role{
@@ -274,6 +277,7 @@
         right: 18px; /* keep px; stable */
         width: 76%;
         font-size: .82rem;
+        transition: transform 0.3s ease, color 0.3s ease;
       }
 
       h1{ font-size: 2.7rem; }
@@ -282,6 +286,7 @@
     @media (max-width: 520px){
       .stage{ height: 560px; }
       h1{ font-size: 2.3rem; }
+  
     }
     /* ===== intersection layer: darkened + implicit texture ===== */
 
