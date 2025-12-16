@@ -337,7 +337,7 @@
   flex-direction: column;
   align-items: center;
   flex-shrink: 0; /* não deixa empurrar o texto */
-
+  
 }  
 
 /* nome */
@@ -358,7 +358,7 @@
   object-position: -150px -60px;
   border-radius: 50%; /* Isso cria o efeito circular */
   opacity: .92;
-  filter: contrast(1.08) saturate(1.02);
+  filter: contrast(1.08) sharpen(1);
 }
 /* nome */
 .about-name{
@@ -372,17 +372,12 @@
 
 /* bloco contacto */
 .about-contact{
+  margin-top: 18px;
   display: flex;
   flex-direction: column;
   gap: 10px; /* espaçamento entre infos */
   font-size: .9rem;
   color: var(--muted2);
-  margin-top: calc(1.55em + 6px);
-}
-.about-info{
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
 }
 
 /* cada linha */
@@ -455,43 +450,38 @@
 
 <section class="about">
   <div class="about-inner">
-
-    <!-- coluna esquerda: FOTO -->
+    <!-- coluna da foto -->
     <div class="about-photo-col">
-      <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+  <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+  <div class="about-name">Mariana Torres</div>
+
+  <div class="about-contact">
+    <div class="contact-item">
+      <span class="icon">✉</span>
+      <a href="mailto:teuemail@email.com">teuemail@email.com</a>
     </div>
 
-    <!-- coluna direita: TEXTO + CONTACTOS -->
-    <div class="about-info">
-      <div class="about-name">Mariana Torres</div>
-
-      <div class="about-contact">
-        <div class="contact-item">
-          <span class="icon">✉</span>
-          <a href="mailto:teuemail@email.com">teuemail@email.com</a>
-        </div>
-
-        <div class="contact-item">
-          <span class="icon">☎</span>
-          <a href="tel:+351912345678">+351 912 345 678</a>
-        </div>
-
-        <div class="contact-item">
-          <span class="icon">↗</span>
-          <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
-            Vimeo
-          </a>
-        </div>
-      </div>
-
-      <p class="about-text">
-        I work with moving image preservation, analogue film practices,
-        and archival processes, focusing on the transmission of
-        photochemical knowledge and its contemporary relevance,
-        in correlation with the imaterial digital possibilitys through research and
-        cinematic expanded cinema proposels.
-      </p>
+    <div class="contact-item">
+      <span class="icon">☎</span>
+      <a href="tel:+351912345678">+351 912 345 678</a>
     </div>
+
+    <div class="contact-item">
+      <span class="icon">↗</span>
+      <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
+        Vimeo
+      </a>
+    </div>
+  </div>
+</div>
+    <!-- texto à direita -->
+    <p class="about-text">
+      I work with moving image preservation, analogue film practices,
+      and archival processes, focusing on the transmission of
+      photochemical knowledge and its contemporary relevance,
+      in correlation with the imaterial digital possibilitys through research and
+      cinematic expanded cinema proposels.
+    </p>
 
   </div>
 </section>
