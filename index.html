@@ -347,54 +347,27 @@
 
 /* nome */
 .about-name{
-  margin-top: 14px;
-  font-family: "Bebas Kai", system-ui, sans-serif;
-  letter-spacing: .18em;
-  font-size: 2rem;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-/* photo */
-.about-photo{
-  width: 220px;
-  height: 220px;        /* define o frame */
-  object-fit: none;   /* ativa o crop */
-  object-position: -150px -60px;
-  border-radius: 50%; /* Isso cria o efeito circular */
-  opacity: .92;
-  filter: contrast(1.08) sharpen(1);
-  display: flex;
-  flex-direction: column; /* foto em cima, nome + contactos abaixo */
-  align-items: flex-start;
-  gap: 12px;
-}
-/* nome */
-.about-name {
-  display: inline-flex;        /* flex horizontal só para o nome + contactos */
-  align-items: baseline;       /* alinha verticalmente */
-  gap: 16px;                   /* espaço entre nome e contactos */
   font-family: "Bebas Kai", system-ui, sans-serif;
   letter-spacing: .18em;
   font-size: 1rem;
   color: var(--muted);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* contactos em linha */
-.about-contact {
+.about-contact{
   display: flex;
   gap: 16px;
-  margin-top: 0; /* remove o espaçamento vertical */
   font-size: .9rem;
   color: var(--muted2);
 }
 
-/* cada linha */
+/* cada item */
 .contact-item{
   display: flex;
   align-items: center;
-  gap: 8px; /* espaço entre símbolo e texto */
+  gap: 8px;
 }
 
 /* ícones */
@@ -409,7 +382,6 @@
   text-decoration: none;
   border-bottom: 1px solid transparent;
 }
-
 .contact-item a:hover{
   border-bottom-color: var(--muted2);
 }
