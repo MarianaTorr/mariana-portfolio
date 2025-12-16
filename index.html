@@ -134,18 +134,18 @@
       /* (1) micro horizontal move in px */
       right: 191px;
       top: 25px;
-      border-color: rgb(185, 222, 255);
+      border-color: rgba(255,255,255,.10);
 
       /* subtle grey veil (screen behind) */
-      background: rgba(104, 220, 255, 0.953);
+      background: rgba(10,12,16,.14);
       opacity: .72;
       opacity: .82;
 
        background-image: 
     repeating-linear-gradient(
       0deg,
-      rgba(251, 255, 174, 0.884),
-      rgba(255, 224, 150, 0.01) 1px,
+      rgba(255,255,255,0.01),
+      rgba(255,255,255,0.01) 1px,
       transparent 1px,
       transparent 2px
     );
@@ -166,7 +166,7 @@
   background-image: 
     repeating-linear-gradient(
       0deg,
-      rgb(251, 251, 206),
+      rgba(255,255,255,0.005),
       rgba(255,255,255,0.005) 1px,
       transparent 1px,
       transparent 2px
@@ -190,7 +190,7 @@
       text-transform: uppercase;
       font-size: .9rem;
       color: var(--muted2);
-      
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     /* title block sits inside front frame */
@@ -212,6 +212,7 @@
 
       /* (4) lift title a bit to make room for corner subtitle */
       padding-bottom: 34px;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     h1{
@@ -222,7 +223,6 @@
       line-height: 1.02;
       text-shadow: 0 12px 42px rgba(0,0,0,.55);
       white-space: nowrap;
-      transition: transform (0.3s ease, color 0.3s ease;
     }
 
     /* (3) subtitle pinned to bottom-left INSIDE front frame */
@@ -243,7 +243,6 @@
       font-size: 1.08rem;
       color: var(--muted);
       text-shadow: 0 10px 35px rgba(0,0,0,.45);
-      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     /* Responsive */
@@ -300,7 +299,7 @@
   background:
     repeating-linear-gradient(
       0deg,
-      rgba(89, 180, 210, 0),
+      rgba(89, 180, 210, 0.616),
       rgba(246, 255, 149, 0.549) 1px,
       transparent 1px,
       transparent 2px
@@ -343,67 +342,59 @@
   flex-direction: column;
   align-items: center;
   flex-shrink: 0; /* não deixa empurrar o texto */
-   gap: 10px;
   
 }  
-.about-photo{
-  width: 220px;
-  height: 220px;
-  object-fit: none;
-  object-position: -150px -60px;
-  border-radius: 50%;
-  opacity: .92;
-  filter: contrast(1.08) sharpen(1);
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-}
-.about-meta {
-  display: flex;       /* já existe implícito, mas garante flexbox */
-  flex-direction: colum; /* muda de column para row */
-  align-items: center; /* alinha verticalmente com o nome */
-  gap: 20px;           /* espaço entre nome e contactos */
-}
-.about-name-contact {
-  display: flex;
-  align-items: center; /* alinha verticalmente o nome com os contatos */
-  gap: 20px;           /* espaço entre nome e contatos */
-}
 
 /* nome */
 .about-name{
+  margin-top: 14px;
+  font-family: "Bebas Kai", system-ui, sans-serif;
+  letter-spacing: .18em;
+  font-size: 2rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* photo */
+.about-photo{
+  width: 220px;
+  height: 220px;        /* define o frame */
+  object-fit: none;   /* ativa o crop */
+  object-position: -150px -60px;
+  border-radius: 50%; /* Isso cria o efeito circular */
+  opacity: .92;
+  filter: contrast(1.08) sharpen(1);
+  display: flex;
+  flex-direction: column; /* foto em cima, nome + contactos abaixo */
+  align-items: flex-start;
+  gap: 12px;
+}
+/* nome */
+.about-name {
+  display: inline-flex;        /* flex horizontal só para o nome + contactos */
+  align-items: baseline;       /* alinha verticalmente */
+  gap: 16px;                   /* espaço entre nome e contactos */
   font-family: "Bebas Kai", system-ui, sans-serif;
   letter-spacing: .18em;
   font-size: 1rem;
   color: var(--muted);
   text-transform: uppercase;
-  white-space: nowrap;
-   display: block;
-  text-align: center;
-  letter-spacing: .2em;
-}
-.about-contact a:hover{
-  opacity: .85;
-  transform: translateY(-1px);
-}
-/* contactos em linha */
-.about-contact{
-  display: flex;
-  gap: 16px;
-  font-size: .9rem;
-  color: var(--muted2);
-  display: flex;
-  gap: 18px;
-  justify-content: center;
 }
 
-/* cada item */
+/* contactos em linha */
+.about-contact {
+  display: flex;
+  gap: 16px;
+  margin-top: 0; /* remove o espaçamento vertical */
+  font-size: .9rem;
+  color: var(--muted2);
+}
+
+/* cada linha */
 .contact-item{
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 8px; /* espaço entre símbolo e texto */
 }
 
 /* ícones */
@@ -418,6 +409,7 @@
   text-decoration: none;
   border-bottom: 1px solid transparent;
 }
+
 .contact-item a:hover{
   border-bottom-color: var(--muted2);
 }
@@ -468,40 +460,30 @@
 
 <section class="about">
   <div class="about-inner">
-
     <!-- coluna da foto -->
-   <div class="about-photo-col">
+    <div class="about-photo-col">
   <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+  <div class="about-name">Mariana Torres</div>
 
-  <!-- wrapper nome + contactos -->
-  <div class="about-name-contact">
-    <div class="about-name">Mariana Torres</div>
+  <div class="about-contact">
+    <div class="contact-item">
+      <span class="icon">✉</span>
+      <a href="mailto:teuemail@email.com">mariana1108.torres@gmail.com</a>
+    </div>
 
-    <div class="about-contact">
-      <div class="contact-item">
-        <span class="icon">✉</span>
-        <a href="mailto:teuemail@email.com">
-          mariana1108.torres@gmail.com
-        </a>
-      </div>
+    <div class="contact-item">
+      <span class="icon">☎</span>
+      <a href="tel:+351912345678">+351 912 473 730</a>
+    </div>
 
-      <div class="contact-item">
-        <span class="icon">☎</span>
-        <a href="tel:+351912345678">
-          +351 912 473 730
-        </a>
-      </div>
-
-      <div class="contact-item">
-        <span class="icon">↗</span>
-        <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
-          Vimeo
-        </a>
-      </div>
+    <div class="contact-item">
+      <span class="icon">↗</span>
+      <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
+        Vimeo
+      </a>
     </div>
   </div>
 </div>
-
     <!-- texto à direita -->
     <p class="about-text">
       I work with moving image preservation, analogue film practices,
