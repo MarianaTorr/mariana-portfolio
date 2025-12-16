@@ -1,180 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>About – Mariana Torres</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Fonts -->
+ <!-- Fonts -->
   <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
-      --bg-soft: #090b10;
-      --text-main: #f5f5f5;
-      --text-muted: #a6a9b5;
-      --accent: #78d3ff;
-      --max-width: 1100px;
+    :root{
+      --bg:#06070b;
+      --text:#f2f4f7;
+      --muted: rgba(242,244,247,.70);
+      --muted2: rgba(242,244,247,.55);
+
+      --max: 1120px;
+      --hdr-h: 64px;
+
+      --line: rgba(255,255,255,.22);
+      --line-soft: rgba(255,255,255,.14);
+      --overlay: rgba(6,7,11,.24);
     }
 
-    /* FUNDO GERAL COM GIF (mesmo do index) */
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background: url('Timeline2.gif.gif?v=2') center/cover no-repeat fixed;
-      color: var(--text-main);
-      font-family: "Source Serif 4", serif;
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+
+    body{
+      margin:0;
+      color: var(--text);
+      font-family:"Source Serif 4", serif;
       -webkit-font-smoothing: antialiased;
-      position: relative;
+      background: url("Timeline2.gif.gif") center/cover no-repeat fixed;
+      background-color: var(--bg);
     }
 
-    /* camada muito subtil para melhorar legibilidade */
-    .page-overlay {
-      background: radial-gradient(circle at top, rgba(10, 10, 14, 0.65), rgba(5, 6, 8, 0.9));
-      min-height: 100vh;
-    }
-
-    .shell {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px 60px;
-    }
-
-    @media (min-width: 768px) {
-      .shell {
-        padding: 0 24px 80px;
-      }
-    }
-     /* Imagem grande debaixo da hero */
-
-    .about-photo {
-  display: block;
-  margin: 0 auto 30px auto; /* centro + espaço por baixo */
-  max-width: 280px;         /* podes ajustar */
-  border-radius: 6px;       /* opcional - fica elegante */
-}
-
-
-    /* ---------------- HEADER + MENU (igual ao index) ---------------- */
-
-    header {
+    /* soft layer over GIF */
+    body::before{
+      content:"";
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 68px;
-      background: rgba(5, 6, 8, 0.80);
-      backdrop-filter: blur(6px);
+      inset: 0;
+      background:
+        radial-gradient(1200px 700px at 50% 40%, rgba(6,7,11,.34), rgba(6,7,11,.12) 55%, rgba(6,7,11,.28) 100%),
+        linear-gradient(to bottom, var(--overlay), var(--overlay));
+      pointer-events:none;
+      z-index:0;
+    }
+
+    header, main{ position: relative; z-index: 1; }
+
+    /* ===== header minimal ===== */
+    header{
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--hdr-h);
       z-index: 1000;
-      /* sem linha de divisão */
-      /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
+      background: linear-gradient(to bottom, rgba(6,7,11,.88), rgba(6,7,11,.35));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
     }
-
-    nav {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      height: 100%;
-      padding: 0 20px;
-      display: flex;
+    nav{
+      max-width: var(--max);
+      margin:0 auto;
+      height:100%;
+      padding:0 22px;
+      display:flex;
+      align-items:center;
       justify-content: space-between;
-      align-items: center;
+      gap: 18px;
     }
-
-    /* Logotipo / Nome */
-    .brand {
-      font-family: "Bebas Kai";
-      font-size: 1.15rem;
-      letter-spacing: 0.14em; /* um pouco menos agressivo */
-      color: var(--text-main);
-      text-decoration: none;
+    .brand{
+      font-family:"Bebas Kai", system-ui, sans-serif;
+      letter-spacing:.18em;
+      white-space: nowrap;
     }
-
-    /* Menu */
-    .menu {
-      list-style: none;
-      display: flex;
-      gap: 22px;
-      margin: 0;
-      padding: 0;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      align-items: center;
+    .menu{
+      list-style:none;
+      display:flex;
+      gap: 14px;
+      margin:0;
+      padding:0;
+      font-size:.94rem;
+      color: var(--muted);
     }
-
-    .menu a {
+    .menu a{
+      text-decoration:none;
       color: inherit;
-      text-decoration: none;
-      position: relative;
-      padding-bottom: 2px;
+      opacity:.9;
       white-space: nowrap;
     }
+    .menu a:hover{ opacity:1; color: var(--text); }
 
-    .menu a:hover {
-      color: var(--accent);
-    }
-
-    .menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0%;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.2s;
-    }
-
-    .menu a:hover::after {
-      width: 100%;
-    }
-
-    /* Dropdowns */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown > a::after {
-      content: " ▾";
-      font-size: 0.7em; /* seta mais discreta */
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 26px;
-      left: 0;
-      min-width: 220px;
-      background: rgba(5, 6, 8, 0.97);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 0;
-      list-style: none;
-      z-index: 999;
-    }
-
-    .dropdown-content li {
-      padding: 4px 14px;
-      white-space: nowrap;
-    }
-
-    .dropdown-content li a {
-      display: block;
-      color: var(--text-muted);
-    }
-
-    .dropdown-content li a:hover {
-      color: var(--accent);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
+    main{ padding-top: var(--hdr-h); }
     /* ---------------- ABOUT CONTENT ---------------- */
 
     main {
@@ -241,7 +152,7 @@
       font-size: 0.9rem;
     }
 
-  </style>
+</style>
 </head>
 
 <body>
