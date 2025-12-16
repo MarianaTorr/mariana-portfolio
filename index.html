@@ -358,6 +358,57 @@
   border-radius: 50%; /* Isso cria o efeito circular */
   opacity: .90;
 }
+/* alinhar tudo à direita na coluna da foto */
+.about-photo-col{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+/* nome */
+.about-name{
+  margin-top: 14px;
+  font-family: "Bebas Kai", system-ui, sans-serif;
+  letter-spacing: .18em;
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* bloco contacto */
+.about-contact{
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* espaçamento entre infos */
+  font-size: .9rem;
+  color: var(--muted2);
+}
+
+/* cada linha */
+.contact-item{
+  display: flex;
+  align-items: center;
+  gap: 8px; /* espaço entre símbolo e texto */
+}
+
+/* ícones */
+.contact-item .icon{
+  font-size: .85rem;
+  opacity: .75;
+}
+
+/* links */
+.contact-item a{
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.contact-item a:hover{
+  border-bottom-color: var(--muted2);
+}
 /* text */
 .about-text{
   max-width: 520px;
@@ -409,6 +460,30 @@
     <div class="about-photo-col">
       <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
       <div class="about-name">Mariana Torres</div>
+      <div class="about-photo-col">
+  <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+  <div class="about-name">Mariana Torres</div>
+
+  <!-- contactos -->
+  <div class="about-contact">
+    <div class="contact-item">
+      <span class="icon">✉</span>
+      <a href="mailto:teuemail@email.com">teuemail@email.com</a>
+    </div>
+
+    <div class="contact-item">
+      <span class="icon">☎</span>
+      <a href="tel:+351912345678">+351 912 345 678</a>
+    </div>
+
+    <div class="contact-item">
+      <span class="icon">↗</span>
+      <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
+        Vimeo
+      </a>
+    </div>
+  </div>
+</div>
     </div>
 
     <!-- texto à direita -->
