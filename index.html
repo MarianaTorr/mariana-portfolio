@@ -331,6 +331,23 @@
   align-items: flex-start;
   gap: 40px;
 }
+/* coluna da foto */
+.about-photo-col{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0; /* não deixa empurrar o texto */
+}
+
+/* nome */
+.about-name{
+  margin-top: 14px;
+  font-family: "Bebas Kai", system-ui, sans-serif;
+  letter-spacing: .18em;
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
 
 /* photo */
 .about-photo{
@@ -388,8 +405,13 @@
 
 <section class="about">
   <div class="about-inner">
-    <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+    <!-- coluna da foto -->
+    <div class="about-photo-col">
+      <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+      <div class="about-name">Mariana Torres</div>
+    </div>
 
+    <!-- texto à direita -->
     <p class="about-text">
       I work with moving image preservation, analogue film practices,
       and archival processes, focusing on the transmission of
@@ -397,6 +419,7 @@
       in correlation with the imaterial digital possibilitys through research and
       cinematic expanded cinema proposels.
     </p>
+
   </div>
 </section>
   </main>
