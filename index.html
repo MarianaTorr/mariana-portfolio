@@ -366,6 +366,11 @@
   align-items: center; /* alinha verticalmente com o nome */
   gap: 20px;           /* espaço entre nome e contactos */
 }
+.about-name-contact {
+  display: flex;
+  align-items: center; /* alinha verticalmente o nome com os contatos */
+  gap: 20px;           /* espaço entre nome e contatos */
+}
 
 /* nome */
 .about-name{
@@ -465,37 +470,37 @@
   <div class="about-inner">
 
     <!-- coluna da foto -->
-    <div class="about-photo-col">
-      <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+   <div class="about-photo-col">
+  <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
 
-      <!-- NOVO WRAPPER (única mudança) -->
-      <div class="about-meta">
-        <div class="about-name">Mariana Torres</div>
+  <!-- wrapper nome + contactos -->
+  <div class="about-name-contact">
+    <div class="about-name">Mariana Torres</div>
 
-        <div class="about-contact">
-          <div class="contact-item">
-            <span class="icon">✉</span>
-            <a href="mailto:teuemail@email.com">
-              mariana1108.torres@gmail.com
-            </a>
-          </div>
+    <div class="about-contact">
+      <div class="contact-item">
+        <span class="icon">✉</span>
+        <a href="mailto:teuemail@email.com">
+          mariana1108.torres@gmail.com
+        </a>
+      </div>
 
-          <div class="contact-item">
-            <span class="icon">☎</span>
-            <a href="tel:+351912345678">
-              +351 912 473 730
-            </a>
-          </div>
+      <div class="contact-item">
+        <span class="icon">☎</span>
+        <a href="tel:+351912345678">
+          +351 912 473 730
+        </a>
+      </div>
 
-          <div class="contact-item">
-            <span class="icon">↗</span>
-            <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
-              Vimeo
-            </a>
-          </div>
-        </div>
+      <div class="contact-item">
+        <span class="icon">↗</span>
+        <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
+          Vimeo
+        </a>
       </div>
     </div>
+  </div>
+</div>
 
     <!-- texto à direita -->
     <p class="about-text">
