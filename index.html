@@ -334,7 +334,7 @@
   margin: 0 auto;
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 40px;
 }
 /* coluna da foto */
 .about-photo-col{
@@ -343,7 +343,14 @@
   align-items: center;
   flex-shrink: 0; /* não deixa empurrar o texto */
   
-}  
+} 
+/* container do nome + contactos */
+.about-header {
+  display: flex;
+  align-items: center; /* alinha verticalmente */
+  gap: 20px; /* espaço entre nome e contactos */
+  flex-wrap: wrap; /* evita overflow em telas pequenas */
+} 
 
 /* nome */
 .about-name{
@@ -379,16 +386,16 @@
   font-size: 1rem;
   color: var(--muted);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* contactos em linha */
 .about-contact {
   display: flex;
+  align-items: center;
   gap: 16px;
-  margin-top: 0; /* remove o espaçamento vertical */
   font-size: .9rem;
   color: var(--muted2);
-  align-items: -150px -60px;
 
 }
 
@@ -463,39 +470,41 @@
 <section class="about">
   <div class="about-inner">
     <!-- coluna da foto -->
-    <div class="about-photo-col">
+  <div class="about-photo-col">
   <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
-  <div class="about-name">Mariana Torres</div>
-
-  <div class="about-contact">
-    <div class="contact-item">
-      <span class="icon">✉</span>
-      <a href="mailto:teuemail@email.com">mariana1108.torres@gmail.com</a>
-    </div>
-
-    <div class="contact-item">
-      <span class="icon">☎</span>
-      <a href="tel:+351912345678">+351 912 473 730</a>
-    </div>
-
-    <div class="contact-item">
-      <span class="icon">↗</span>
-      <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
-        Vimeo
-      </a>
-    </div>
-  </div>
 </div>
-    <!-- texto à direita -->
-    <p class="about-text">
-      I work with moving image preservation, analogue film practices,
-      and archival processes, focusing on the transmission of
-      photochemical knowledge and its contemporary relevance,
-      in correlation with the imaterial digital spaces through research and
-      cinematic expanded cinema proposels.
-    </p>
 
+<div class="about-info">
+  <div class="about-header">
+    <div class="about-name">Mariana Torres</div>
+    <div class="about-contact">
+      <div class="contact-item">
+        <span class="icon">✉</span>
+        <a href="mailto:mariana1108.torres@gmail.com">mariana1108.torres@gmail.com</a>
+      </div>
+
+      <div class="contact-item">
+        <span class="icon">☎</span>
+        <a href="tel:+351912473730">+351 912 473 730</a>
+      </div>
+
+      <div class="contact-item">
+        <span class="icon">↗</span>
+        <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
+          Vimeo
+        </a>
+      </div>
+    </div>
   </div>
+
+  <p class="about-text">
+    I work with moving image preservation, analogue film practices,
+    and archival processes, focusing on the transmission of
+    photochemical knowledge and its contemporary relevance,
+    in correlation with the imaterial digital spaces through research and
+    cinematic expanded cinema proposels.
+  </p>
+</div>
 </section>
   </main>
 </body>
