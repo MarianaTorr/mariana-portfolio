@@ -340,6 +340,22 @@
   object-position: -150px -60px;
   border-radius: 50%; /* Isso cria o efeito circular */
   opacity: .84;
+
+  /* photo + name wrapper */
+.about-photo-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+/* name under photo */
+.about-name{
+  font-family: "Bebas Kai", system-ui, sans-serif;
+  letter-spacing: .18em;
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
 }
 /* text */
 .about-text{
@@ -387,9 +403,10 @@
 <div class="hero-breath"></div>
 
 <section class="about">
-  <div class="about-inner">
-    <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
-
+  <div class="about-photo-wrap">
+  <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+  <div class="about-name">Mariana Torres</div>
+</div>
     <p class="about-text">
       I work with moving image preservation, analogue film practices,
       and archival processes, focusing on the transmission of
