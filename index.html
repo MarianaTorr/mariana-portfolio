@@ -24,91 +24,7 @@
       --overlay: rgba(6,7,11,.24);
     }
 
-    *{ box-sizin/* about section */
-.about{
-  background: #0a0c11; /* almost imperceptible grey */
-  padding: 80px 22px 120px;
-}
-
-.about-inner{
-  max-width: var(--max);
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-/* coluna da foto */
-.about-photo-col{
-  display: flex;
-  flex-direction: column; /* foto em cima, meta em baixo */
-  align-items: flex-start;
-}  
-
-/* photo */
-.about-photo{
-  width: 220px;
-  height: 220px;        /* define o frame */
-  object-fit: none;   /* ativa o crop */
-  object-position: -150px -60px;
-  border-radius: 50%; /* Isso cria o efeito circular */
-  opacity: .92;
-  filter: contrast(1.08) sharpen(1);
-}
-.about-meta{
-  margin-top: 14px;
-  display: flex;
-  align-items: baseline;
-  gap: 18px;
-}
-/* nome */
-.about-name{
-  font-family: "Bebas Kai", system-ui, sans-serif;
-  letter-spacing: .18em;
-  font-size: 1rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-/* contactos em linha */
-.about-contact{
-  display: flex;
-  gap: 16px;
-  font-size: .9rem;
-  color: var(--muted2);
-}
-
-/* cada linha */
-.contact-item{
-  display: flex;
-  align-items: center;
-  gap: 8px; /* espaço entre símbolo e texto */
-}
-
-/* ícones */
-.contact-item .icon{
-  font-size: .85rem;
-  opacity: .75;
-}
-
-/* links */
-.contact-item a{
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-}
-
-.contact-item a:hover{
-  border-bottom-color: var(--muted2);
-}
-/* text */
-.about-text{
-  max-width: 520px;
-  font-size: 1.02rem;
-  line-height: 1.55;
-  color: var(--muted);
-}
-  </style>g:border-box; }
+    *{ box-sizing:border-box; }
     html, body{ height:100%; }
 
     body{
@@ -407,7 +323,104 @@
   background: transparent;
 }
 
+/* about section */
+.about{
+  background: #0a0c11; /* almost imperceptible grey */
+  padding: 80px 22px 120px;
+}
 
+.about-inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+/* coluna da foto */
+.about-photo-col{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0; /* não deixa empurrar o texto */
+  
+}  
+
+/* nome */
+.about-name{
+  margin-top: 14px;
+  font-family: "Bebas Kai", system-ui, sans-serif;
+  letter-spacing: .18em;
+  font-size: 2rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* photo */
+.about-photo{
+  width: 220px;
+  height: 220px;        /* define o frame */
+  object-fit: none;   /* ativa o crop */
+  object-position: -150px -60px;
+  border-radius: 50%; /* Isso cria o efeito circular */
+  opacity: .92;
+  filter: contrast(1.08) sharpen(1);
+  display: flex;
+  flex-direction: column; /* foto em cima, nome + contactos abaixo */
+  align-items: flex-start;
+  gap: 12px;
+}
+/* nome */
+.about-name {
+  display: inline-flex;        /* flex horizontal só para o nome + contactos */
+  align-items: baseline;       /* alinha verticalmente */
+  gap: 16px;                   /* espaço entre nome e contactos */
+  font-family: "Bebas Kai", system-ui, sans-serif;
+  letter-spacing: .18em;
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* contactos em linha */
+.about-contact {
+  display: flex;
+  gap: 16px;
+  margin-top: 0; /* remove o espaçamento vertical */
+  font-size: .9rem;
+  color: var(--muted2);
+}
+
+/* cada linha */
+.contact-item{
+  display: flex;
+  align-items: center;
+  gap: 8px; /* espaço entre símbolo e texto */
+}
+
+/* ícones */
+.contact-item .icon{
+  font-size: .85rem;
+  opacity: .75;
+}
+
+/* links */
+.contact-item a{
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.contact-item a:hover{
+  border-bottom-color: var(--muted2);
+}
+/* text */
+.about-text{
+  max-width: 520px;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+  </style>
 </head>
 
 <body>
@@ -447,40 +460,30 @@
 
 <section class="about">
   <div class="about-inner">
-
     <!-- coluna da foto -->
     <div class="about-photo-col">
-      <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+  <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+  <div class="about-name">Mariana Torres</div>
 
-      <!-- NOVO WRAPPER (única mudança) -->
-      <div class="about-meta">
-        <div class="about-name">Mariana Torres</div>
-
-        <div class="about-contact">
-          <div class="contact-item">
-            <span class="icon">✉</span>
-            <a href="mailto:teuemail@email.com">
-              mariana1108.torres@gmail.com
-            </a>
-          </div>
-
-          <div class="contact-item">
-            <span class="icon">☎</span>
-            <a href="tel:+351912345678">
-              +351 912 473 730
-            </a>
-          </div>
-
-          <div class="contact-item">
-            <span class="icon">↗</span>
-            <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
-              Vimeo
-            </a>
-          </div>
-        </div>
-      </div>
+  <div class="about-contact">
+    <div class="contact-item">
+      <span class="icon">✉</span>
+      <a href="mailto:teuemail@email.com">mariana1108.torres@gmail.com</a>
     </div>
 
+    <div class="contact-item">
+      <span class="icon">☎</span>
+      <a href="tel:+351912345678">+351 912 473 730</a>
+    </div>
+
+    <div class="contact-item">
+      <span class="icon">↗</span>
+      <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">
+        Vimeo
+      </a>
+    </div>
+  </div>
+</div>
     <!-- texto à direita -->
     <p class="about-text">
       I work with moving image preservation, analogue film practices,
@@ -490,8 +493,6 @@
       cinematic expanded cinema proposels.
     </p>
 
-  </div>
-</section>
   </div>
 </section>
   </main>
