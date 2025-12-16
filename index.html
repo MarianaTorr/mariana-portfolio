@@ -115,6 +115,15 @@
       border-radius: 0;
       border: 1px solid var(--line);
       background: rgba(0,0,0,0);
+       /* nova linha: transições suaves */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+/* hover: leve escala e sombra */
+.frame:hover{
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  z-index: 10; /* garante que fica acima */
+
     }
 
     /* back frame: darker “screen” behind */
@@ -131,6 +140,18 @@
       background: rgba(10,12,16,.14);
       opacity: .72;
       opacity: .82;
+
+       background-image: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.01),
+      rgba(255,255,255,0.01) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  border-color: rgba(255,255,255,.10);
+  opacity: .82;
+  z-index: 1; /* atrás da front frame */
     }
 
     /* front frame */
@@ -141,6 +162,19 @@
       bottom: 110px;
       border-color: var(--line);
       opacity: .92;
+            background: linear-gradient(rgba(6,7,11,0.7), rgba(6,7,11,0.5));
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.005),
+      rgba(255,255,255,0.005) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  border-color: var(--line);
+  opacity: .92;
+  z-index: 2; /* na frente */
+
     }
 
     /* kicker */
