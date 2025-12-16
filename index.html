@@ -371,13 +371,14 @@
 }
 
 /* bloco contacto */
-.about-contact{
-  margin-top: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* espaçamento entre infos */
+.about-contact {
+  margin-top: 8px;        /* pequeno espaçamento abaixo do nome */
+  display: flex;           /* coloca os contactos em linha */
+  flex-wrap: wrap;         /* permite quebra em telas pequenas */
+  gap: 16px;               /* espaço horizontal entre contactos */
   font-size: .9rem;
   color: var(--muted2);
+  align-items: baseline;   /* alinha verticalmente com o nome/texto */
 }
 
 /* cada linha */
