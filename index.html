@@ -70,10 +70,21 @@
       justify-content: space-between;
       gap: 18px;
     }
-    .brand{
-      font-family:"Bebas Kai", system-ui, sans-serif;
-      letter-spacing:.18em;
-      white-space: nowrap;
+  .brand{
+  font-family:"Bebas Kai", system-ui, sans-serif;
+  letter-spacing:.18em;
+  white-space: nowrap;
+
+  color: var(--muted);        /* 👈 fixa a cor */
+  text-decoration: none;     /* 👈 remove sublinhado */
+  opacity: .9;
+}
+
+.brand:hover{
+  color: var(--text);        /* igual ao menu */
+  opacity: 1;
+}
+}
     }
     .menu{
       list-style:none;
