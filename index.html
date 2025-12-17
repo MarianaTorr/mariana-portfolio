@@ -93,6 +93,47 @@
     .menu a:hover{ opacity:1; color: var(--text); }
 
     main{ padding-top: var(--hdr-h); }
+    /* Dropdowns */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown > a::after {
+      content: " ▾";
+      font-size: 0.7em; /* seta mais discreta */
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 26px;
+      left: 0;
+      min-width: 220px;
+      background: rgba(5, 6, 8, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 0;
+      list-style: none;
+      z-index: 999;
+    }
+
+    .dropdown-content li {
+      padding: 4px 14px;
+      white-space: nowrap;
+    }
+
+    .dropdown-content li a {
+      display: block;
+      color: var(--text-muted);
+    }
+
+    .dropdown-content li a:hover {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
     /* ===== hero ===== */
     .hero{
@@ -431,19 +472,37 @@
 }
   </style>
 </head>
-
 <body>
-  <header>
-    <nav>
-      <div class="brand">MARIANA TORRES</div>
-      <ul class="menu">
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="analogue-film.html">Analogue Film Practice</a></li>
-        <li><a href="writing-publications.html">Writing &amp; Publications</a></li>
-      </ul>
-    </nav>
-  </header>
+ <header>
+      <nav>
+        <!-- clica no nome para ir ao Home -->
+        <a href="index.html" class="brand">MARIANA TORRES</a>
+
+        <ul class="menu">
+          <!-- removemos "Home" aqui, como combinámos -->
+          <li><a href="about.html">About</a></li>
+
+          <li class="dropdown">
+            <a href="projects.html">Projects</a>
+            <ul class="dropdown-content">
+              <li><a href="artistic-works.html">Artistic Works</a></li>
+              <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="analogue-film.html">Analogue Film Practice</a>
+            <ul class="dropdown-content">
+              <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
+              <li><a href="technical-documentation.html">Technical Documentation</a></li>
+              <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
+            </ul>
+          </li>
+
+          <li><a href="writing-publications.html">Writing &amp; Publications</a></li>
+        </ul>
+      </nav>
+    </header>
 
   <main>
     <section class="hero">
@@ -466,14 +525,12 @@
     </section>
     <!-- breathing space -->
 <div class="hero-breath"></div>
-
 <section class="about">
 <div class="about-inner">
   <!-- Foto -->
   <div class="about-photo-col">
     <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
   </div>
-
   <!-- Informação: nome + contactos + texto -->
   <div class="about-info">
     <div class="about-header">
