@@ -1,361 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Mariana Torres - About</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>Mariana Torres - About</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<!-- Fonts -->
+<link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#06070b;
-      --text:#f2f4f7;
-      --muted: rgba(242,244,247,.70);
-      --muted2: rgba(242,244,247,.55);
-      --max: 1120px;
-      --hdr-h: 64px;
-    }
-
-    *{ box-sizing:border-box; }
-    html, body{ height:100%; margin:0; }
-
-    body{
-      font-family:"Source Serif 4", serif;
-      color: var(--text);
-      background-color: var(--bg);
-      background: url("Timeline2.gif.gif") center/cover no-repeat fixed;
-    }
-
-    body::before{
-      content:"";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(1200px 700px at 50% 40%, rgba(6,7,11,.34), rgba(6,7,11,.12) 55%, rgba(6,7,11,.28) 100%),
-        linear-gradient(to bottom, rgba(6,7,11,.24), rgba(6,7,11,.24));
-      pointer-events:none;
-      z-index:0;
-    }
-
-    header, main{ position: relative; z-index: 1; }
-
-    header{
-      position: fixed;
-      inset: 0 0 auto 0;
-      height: var(--hdr-h);
-      width: 100%;
-      z-index: 1000;
-      background: linear-gradient(to bottom, rgba(6,7,11,.88), rgba(6,7,11,.35));
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      backdrop-filter: blur(10px);
-    }
-
-    nav{
-      max-width: var(--max);
-      margin:0 auto;
-      height:100%;
-      padding:0 22px;
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-    }
-
-    .brand{
-      font-family:"Bebas Kai", system-ui, sans-serif;
-      letter-spacing:.18em;
-      white-space: nowrap;
-      color: var(--muted);        /* 👈 fixa a cor */
-     text-decoration: none;     /* 👈 remove sublinhado */
-     opacity: .9
-    }
-
-    .menu{
-      list-style:none;
-      display:flex;
-      gap: 14px;
-      margin:0;
-      padding:0;
-      font-size:.94rem;
-      color: var(--muted);
-    }
-
-    .menu a{
-      text-decoration:none;
-      color: var(--muted);
-      color: inherit;
-      opacity:.9;
-      white-space: nowrap;
-    }
-
-    .menu a:hover{ opacity:1; color: var(--text); }
-
-    main{ padding-top: var(--hdr-h); }
-    /* Dropdowns */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown > a::after {
-      content: " ▾";
-      font-size: 0.7em; /* seta mais discreta */
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 26px;
-      left: 0;
-      min-width: 220px;
-      background: rgba(5, 6, 8, 0.97);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 0;
-      list-style: none;
-      z-index: 999;
-    }
-
-    .dropdown-content li {
-      padding: 4px 14px;
-      white-space: nowrap;
-    }
-
-    .dropdown-content li a {
-      display: block;
-      color: var(--text-muted);
-    }
-
-    .dropdown-content li a:hover {
-      color: var(--accent);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    /* ===== about section ===== */
-  .about{
-  background:#0a0c11;
-  padding:100px 22px 140px;
+<style>
+:root {
+  --bg: #06070b;
+  --text: #f2f4f7;
+  --muted: rgba(242,244,247,.70);
+  --muted2: rgba(242,244,247,.55);
+  --accent: #78d3ff;
+  --max: 1120px;
+  --hdr-h: 64px;
 }
 
-.about-inner{
-  max-width:var(--max);
-  margin:0 auto;
-  display:flex;
-  flex-direction: row;   /* 👈 garante texto à esquerda */
-  gap:72px;
-  align-items:flex-start;
+/* Reset */
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family:"Source Serif 4", serif;
+  color: var(--text);
+  background: url("Timeline2.gif.gif") center/cover no-repeat fixed;
 }
 
-/* =======================
-   COLUNA ESQUERDA — TEXTO
-======================= */
-
-.about-text-col{
-  flex:1;
-  max-width:620px;
-  order:1;
+/* Header */
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--hdr-h);
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(6,7,11,.88), rgba(6,7,11,.35));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
 }
 
-.about-text-col h2{
+nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family:"Bebas Kai", system-ui, sans-serif;
+  letter-spacing:.18em;
+  color: var(--muted);
+  text-decoration: none;
+  opacity: .9;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  font-size: .94rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--muted);
+  opacity: .9;
+  transition: color .3s, opacity .3s;
+}
+
+.menu a:hover { color: var(--text); opacity:1; }
+
+.dropdown { position: relative; }
+.dropdown > a::after { content:" ▾"; font-size:0.7em; }
+.dropdown-content {
+  display:none;
+  position:absolute;
+  top:26px;
+  left:0;
+  min-width:220px;
+  background: rgba(5,6,8,0.97);
+  border:1px solid rgba(255,255,255,.1);
+  padding:10px 0;
+  list-style:none;
+  z-index:999;
+}
+.dropdown:hover .dropdown-content { display:block; }
+.dropdown-content li { padding:4px 14px; }
+.dropdown-content li a {
+  display:block;
+  color: var(--muted);
+}
+.dropdown-content li a:hover { color: var(--accent); background: rgba(255,255,255,.06); }
+
+/* Main wrapper */
+main { padding-top: calc(var(--hdr-h) + 20px); }
+
+/* About Section */
+.about {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 100px 20px 140px;
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.about-text-col {
+  flex: 1 1 500px;
+}
+
+.about-text-col h2 {
   font-family:"Bebas Kai", system-ui, sans-serif;
   letter-spacing:.18em;
   font-size:2.2rem;
-  margin:0 0 32px;
-  color:var(--muted);
-  text-transform:uppercase;
+  margin-bottom:32px;
+  color: var(--muted);
+  text-transform: uppercase;
 }
 
-.about-text-col p{
-  font-size:1.02rem;
-  line-height:1.6;
-  color:var(--muted);
-  margin:0 0 22px;
+.about-text-col p {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom:22px;
 }
 
-/* =======================
-   COLUNA DIREITA — FOTO + INFO
-======================= */
-
-.about-side{
-  width:260px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  order:2;
+.about-side {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* foto */
-.about-photo{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  object-fit:none;
-  object-position:-150px -60px;
+.about-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
   opacity:.92;
-  filter:contrast(1.08) saturation(1);
+  filter: contrast(1.08) saturate(1);
 }
 
-/* nome */
-.about-name{
-  margin-top:18px;
+.about-name {
+  margin-top: 18px;
   font-family:"Bebas Kai", system-ui, sans-serif;
   letter-spacing:.18em;
   font-size:1.9rem;
-  color:var(--muted);
-  text-transform:uppercase;
+  color: var(--muted);
+  text-transform: uppercase;
   text-align:center;
 }
 
-/* =======================
-   CONTACTOS (1 A 1)
-======================= */
-
-.about-contacts{
-  margin-top:28px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  font-size:.9rem;
-  color:var(--muted2);
+.about-contacts {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.contact-item{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  opacity:.8;
-  transition:opacity .3s ease, transform .3s ease;
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: .8;
+  transition: opacity .3s, transform .3s;
 }
+.contact-item:hover { opacity:1; transform: translateX(2px); }
 
-.contact-item:hover{
-  opacity:1;
-  transform:translateX(2px);
+.contact-item a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
 }
+.contact-item a:hover { border-bottom-color: var(--muted2); }
 
-.contact-item a{
-  color:inherit;
-  text-decoration:none;
-  border-bottom:1px solid transparent;
+/* Responsividade */
+@media(max-width: 720px) {
+  .about { flex-direction: column; align-items: center; }
+  .about-text-col { max-width: 100%; }
+  .about-side { width: 100%; margin-top: 40px; }
 }
-
-.contact-item a:hover{
-  border-bottom-color:var(--muted2);
-}
-
-/* =======================
-   RESPONSIVE
-======================= */
-
-@media (max-width: 720px)
-  .about-inner{
-    flex-direction:column;
-    align-items:center;
-  }
-
-  .about-text-col{
-    max-width:100%;
-  }
-
-  .about-side{
-    width:100%;
-    margin-top:40px;
-  }
-  </style>
-  
+</style>
 </head>
 <body>
- <header>
-      <nav>
-        <!-- clica no nome para ir ao Home -->
-        <a href="index.html" class="brand">MARIANA TORRES</a>
 
-        <ul class="menu">
-          <!-- removemos "Home" aqui, como combinámos -->
-          <li><a href="about.html">About</a></li>
-
-          <li class="dropdown">
-            <a href="projects.html">Projects</a>
-            <ul class="dropdown-content">
-              <li><a href="artistic-works.html">Send Me a color</a></li>
-              <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
-            </ul>
-          </li>
-
-          <li class="dropdown">
-            <a href="analogue-film.html">Analogue Film Practice</a>
-            <ul class="dropdown-content">
-              <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
-              <li><a href="technical-documentation.html">Technical Documentation</a></li>
-              <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
-            </ul>
-          </li>
-
-          <li><a href="writing-publications.html">Writing &amp; Publications</a></li>
+<header>
+  <nav>
+    <a href="index.html" class="brand">MARIANA TORRES</a>
+    <ul class="menu">
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="projects.html">Projects</a>
+        <ul class="dropdown-content">
+          <li><a href="artistic-works.html">Send Me a Color</a></li>
+          <li><a href="research-preservation.html">Research & Preservation Works</a></li>
         </ul>
-      </nav>
-    </header>
+      </li>
+      <li class="dropdown">
+        <a href="analogue-film.html">Analogue Film Practice</a>
+        <ul class="dropdown-content">
+          <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
+          <li><a href="technical-documentation.html">Technical Documentation</a></li>
+          <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
+        </ul>
+      </li>
+      <li><a href="writing-publications.html">Writing & Publications</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <main>
+<main>
 <section class="about">
-  <div class="about-inner">
+  <!-- Texto à esquerda -->
+  <div class="about-text-col">
+    <h2>About</h2>
+    <p>I work with moving image preservation, analogue film practices, and archival processes, focusing on the transmission of photochemical knowledge and its contemporary relevance.</p>
+    <p>My practice intersects archival research, expanded cinema, and contemporary digital environments, with a strong focus on materiality, process, and time.</p>
+  </div>
 
-    <!-- COLUNA ESQUERDA — TEXTO LONGO -->
-    <div class="about-text-col">
-      <h2>About</h2>
-
-      <p>
-        I work with moving image preservation, analogue film practices,
-        and archival processes, focusing on the transmission of
-        photochemical knowledge and its contemporary relevance.
-      </p>
-
-      <p>
-        My practice intersects archival research, expanded cinema,
-        and contemporary digital environments, with a strong focus
-        on materiality, process, and time.
-      </p>
-
-      <!-- aqui podes continuar a acrescentar texto, listas, etc -->
+  <!-- Foto à direita -->
+  <div class="about-side">
+    <img src="pag2.png" alt="Mariana Torres" class="about-photo">
+    <div class="about-name">Mariana Torres</div>
+    <div class="about-contacts">
+      <div class="contact-item"><span>✉</span><a href="mailto:mariana1108.torres@gmail.com">mariana1108.torres@gmail.com</a></div>
+      <div class="contact-item"><span>☎</span><a href="tel:+351912473730">+351 912 473 730</a></div>
+      <div class="contact-item"><span>↗</span><a href="https://vimeo.com/teuvimeo" target="_blank">Vimeo</a></div>
     </div>
-
-    <!-- COLUNA DIREITA — FOTO + INFO -->
-    <div class="about-side">
-
-      <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
-
-      <div class="about-name">Mariana Torres</div>
-
-      <div class="about-contacts">
-        <div class="contact-item">
-          <span class="icon">✉</span>
-          <a href="mailto:mariana1108.torres@gmail.com">
-            mariana1108.torres@gmail.com
-          </a>
-        </div>
-
-        <div class="contact-item">
-          <span class="icon">☎</span>
-          <a href="tel:+351912473730">
-            +351 912 473 730
-          </a>
-        </div>
-
-        <div class="contact-item">
-          <span class="icon">↗</span>
-          <a href="https://vimeo.com/teuvimeo" target="_blank">
-            Vimeo
-          </a>
-        </div>
-      </div>
-
-    </div>
-
   </div>
 </section>
-  </main>
+</main>
+
 </body>
 </html>
