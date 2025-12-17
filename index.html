@@ -378,32 +378,31 @@
 }
 /* nome */
 .about-name {
-  display: inline-flex;        /* flex horizontal só para o nome + contactos */
-  align-items: baseline;       /* alinha verticalmente */
-  gap: 20px;                   /* espaço entre nome e contactos */
+ margin-top: 14px; 
   font-family: "Bebas Kai", system-ui, sans-serif;
   letter-spacing: .18em;
-  font-size: 1rem;
+  font-size: 1.8rem;
   color: var(--muted);
   text-transform: uppercase;
-  white-space: nowrap;
+  text-align: center;
 }
 
 /* contactos em linha */
 .about-contact {
- display: flex;
+  display: flex;
+  flex-wrap: wrap;  /* evita quebrar em telas pequenas */
+  justify-content: center; /* centra abaixo do texto */
   gap: 16px;
   font-size: .9rem;
   color: var(--muted2);
-  flex-wrap: wrap; /* evita overflow */
   order: 2; /* força aparecer depois do texto na visualização */
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 /* cada linha */
 .contact-item{
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 8px; /* espaço entre símbolo e texto */
 }
 
