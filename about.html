@@ -124,13 +124,12 @@
       flex:1;
     }
 
-    .about-header{
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
+   .about-header {
+  display: flex;
+  flex-direction: column;   /* <<< empilha */
+  align-items: flex-start;  /* alinha à esquerda */
+  gap: 120px;                 /* espaço entre nome e contactos */
+}
 
     .about-name{
       font-family: "Bebas Kai", system-ui, sans-serif;
