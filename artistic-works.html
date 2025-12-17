@@ -193,17 +193,19 @@
 
     .media-row img { border-radius: 6px; }
 
-    /* ---------------- RESPONSIVE ---------------- */
-    @media (max-width: 900px){
-      .media-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px){
-      h1 { font-size: 2.2rem; letter-spacing: .08em; }
-      .menu { flex-wrap: wrap; gap: 10px; }
-    }
+@media (max-width: 720px) {
+  .about-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-text-col {
+    max-width: 100%;
+  }
+  .about-side {
+    width: 100%;
+    margin-top: 40px;
+  }
+}
 
   </style>
 </head>
