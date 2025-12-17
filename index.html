@@ -414,7 +414,6 @@
   filter: contrast(1.08) saturation(1);
   display: flex;
   flex-direction: column; /* foto em cima, nome + contactos abaixo */
-  align-items: 20px 50px;
   gap: 12px;
 }
 /* nome */
@@ -426,8 +425,21 @@
   letter-spacing: .18em;
   font-size: 1rem;
   color: var(--muted);
-  text-transform: uppercase;
-  white-space: nowrap;
+ text-transform: uppercase;
+  margin-top: 12px; /* distância da foto */
+  text-align: center;
+}
+.about-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+/* text */
+.about-text{
+  max-width: 520px;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--muted);
 }
 
 /* contactos em linha */
@@ -437,15 +449,13 @@
   font-size: .9rem;
   color: var(--muted2);
   flex-wrap: wrap; /* evita overflow */
-  order: 2; /* força aparecer depois do texto na visualização */
-  margin-top: 10px;
 }
 
 /* cada linha */
 .contact-item{
   display: flex;
   align-items: flex-end;
-  gap: 8px; /* espaço entre símbolo e texto */
+  gap: 6px; /* espaço entre símbolo e texto */
 }
 
 /* ícones */
@@ -464,13 +474,7 @@
 .contact-item a:hover{
   border-bottom-color: var(--muted2);
 }
-/* text */
-.about-text{
-  max-width: 520px;
-  font-size: 1.02rem;
-  line-height: 1.55;
-  color: var(--muted);
-}
+
   </style>
 </head>
 <body>
@@ -532,12 +536,8 @@
   <div class="about-photo-col">
     <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
   <!-- Informação: nome + texto + contactos -->
+   <div class="about-name">Mariana Torres</div> 
 <div class="about-info">
-  <!-- header apenas para o nome -->
-  <div class="about-header">
-    <div class="about-name">Mariana Torres</div>
-  </div>
-
   <!-- texto abaixo do nome -->
   <p class="about-text">
     I work with moving image preservation, analogue film practices,
