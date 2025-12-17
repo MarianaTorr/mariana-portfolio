@@ -384,111 +384,128 @@
 .about-inner{
   max-width: var(--max);
   margin: 0 auto;
+
   display: flex;
-  align-items: flex-end;
-  gap: 40px;
+  align-items: center; /* 🔥 texto alinhado ao centro da foto */
+  gap: 48px;
 }
-/* coluna da foto */
+
+/* =======================
+   FOTO + NOME
+======================= */
+
 .about-photo-col{
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 0; /* não deixa empurrar o texto */
-  
-} 
-/* container do nome + contactos */
-.about-header {
-  display: flex;
-  flex-direction: column;   /* <<< empilha */
-  align-items: flex-start;  /* alinha à esquerda */
-  gap: -120px;                 /* espaço entre nome e contactos */
+  flex-shrink: 0;
 }
 
-/* nome */
-.about-name{
-  margin-top: 14px;
-  font-family: "Bebas Kai", system-ui, sans-serif;
-  letter-spacing: .18em;
-  font-size: 3rem;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-/* photo */
 .about-photo{
   width: 220px;
-  height: 220px;        /* define o frame */
-  object-fit: none;   /* ativa o crop */
+  height: 220px;
+  object-fit: none;
   object-position: -150px -60px;
-  border-radius: 50%; /* Isso cria o efeito circular */
+  border-radius: 50%;
   opacity: .92;
   filter: contrast(1.08) saturation(1);
-  display: flex;
-  flex-direction: column; /* foto em cima, nome + contactos abaixo */
-  gap: 12px;
 }
-/* nome */
-.about-name {
-  display: inline-flex;        /* flex horizontal só para o nome + contactos */
-  align-items: baseline;       /* alinha verticalmente */
-  gap: 20px;                   /* espaço entre nome e contactos */
+
+.about-name{
+  margin-top: 16px;
   font-family: "Bebas Kai", system-ui, sans-serif;
   letter-spacing: .18em;
   font-size: 2rem;
   color: var(--muted);
- text-transform: uppercase;
-  margin-top: 14px; /* distância da foto */
+  text-transform: uppercase;
+  white-space: nowrap;
   text-align: center;
 }
-.about-info {
+
+/* =======================
+   TEXTO + CONTACTOS
+======================= */
+
+.about-info{
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
 }
-/* text */
+
 .about-text{
   max-width: 520px;
   font-size: 1.02rem;
   line-height: 1.55;
   color: var(--muted);
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
 }
 
-/* contactos em linha */
-.about-contact {
- display: flex;
-  gap: 16px;
+/* =======================
+   CONTACTOS (ANIMADOS)
+======================= */
+
+.about-contact{
+  display: flex;
+  gap: 18px;
+  margin-top: 26px;
   font-size: .9rem;
   color: var(--muted2);
-  flex-wrap: wrap; /* evita overflow */
+  flex-wrap: wrap;
 }
 
-/* cada linha */
 .contact-item{
   display: flex;
-  align-items: flex-end;
-  gap: 6px; /* espaço entre símbolo e texto */
+  align-items: center;
+  gap: 6px;
+
+  transition: transform .3s ease, opacity .3s ease;
+  opacity: .8;
 }
 
-/* ícones */
-.contact-item .icon{
-  font-size: .85rem;
-  opacity: .75;
+.contact-item:hover{
+  transform: translateY(-2px); /* 🔥 mesma lógica do hero */
+  opacity: 1;
 }
 
-/* links */
 .contact-item a{
   color: inherit;
   text-decoration: none;
   border-bottom: 1px solid transparent;
+  transition: border-color .3s ease;
 }
 
 .contact-item a:hover{
   border-bottom-color: var(--muted2);
 }
 
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media (max-width: 900px){
+  .about-inner{
+    gap: 32px;
+  }
+}
+
+@media (max-width: 720px){
+  .about-inner{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-info{
+    align-items: center;
+  }
+
+  .about-text{
+    max-width: 560px;
+  }
+
+  .about-contact{
+    justify-content: center;
+  }
+}
   </style>
 </head>
 <body>
