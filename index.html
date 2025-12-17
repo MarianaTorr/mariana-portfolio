@@ -347,9 +347,10 @@
 /* container do nome + contactos */
 .about-header {
   display: flex;
-  align-items: baseline; /* mantém nome + contactos alinhados horizontalmente */
-  gap: 20px;
-} 
+  flex-direction: column;   /* <<< empilha */
+  align-items: flex-start;  /* alinha à esquerda */
+  gap: 8px;                 /* espaço entre nome e contactos */
+}
 
 /* nome */
 .about-name{
@@ -390,12 +391,11 @@
 
 /* contactos em linha */
 .about-contact {
-  display: flex;
-  align-items: center;
+ display: flex;
   gap: 16px;
   font-size: .9rem;
   color: var(--muted2);
-
+  flex-wrap: wrap; /* evita overflow */
 }
 
 /* cada linha */
