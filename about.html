@@ -149,6 +149,9 @@
     /* coluna da foto */
     .about-photo-col{
       flex-shrink: 0;
+      display: flex;
+     flex-direction: column;
+     align-items: center;
     }
 
     .about-photo{
@@ -163,14 +166,15 @@
 
     /* info: nome + contactos + texto */
     .about-info{
-      flex:1;
+      display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     }
 
    .about-header {
   display: flex;
   flex-direction: column;   /* <<< empilha */
-  align-items: flex-start;  /* alinha à esquerda */
-  gap: -360x;                 /* espaço entre nome e contactos */
+  align-items: flex-start;  /* alinha à esquerda */                /* espaço entre nome e contactos */
 }
 
     .about-name{
