@@ -167,6 +167,7 @@
   margin:0 0 32px;
   color:var(--muted);
   text-transform:uppercase;
+  margin-top: 0;
 }
 
 .about-text-col p{
@@ -246,25 +247,29 @@
   border-bottom-color:var(--muted2);
 }
 /* Botão CV alinhado com os contactos na vertical */
+/* =======================
+   BOTÃO CV
+======================= */
 .cv-button {
-  display: center;
-  margin-top: 20px; /* distância em relação aos contactos */
-  padding: 20px 22px;
-  font-family: "Bebas Kai", system-ui, sans-serif;
-  font-size: 1rem;
+  display: inline-block;
+  margin-top: 28px;
+  padding: 10px 24px;
+  background: rgba(242,244,247,.08);
+  border: 1px solid rgba(242,244,247,.22);
   color: var(--muted);
-  background-color: rgba(242,244,247,0.05); /* fundo suave */
-  border: 1px solid rgba(242,244,247,0.15);
-  border-radius: 1px;
   text-decoration: none;
-  text-align: flex-end;
-  transition: all 0.3s ease;
+  font-family: "Bebas Kai", system-ui, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transition: all .3s ease;
+  border-radius: 4px;
+  text-align: center;
 }
 
 .cv-button:hover {
-  background-color: rgba(242,244,247,0.15);
-  border-color: var(--muted);
-  transform: translateY(-2px);
+  background: rgba(242,244,247,.15);
+  border-color: rgba(242,244,247,.35);
+  color: var(--text);
 }
 
 
