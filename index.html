@@ -419,31 +419,32 @@
 }
 /* nome */
 .about-name {
- margin-top: 14px; 
+  display: inline-flex;        /* flex horizontal só para o nome + contactos */
+  align-items: baseline;       /* alinha verticalmente */
+  gap: 20px;                   /* espaço entre nome e contactos */
   font-family: "Bebas Kai", system-ui, sans-serif;
   letter-spacing: .18em;
-  font-size: 1.8rem;
+  font-size: 1rem;
   color: var(--muted);
   text-transform: uppercase;
-  text-align: center;
+  white-space: nowrap;
 }
 
 /* contactos em linha */
 .about-contact {
-  display: flex;
-  flex-wrap: wrap;  /* evita quebrar em telas pequenas */
-  justify-content: center; /* centra abaixo do texto */
+ display: flex;
   gap: 16px;
   font-size: .9rem;
   color: var(--muted2);
+  flex-wrap: wrap; /* evita overflow */
   order: 2; /* força aparecer depois do texto na visualização */
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 /* cada linha */
 .contact-item{
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 8px; /* espaço entre símbolo e texto */
 }
 
@@ -485,7 +486,7 @@
           <li class="dropdown">
             <a href="projects.html">Projects</a>
             <ul class="dropdown-content">
-              <li><a href="artistic-works.html">Send me a Color</a></li>
+              <li><a href="artistic-works.html">Artistic Works</a></li>
               <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
             </ul>
           </li>
