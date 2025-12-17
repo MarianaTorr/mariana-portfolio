@@ -133,102 +133,137 @@
     }
 
     /* ===== about section ===== */
-    .about{
-      background: #0a0c11;
-      padding: 80px 22px 120px;
-    }
-
-    .about-inner{
-      max-width: var(--max);
-      margin: 0 auto;
-      display: flex;
-      align-items: flex-start;
-      gap: 40px;
-    }
-
-    /* coluna da foto */
-    .about-photo-col{
-      flex-shrink: 0;
-      display: flex;
-     flex-direction: column;
-     align-items: center;
-    }
-
-    .about-photo{
-      width: 220px;
-      height: 220px;
-      object-fit: none;   /* ativa o crop */
-      object-position: -150px -60px;
-      border-radius: 50%;
-      opacity: .92;
-      filter: contrast(1.08) saturation(1);
-    }
-
-    /* info: nome + contactos + texto */
-    .about-info{
-      display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    }
-
-   .about-header {
-  display: flex;
-  flex-direction: column;   /* <<< empilha */
-  align-items: flex-start;  /* alinha à esquerda */                /* espaço entre nome e contactos */
+  .about{
+  background:#0a0c11;
+  padding:100px 22px 140px;
 }
 
-    .about-name{
-      font-family: "Bebas Kai", system-ui, sans-serif;
-      letter-spacing: .18em;
-      font-size: 1.8rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
+.about-inner{
+  max-width:var(--max);
+  margin:0 auto;
+  display:flex;
+  gap:72px;
+  align-items:flex-start;
+}
 
-    .about-contact{
-      display: flex;
-      align-items: flex-end;
-      gap: 16px;
-      font-size: .9rem;
-      color: var(--muted2);
-      order: 2; /* força aparecer depois do texto na visualização */
-     margin-top: 20px;
-    }
+/* =======================
+   COLUNA ESQUERDA — TEXTO
+======================= */
 
-    .contact-item{
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+.about-text-col{
+  flex:1;
+  max-width:620px;
+}
 
-    .contact-item .icon{
-      font-size: .85rem;
-      opacity: .75;
-    }
+.about-text-col h2{
+  font-family:"Bebas Kai", system-ui, sans-serif;
+  letter-spacing:.18em;
+  font-size:2.2rem;
+  margin:0 0 32px;
+  color:var(--muted);
+  text-transform:uppercase;
+}
 
-    .contact-item a{
-      color: inherit;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
+.about-text-col p{
+  font-size:1.02rem;
+  line-height:1.6;
+  color:var(--muted);
+  margin:0 0 22px;
+}
 
-    .contact-item a:hover{
-      border-bottom-color: var(--muted2);
-    }
+/* =======================
+   COLUNA DIREITA — FOTO + INFO
+======================= */
 
-    .about-text{
-      font-size: 1.02rem;
-      line-height: 1.55;
-      color: var(--muted);
-      max-width: 600px;
-    }
+.about-side{
+  width:260px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 
-    @media (max-width: 720px){
-      .about-inner{ flex-direction: column; align-items: center; gap: 30px; }
-      .about-header{ justify-content: center; }
-      .about-text{ text-align:center; }
-    }
+/* foto */
+.about-photo{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  object-fit:none;
+  object-position:-150px -60px;
+  opacity:.92;
+  filter:contrast(1.08) saturation(1);
+}
+
+/* nome */
+.about-name{
+  margin-top:18px;
+  font-family:"Bebas Kai", system-ui, sans-serif;
+  letter-spacing:.18em;
+  font-size:1.9rem;
+  color:var(--muted);
+  text-transform:uppercase;
+  text-align:center;
+}
+
+/* =======================
+   CONTACTOS (1 A 1)
+======================= */
+
+.about-contacts{
+  margin-top:28px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  font-size:.9rem;
+  color:var(--muted2);
+}
+
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  opacity:.8;
+  transition:opacity .3s ease, transform .3s ease;
+}
+
+.contact-item:hover{
+  opacity:1;
+  transform:translateX(2px);
+}
+
+.contact-item a{
+  color:inherit;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+}
+
+.contact-item a:hover{
+  border-bottom-color:var(--muted2);
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media (max-width: 900px){
+  .about-inner{
+    gap:48px;
+  }
+}
+
+@media (max-width: 720px){
+  .about-inner{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .about-text-col{
+    max-width:100%;
+  }
+
+  .about-side{
+    width:100%;
+    margin-top:40px;
+  }
   </style>
 </head>
 <body>
@@ -264,46 +299,62 @@
     </header>
 
   <main>
-    <section class="about">
-      <div class="about-inner">
-        <!-- Foto -->
-        <div class="about-photo-col">
-          <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+<section class="about">
+  <div class="about-inner">
+
+    <!-- COLUNA ESQUERDA — TEXTO LONGO -->
+    <div class="about-text-col">
+      <h2>About</h2>
+
+      <p>
+        I work with moving image preservation, analogue film practices,
+        and archival processes, focusing on the transmission of
+        photochemical knowledge and its contemporary relevance.
+      </p>
+
+      <p>
+        My practice intersects archival research, expanded cinema,
+        and contemporary digital environments, with a strong focus
+        on materiality, process, and time.
+      </p>
+
+      <!-- aqui podes continuar a acrescentar texto, listas, etc -->
+    </div>
+
+    <!-- COLUNA DIREITA — FOTO + INFO -->
+    <div class="about-side">
+
+      <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+
+      <div class="about-name">Mariana Torres</div>
+
+      <div class="about-contacts">
+        <div class="contact-item">
+          <span class="icon">✉</span>
+          <a href="mailto:mariana1108.torres@gmail.com">
+            mariana1108.torres@gmail.com
+          </a>
         </div>
 
-        <!-- Info: nome + contactos + texto -->
-        <div class="about-info">
-          <div class="about-header">
-            <div class="about-name">Mariana Torres</div>
+        <div class="contact-item">
+          <span class="icon">☎</span>
+          <a href="tel:+351912473730">
+            +351 912 473 730
+          </a>
+        </div>
 
-            <div class="about-contact">
-              <div class="contact-item">
-                <span class="icon">✉</span>
-                <a href="mailto:mariana1108.torres@gmail.com">mariana1108.torres@gmail.com</a>
-              </div>
-
-              <div class="contact-item">
-                <span class="icon">☎</span>
-                <a href="tel:+351912473730">+351 912 473 730</a>
-              </div>
-
-              <div class="contact-item">
-                <span class="icon">↗</span>
-                <a href="https://vimeo.com/teuvimeo" target="_blank" rel="noopener">Vimeo</a>
-              </div>
-            </div>
-          </div>
-
-          <p class="about-text">
-            I work with moving image preservation, analogue film practices,
-            and archival processes, focusing on the transmission of
-            photochemical knowledge and its contemporary relevance,
-            in correlation with the immaterial digital spaces through research and
-            cinematic expanded cinema proposals.
-          </p>
+        <div class="contact-item">
+          <span class="icon">↗</span>
+          <a href="https://vimeo.com/teuvimeo" target="_blank">
+            Vimeo
+          </a>
         </div>
       </div>
-    </section>
+
+    </div>
+
+  </div>
+</section>
   </main>
 </body>
 </html>
