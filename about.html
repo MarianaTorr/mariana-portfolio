@@ -274,19 +274,88 @@
   color: var(--text);
 }
 
-.hero-breath { 
-  height: 1vh;
-}
+/* =======================
+   BREATHING SPACE
+======================= */
 
-.GRANTS { 
-  
-  
+.about-breath{
+  height: 12vh;
 }
-
 
 /* =======================
-   RESPONSIVE
+   GRANTS SECTION
 ======================= */
+
+.grants{
+  padding: 80px 22px 140px;
+  background: #0a0c11;
+}
+
+.grants-inner{
+  max-width: 920px; /* igual ao about */
+  margin: 0 auto;
+}
+
+.grants-title{
+  font-family:"Bebas Kai", system-ui, sans-serif;
+  letter-spacing:.18em;
+  font-size:2rem;
+  color:var(--muted);
+  text-transform:uppercase;
+  margin: 0 0 48px;
+}
+
+/* lista editorial */
+
+.grants-list{
+  list-style:none;
+  padding:0;
+  margin:0 0 64px;
+}
+
+.grants-list li{
+  display:grid;
+  grid-template-columns: 80px 1fr;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(242,244,247,.12);
+}
+
+.grants-list .year{
+  font-size:.85rem;
+  color:var(--muted2);
+}
+
+.grants-list .desc{
+  font-size:.95rem;
+  line-height:1.5;
+  color:var(--muted);
+}
+
+/* =======================
+   PRESENTATION PHOTOS
+======================= */
+
+.presentation-photos{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.presentation-photos img{
+  width:100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity:.9;
+  filter: contrast(1.05) saturate(.9);
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.presentation-photos img:hover{
+  opacity:1;
+  transform: scale(1.02);
+}
 
   </style>
 </head>
@@ -384,22 +453,41 @@
    <a href="https://drive.google.com/your-cv-link" target="_blank" class="cv-button">
     cv
    </a>
-    <!-- HERO BREATH  UN CHIQUITIN  -->
-   <div class="hero-breath"></div>
+  </div>  
+ </div>
+</section>
+<!-- BREATHING SPACE -->
+<section class="about-breath"></section>
+<!-- GRANTS & CONFERENCES -->
+<section class="grants">
+  <div class="grants-inner">
 
-   <div class=" GRANTS and FUNDS"> 
+    <h2 class="grants-title">Grants & Conferences</h2>
 
-    <p> KSFVEOV </p>
+    <ul class="grants-list">
+      <li>
+        <span class="year">2024</span>
+        <span class="desc">Conference Presentation — FIAF Symposium, Paris</span>
+      </li>
+      <li>
+        <span class="year">2023</span>
+        <span class="desc">AMIA George Blood LP Women in Audiovisual Archiving and Technology Scholarship</span>
+      </li>
+      <li>
+        <span class="year">2022</span>
+        <span class="desc">Short-term Research Grant — Cinemateca Portuguesa</span>
+      </li>
+    </ul>
 
-   </div>
-   
-   </div>
-   
- </section>
+    <!-- fotos a apresentar -->
+    <div class="presentation-photos">
+      <img src="presenting1.jpg" alt="Presenting at conference">
+      <img src="presenting2.jpg" alt="Panel discussion">
+      <img src="presenting3.jpg" alt="Lecture moment">
+    </div>
+
+  </div>
+</section>
  </main>
- <script>
-    // Ano automático no footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
