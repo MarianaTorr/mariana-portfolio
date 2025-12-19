@@ -11,13 +11,13 @@
 
   <style>
     :root{
-      --bg:#06070b;
-      --text:#f2f4f7;
+      --bg: #06070b;
+      --text: #f2f4f7;
       --muted: rgba(242,244,247,.70);
       --muted2: rgba(242,244,247,.55);
       --max: 1120px;
       --hdr-h: 64px;
-      --line-soft: rgba(255,255,255,.22);
+      --line: rgba(255,255,255,.22);
       --overlay: rgba(6,7,11,.24);
     }
 
@@ -27,14 +27,12 @@
     body{
       font-family:"Source Serif 4", serif;
       color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      background: bg-video("smc2.mp4") center/cover no-repeat fixed;
       background-color: var(--bg);
-      
-  
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* vídeo de fundo subtis */
+    /* Vídeo de fundo subtis */
     .bg-video{
       position: fixed;
       inset: 0;
@@ -42,14 +40,26 @@
       height: 100%;
       object-fit: cover;
       z-index: -2;
-      opacity: .60;
-      filter: brightness(.1) contrast(.2);
-      pointer-events: center;
+      opacity: .12;
+      filter: brightness(.7) contrast(.95);
+      pointer-events: none;
     }
 
-    header, main{ position: relative; z-index: 2; }
+    /* overlay do index */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(1200px 700px at 50% 40%, rgba(6,7,11,.34), rgba(6,7,11,.12) 55%, rgba(6,7,11,.28) 100%),
+        linear-gradient(to bottom, var(--overlay), var(--overlay));
+      pointer-events: none;
+      z-index: -1;
+    }
 
-    /* ===== header ===== */
+    header, main{ position: relative; z-index: 1; }
+
+    /* ===== Header ===== */
     header{
       position: fixed;
       inset: 0 0 auto 0;
@@ -64,11 +74,11 @@
       max-width: var(--max);
       margin:0 auto;
       height:100%;
-      padding:0 22px;
+      padding:0 40px;
       display:flex;
       align-items:center;
       justify-content: space-between;
-      gap: 30px;
+      gap:24px;
     }
 
     .brand{
@@ -78,36 +88,24 @@
       color: var(--muted);
       text-decoration: none;
       opacity: .9;
+      transition: color .3s ease, opacity .3s ease;
     }
-
     .brand:hover{ color: var(--text); opacity:1; }
 
     .menu{
       list-style:none;
       display:flex;
-      gap: 14px;
+      gap: 24px;
       margin:0;
       padding:0;
       font-size:.94rem;
       color: var(--muted);
     }
-
-    .menu a{
-      text-decoration:none;
-      color: inherit;
-      opacity:.9;
-      white-space: nowrap;
-    }
-
+    .menu a{ text-decoration:none; color: inherit; opacity:.9; white-space: nowrap; transition: opacity .3s ease; }
     .menu a:hover{ opacity:1; color: var(--text); }
 
     .dropdown{ position: relative; }
-
-    .dropdown > a::after{
-      content:" ▾";
-      font-size:0.7em;
-    }
-
+    .dropdown > a::after{ content:" ▾"; font-size:0.7em; }
     .dropdown-content{
       display: none;
       position: absolute;
@@ -120,97 +118,99 @@
       list-style:none;
       z-index: 999;
     }
-
     .dropdown-content li{ padding:4px 14px; white-space:nowrap; }
     .dropdown-content li a{ display:block; color: var(--muted2); }
     .dropdown-content li a:hover{ color: var(--text); background: rgba(255,255,255,.06); }
-
     .dropdown:hover .dropdown-content{ display:block; }
 
-    /* ===== main section ===== */
+    /* ===== Main project section ===== */
     main.project-main{
-      max-width: 1024px;
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 80px 22px;
+      padding: 120px 40px; /* mais respiração */
       color: var(--text);
-      background: var(--bg); /* igual ao About, tapa o vídeo */
+      background: rgba(6,7,11,.48); /* transparência como no index */
+      border-radius: 12px;
+      backdrop-filter: blur(12px);
     }
 
-    .project-hero{ text-align: center; margin-bottom: 56px; }
-
+    .project-hero{ text-align:center; margin-bottom: 80px; }
     .project-title{
       font-family: "Bebas Kai", sans-serif;
-      font-size: 3.5rem;
+      font-size: 4rem;
       letter-spacing: .18em;
-      margin:0;
+      margin-bottom: 24px;
+      line-height:1.1;
       color: var(--text);
     }
-
     .project-meta{
-      font-size:1rem;
+      font-size:1.2rem;
       color: var(--muted2);
-      margin-top: 10px;
+      margin-top: 16px;
+      line-height:1.4;
     }
 
-    .project-overview{ margin-bottom:46px; }
-
+    .project-overview{ margin-bottom:60px; }
     .project-description{
-      font-size:1.1rem;
-      line-height:1.6;
+      font-size:1.2rem;
+      line-height:1.75;
       color: var(--muted);
-      margin-bottom:34px;
+      margin-bottom:48px;
     }
-
     .project-credits{
       list-style:none;
       padding:0;
       margin:0;
-      font-size:.95rem;
+      font-size:1rem;
       color: var(--muted2);
     }
-
-    .project-credits li{ margin-bottom:8px; }
+    .project-credits li{ margin-bottom:16px; }
 
     .project-gallery{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap:28px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:40px;
     }
-
     .project-gallery figure{
       display:flex;
       flex-direction:column;
-      gap:10px;
+      gap:12px;
     }
-
     .project-gallery img{
       width:100%;
       height:auto;
       object-fit:cover;
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:8px;
     }
-
     .project-gallery figcaption{
-      font-size:.82rem;
+      font-size:.85rem;
       color: var(--muted2);
       text-align:center;
     }
 
-    /* responsive */
-    @media (max-width:720px){
-      main.project-main{ padding:60px 18px; }
-      .project-title{ font-size:2.7rem; }
+    /* ===== Responsive ===== */
+    @media(max-width:900px){
+      nav{ padding:0 24px; gap:16px; }
+      main.project-main{ padding:80px 24px; }
     }
+    @media(max-width:720px){
+      .project-title{ font-size:3rem; margin-bottom:16px; }
+      .project-meta{ font-size:1rem; }
+      main.project-main{ padding:60px 18px; }
+      .project-gallery{ gap:28px; }
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- vídeo de fundo subtis -->
+  <!-- Vídeo de fundo -->
   <video class="bg-video" autoplay muted loop playsinline>
     <source src="smc2.mp4" type="video/mp4">
   </video>
 
-  <!-- header com menu igual ao About -->
+  <!-- Header -->
   <header>
     <nav>
       <a href="index.html" class="brand">MARIANA TORRES</a>
@@ -237,7 +237,7 @@
     </nav>
   </header>
 
-  <!-- main section do projeto -->
+  <!-- Main Project Section -->
   <main class="project-main">
     <header class="project-hero">
       <h1 class="project-title">Mandame un Color</h1>
@@ -248,7 +248,6 @@
       <p class="project-description">
         “Mandame un Color” é um projeto de instalação interativa que explora as interações do público com cores e luz. Inspirado pelo conceito de movimento subtil e respiração visual, cria experiências sensoriais únicas.
       </p>
-
       <ul class="project-credits">
         <li><strong>Conceito:</strong> Mariana Torres</li>
         <li><strong>Produção:</strong> Mariana Torres Studio</li>
@@ -262,7 +261,6 @@
       <figure><img src="proj2.jpg" alt="Detalhe da luz"><figcaption>Detalhe da Luz</figcaption></figure>
       <figure><img src="proj3.jpg" alt="Participação do público"><figcaption>Participação do Público</figcaption></figure>
     </section>
-
   </main>
 
 </body>
