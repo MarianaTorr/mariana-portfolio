@@ -261,11 +261,14 @@
       text-align:center;
 
       padding: 0 40px;
-
-      /* (4) lift title a bit to make room for corner subtitle */
-      padding-bottom: 34px;
-      transition: transform 0.3s ease, color 0.3s ease;
+   transition: color 0.3s ease, opacity 0.3s ease;
+  color: var(--text-muted); /* cor normal */
+  opacity: 0.8; 
     }
+    .title-block:hover {
+  color: var(--text); /* cor ao passar o rato */
+  opacity: 1;          /* totalmente visível */
+}
 
     h1{
       margin: 0 0 10px;
