@@ -17,7 +17,7 @@
       --muted2: rgba(242,244,247,.55);
       --max: 1120px;
       --hdr-h: 64px;
-      --line: rgba(255,255,255,.22);
+      --line-soft: rgba(255,255,255,.22);
       --overlay: rgba(6,7,11,.24);
     }
 
@@ -27,9 +27,11 @@
     body{
       font-family:"Source Serif 4", serif;
       color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      background: url("smc2.mp4") center/cover no-repeat fixed;
       background-color: var(--bg);
-      position: relative;
-      overflow-x: hidden;
+      
+  
     }
 
     /* vídeo de fundo subtis */
@@ -40,8 +42,8 @@
       height: 100%;
       object-fit: cover;
       z-index: -2;
-      opacity: .12;
-      filter: brightness(.7) contrast(.9);
+      opacity: .60;
+      filter: brightness(.1) contrast(.2);
       pointer-events: none;
     }
 
@@ -83,7 +85,7 @@
       display:flex;
       align-items:center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 30px;
     }
 
     .brand{
