@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Mariana Torres - About</title>
+  <title>Mariana Torres - Send me a Color</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
@@ -19,24 +19,46 @@
     }
 
     *{ box-sizing:border-box; }
-    html, body{ height:100%; margin:0; }
+html, body{ height:100%; margin:0; }
 
-    body{
-      font-family:"Source Serif 4", serif;
-      color: var(--text);
-      background-color: var(--bg);
-    }
+body{
+  font-family:"Source Serif 4", serif;
+  color: var(--text);
+  background-color: var(--bg);
+  position: relative;
+  overflow-x: hidden;
+}
 
-    body::before{
-      content:"";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(1200px 700px at 50% 40%, rgba(6,7,11,.34), rgba(6,7,11,.12) 55%, rgba(6,7,11,.28) 100%),
-        linear-gradient(to bottom, rgba(6,7,11,.24), rgba(6,7,11,.24));
-      pointer-events:none;
-      z-index:0;
-    }
+/* vídeo de fundo */
+.bg-video{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* equivalente a background-size: cover */
+  z-index: -2;
+}
+
+/* overlay (o teu, intacto) */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      1200px 700px at 50% 40%,
+      rgba(6,7,11,.34),
+      rgba(6,7,11,.12) 55%,
+      rgba(6,7,11,.28) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(6,7,11,.24),
+      rgba(6,7,11,.24)
+    );
+  pointer-events:none;
+  z-index:-1;
+}
 
     header, main{ position: relative; z-index: 1; }
 
@@ -132,138 +154,150 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
-    /* ---------------- PAGE STRUCTURE ---------------- */
-    main.page-wrapper {
-      padding-top: 130px;
-      padding-bottom: 80px;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
+    
+    /* main section */
 
-    h1 {
-      font-family: "Bebas Kai";
-      font-size: 2.8rem;
-      letter-spacing: 0.12em;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-    /* ---------------- MEDIA BLOCK ---------------- */
-    .media-block {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
-    .media-block img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 6px;
-      margin-top: 26px;
-    }
-
-    /* Vimeo video responsivo */
-    .video-fixed {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      margin: 26px 0;
-      border-radius: 6px;
-      overflow: hidden;
-    }
-
-    .video-fixed iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Grid de duas imagens lado a lado */
-    .media-row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin-top: 26px;
-    }
-
-    .media-row img { border-radius: 6px; }
-
-@media (max-width: 720px) {
-  .about-inner {
-    flex-direction: column;
-    align-items: center;
-  }
-  .about-text-col {
-    max-width: 100%;
-  }
-  .about-side {
-    width: 100%;
-    margin-top: 40px;
-  }
+.project-main{
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 80px 22px;
+  color: var(--text);
+  background: var(--bg);
 }
 
+.project-hero{
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.project-title{
+  font-family: "Bebas Kai", sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: .18em;
+  margin: 0;
+  color: var(--text);
+}
+
+.project-meta{
+  font-size: 1rem;
+  color: var(--muted2);
+  margin-top: 10px;
+}
+
+.project-overview{
+  margin-bottom: 46px;
+}
+
+.project-description{
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 34px;
+}
+
+.project-credits{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: .95rem;
+  color: var(--muted2);
+}
+
+.project-credits li{
+  margin-bottom: 8px;
+}
+
+.project-gallery{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+.project-gallery figure{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-gallery img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid var(--line-soft);
+}
+
+.project-gallery figcaption{
+  font-size: .82rem;
+  color: var(--muted2);
+  text-align: center;
+}
   </style>
 </head>
 <body>
+  <video class="bg-video" autoplay muted loop playsinline>
+  <source src="smc2.mp4" type="video/mp4">
+</video>
+ <header>
+      <nav>
+        <!-- clica no nome para ir ao Home -->
+        <a href="index.html" class="brand">MARIANA TORRES</a>
 
-  <!-- ---------------- HEADER ---------------- -->
-  <header>
-    <nav>
-      <a href="index.html" class="brand">MARIANA TORRES</a>
-      <ul class="menu">
-        <li><a href="about.html">About</a></li>
+        <ul class="menu">
+          <!-- removemos "Home" aqui, como combinámos -->
+          <li><a href="about.html">About</a></li>
 
-        <li class="dropdown">
-          <a href="projects.html">Projects</a>
-          <ul class="dropdown-content">
-            <li><a href="artistic-works.html">Send Me a Color</a></li>
-            <li><a href="research-preservation.html">Research & Preservation Works</a></li>
-          </ul>
-        </li>
+          <li class="dropdown">
+            <a href="projects.html">Projects</a>
+            <ul class="dropdown-content">
+              <li><a href="artistic-works.html">Send Me a color</a></li>
+              <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
+            </ul>
+          </li>
 
-        <li class="dropdown">
-          <a href="analogue-film.html">Analogue Film Practice</a>
-          <ul class="dropdown-content">
-            <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
-            <li><a href="technical-documentation.html">Technical Documentation</a></li>
-            <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
-          </ul>
-        </li>
+          <li class="dropdown">
+            <a href="analogue-film.html">Analogue Film Practice</a>
+            <ul class="dropdown-content">
+              <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
+              <li><a href="technical-documentation.html">Technical Documentation</a></li>
+              <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-        <li><a href="writing-publications.html">Writing & Publications</a></li>
-      </ul>
-    </nav>
+  <main class="project-main">
+
+  <header class="project-hero">
+    <h1 class="project-title">Título do Projeto</h1>
+    <p class="project-meta">Ano • Duração / Formato • Localização</p>
   </header>
 
-<main>
-  <section class="send-color-hero">
-    <div class="inner">
-      <h1>Send Me a Color</h1>
-      <p class="subtitle">A series of analogue experiments in colour and photochemical process.</p>
-    </div>
+  <section class="project-overview">
+    <p class="project-description">
+      Aqui vai uma sinopse forte e envolvente que contextualiza o projeto —
+      o que é, porquê é importante, como nasceu a ideia e o impacto desejado.
+    </p>
+
+    <ul class="project-credits">
+      <li><strong>Direção:</strong> Nome da/o diretora/or principal</li>
+      <li><strong>Produção:</strong> Equipa / Produtoras</li>
+      <li><strong>Fotografia:</strong> Nome da/o cinematógrafa/o</li>
+      <li><strong>Edição:</strong> Nome da/o editora/or</li>
+      <li><strong>Som:</strong> Colaboradores de som / música</li>
+    </ul>
   </section>
 
-  <section class="send-color-gallery">
-    <div class="inner">
-
-      <figure class="send-color-item">
-        <img src="img/send-color-1.jpg" alt="Send Me a Color – image 1">
-      </figure>
-
-      <figure class="send-color-item">
-        <img src="img/send-color-2.jpg" alt="Send Me a Color – image 2">
-      </figure>
-
-      <figure class="send-color-item">
-        <img src="img/send-color-3.jpg" alt="Send Me a Color – image 3">
-      </figure>
-
-    </div>
+  <section class="project-gallery">
+    <figure><img src="proj1.jpg" alt="Descrição 1"><figcaption>Legenda da Imagem 1</figcaption></figure>
+    <figure><img src="proj2.jpg" alt="Descrição 2"><figcaption>Legenda da Imagem 2</figcaption></figure>
+    <figure><img src="proj3.jpg" alt="Descrição 3"><figcaption>Legenda da Imagem 3</figcaption></figure>
   </section>
+
 </main>
+
+  </div>
+</section>
+ </main>
 </body>
 </html>
