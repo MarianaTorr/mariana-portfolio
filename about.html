@@ -273,6 +273,51 @@
   border-color: rgba(242,244,247,.35);
   color: var(--text);
 }
+/* =======================
+   ASSOCIATIONS
+======================= */
+
+.about-associations{
+  margin-top: 96px; /* respiração clara em relação ao texto */
+  text-align: center;
+}
+
+.about-section-title{
+  font-family: "Bebas Kai", system-ui, sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 40px;
+}
+
+.associations-list{
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 560px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.associations-list li{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.assoc-name{
+  font-size: 1rem;
+  color: var(--text);
+  opacity: .9;
+}
+
+.assoc-role{
+  font-size: .9rem;
+  color: var(--muted2);
+}
 
 /* =======================
    BREATHING SPACE
@@ -457,6 +502,29 @@
    </a>
   </div>  
  </div>
+  <section class="about-associations">
+
+  <h2 class="about-section-title">Association Memberships</h2>
+
+  <ul class="associations-list">
+    <li>
+      <span class="assoc-name">AMIA — Association of Moving Image Archivists</span>
+      <span class="assoc-role">Member</span>
+    </li>
+
+    <li>
+      <span class="assoc-name">FIAF — International Federation of Film Archives</span>
+      <span class="assoc-role">Research Affiliate</span>
+    </li>
+
+    <li>
+      <span class="assoc-name">APORDOC — Associação Portuguesa de Documentaristas</span>
+      <span class="assoc-role">Member</span>
+    </li>
+  </ul>
+
+</section>
+
 </section>
 <!-- BREATHING SPACE -->
 <section class="about-breath"></section>
