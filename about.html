@@ -1,145 +1,195 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Mariana Torres - About</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>Mariana Torres - About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Fonts -->
-<link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Fonts -->
+  <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-<style>
-:root{
-  --bg:#06070b;
-  --text:#f2f4f7;
-  --muted: rgba(242,244,247,.70);
-  --muted2: rgba(242,244,247,.55);
-  --max: 1120px;
-  --hdr-h: 64px;
-  --line: rgba(255,255,255,.22);
-  --overlay: rgba(6,7,11,.24);
-}
+  <style>
+    :root{
+      --bg:#06070b;
+      --text:#f2f4f7;
+      --muted: rgba(242,244,247,.70);
+      --muted2: rgba(242,244,247,.55);
+      --max: 1120px;
+      --hdr-h: 64px;
+    }
 
-*{ box-sizing:border-box; }
-html, body{ height:100%; margin:0; }
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; margin:0; }
 
-body{
-  font-family:"Source Serif 4", serif;
-  color: var(--text);
-  background-color: var(--bg);
-  background: url("Timeline2.gif.gif") center/cover no-repeat fixed;
-  position: relative;
-  overflow-x: hidden;
-}
+    body{
+      font-family:"Source Serif 4", serif;
+      color: var(--text);
+      background-color: var(--bg);
+      background: url("Timeline2.gif.gif") center/cover no-repeat fixed;
+    }
 
-body::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(1200px 700px at 50% 40%, rgba(6,7,11,.34), rgba(6,7,11,.12) 55%, rgba(6,7,11,.28) 100%),
-    linear-gradient(to bottom, var(--overlay), var(--overlay));
-  pointer-events:none;
-  z-index:0;
-}
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(1200px 700px at 50% 40%, rgba(6,7,11,.34), rgba(6,7,11,.12) 55%, rgba(6,7,11,.28) 100%),
+        linear-gradient(to bottom, rgba(6,7,11,.24), rgba(6,7,11,.24));
+      pointer-events:none;
+      z-index:0;
+    }
 
-header, main{ position: relative; z-index:1; }
+    header, main{ position: relative; z-index: 1; }
 
-/* ===== Header ===== */
-header{
-  position: fixed;
-  inset: 0 0 auto 0;
-  height: var(--hdr-h);
-  z-index: 1000;
-  background: linear-gradient(to bottom, rgba(6,7,11,.88), rgba(6,7,11,.35));
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  backdrop-filter: blur(10px);
-}
+    /* ===== header minimal ===== */
+    header{
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--hdr-h);
+      z-index: 1000;
+      background: linear-gradient(to bottom, rgba(6,7,11,.88), rgba(6,7,11,.35));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+    }
+    nav{
+      max-width: var(--max);
+      margin:0 auto;
+      height:100%;
+      padding:0 22px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 16px;
+    }
 
-nav{
-  max-width: var(--max);
-  margin:0 auto;
-  height:100%;
-  padding:0 22px;
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-}
+    .brand{
+      font-family:"Bebas Kai", system-ui, sans-serif;
+      letter-spacing:.18em;
+      white-space: nowrap;
+      color: var(--muted);        /* 👈 fixa a cor */
+      text-decoration: none;     /* 👈 remove sublinhado */
+      opacity: .9;
+    }
 
-.brand{
-  font-family:"Bebas Kai", system-ui, sans-serif;
-  letter-spacing:.18em;
-  white-space: nowrap;
-  color: var(--muted);
-  text-decoration:none;
-  opacity:.9;
-}
+    .menu{
+      list-style:none;
+      display:flex;
+      gap: 14px;
+      margin:0;
+      padding:0;
+      font-size:.94rem;
+      color: var(--muted);
+    }
 
-.menu{
-  list-style:none;
-  display:flex;
-  gap: 14px;
-  margin:0;
-  padding:0;
-  font-size:.94rem;
-}
+    .menu a{
+      text-decoration:none;
+      color: var(--muted);
+      color: inherit;
+      opacity:.9;
+      white-space: nowrap;
+    }
 
-.menu a{
-  text-decoration:none;
-  color: var(--muted);
-  opacity:.9;
-  white-space: nowrap;
-}
+    .menu a:hover{ opacity:1; color: var(--text); }
 
-.menu a:hover{ opacity:1; color: var(--text); }
+    main{ padding-top: var(--hdr-h); }
+    /* Dropdowns */
+    .dropdown {
+      position: relative;
+    }
 
-main{ padding-top: var(--hdr-h); }
+    .dropdown > a::after {
+      content: " ▾";
+      font-size: 0.7em; /* seta mais discreta */
+    }
 
-/* ===== About Section ===== */
-.about{
-  background: #0a0c11;
-  padding: 100px 22px 140px;
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 26px;
+      left: 0;
+      min-width: 220px;
+      background: rgba(5, 6, 8, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 0;
+      list-style: none;
+      z-index: 999;
+    }
+
+    .dropdown-content li {
+      padding: 4px 14px;
+      white-space: nowrap;
+    }
+
+    .dropdown-content li a {
+      display: block;
+      color: var(--text-muted);
+    }
+
+    .dropdown-content li a:hover {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* ===== about section ===== */
+  .about{
+  background:#0a0c11;
+  padding:100px 22px 140px;
 }
 
 .about-inner{
-  display:flex;
+  display: flex;
   flex-direction: row;
-  max-width: 920px;
-  margin:0 auto;
-  align-items:flex-start;
+  max-width: 920px;   /* mesmo max-width do hero */
+  margin: 0 auto;     /* centraliza horizontalmente */    /* ajusta o espaçamento entre colunas */
+  align-items: center;
   gap: 120px;
 }
 
-/* Texto à esquerda */
+/* =======================
+   COLUNA ESQUERDA — TEXTO
+======================= */
+
 .about-text-col{
   flex:1;
+  max-width:620px;
+  order: 2;
+  align-items: flex-start
 }
 
 .about-text-col h2{
   font-family:"Bebas Kai", system-ui, sans-serif;
   letter-spacing:.18em;
   font-size:2.2rem;
+  margin:0 0 32px;
   color:var(--muted);
   text-transform:uppercase;
-  margin-bottom:32px;
+  margin-top: 0;
 }
 
 .about-text-col p{
-  font-size:1.05rem;
+  font-size:1.02rem;
   line-height:1.6;
   color:var(--muted);
-  margin-bottom:24px;
+  margin:0 0 22px;
 }
 
-/* Foto + info à direita */
+/* =======================
+   COLUNA DIREITA — FOTO + INFO
+======================= */
+
 .about-side{
   width:260px;
   display:flex;
   flex-direction:column;
-  align-items:center;
+  align-items:flex-start;
+  order: 1;
 }
 
+/* foto */
 .about-photo{
   width:220px;
   height:220px;
@@ -147,9 +197,10 @@ main{ padding-top: var(--hdr-h); }
   object-fit:none;
   object-position:-150px -60px;
   opacity:.92;
-  filter: contrast(1.08) saturate(1);
+  filter:contrast(1.08) saturation(1);
 }
 
+/* nome */
 .about-name{
   margin-top:18px;
   font-family:"Bebas Kai", system-ui, sans-serif;
@@ -159,6 +210,10 @@ main{ padding-top: var(--hdr-h); }
   text-transform:uppercase;
   text-align:center;
 }
+
+/* =======================
+   CONTACTOS (1 A 1)
+======================= */
 
 .about-contacts{
   margin-top:28px;
@@ -191,32 +246,40 @@ main{ padding-top: var(--hdr-h); }
 .contact-item a:hover{
   border-bottom-color:var(--muted2);
 }
-
-/* Botão CV */
-.cv-button{
-  display:inline-block;
-  margin-top:28px;
+/* Botão CV alinhado com os contactos na vertical */
+/* =======================
+   BOTÃO CV
+======================= */
+.cv-button {
+  display: inline-block;
+  margin-top: 28px;
   padding: 10px 24px;
   background: rgba(242,244,247,.08);
   border: 3px double #f2f4f7;
   color: var(--muted);
   text-decoration: none;
-  font-family:"Bebas Kai", system-ui, sans-serif;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  border-radius:1px;
+  font-family: "Bebas Kai", system-ui, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transition: all .3s ease;
+  border-radius: 1px;
+  text-align: center;
+  align-self: center;  /* centraliza dentro do flex container .about-side */
+
 }
 
-.cv-button:hover{
+.cv-button:hover {
   background: rgba(242,244,247,.15);
   border-color: rgba(242,244,247,.35);
   color: var(--text);
 }
+/* =======================
+   ASSOCIATIONS
+======================= */
 
-/* Association Memberships */
 .about-associations{
-  margin-top:96px;
-  text-align:center;
+  margin-top: 96px; /* respiração clara em relação ao texto */
+  text-align: center;
 }
 
 .about-section-title{
@@ -225,45 +288,59 @@ main{ padding-top: var(--hdr-h); }
   letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--muted2);
-  margin-bottom:40px;
+  margin-bottom: 40px;
 }
 
 .associations-list{
-  list-style:none;
-  padding:0;
-  margin:0 auto;
-  max-width:560px;
-  display:flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 560px;
+
+  display: flex;
   flex-direction: column;
-  gap:22px;
+  gap: 22px;
 }
 
 .associations-list li{
-  display:flex;
+  display: flex;
   flex-direction: column;
-  gap:6px;
+  gap: 6px;
 }
 
 .assoc-name{
-  font-size:1rem;
+  font-size: 1rem;
   color: var(--text);
-  opacity:.9;
+  opacity: .9;
 }
 
 .assoc-role{
-  font-size:.9rem;
+  font-size: .9rem;
   color: var(--muted2);
 }
 
-/* Grants */
+/* =======================
+   BREATHING SPACE
+======================= */
+
+.about-breath{
+   height: 2vh;
+  min-height: 10px;
+  max-height: 30px;
+}
+
+/* =======================
+   GRANTS SECTION
+======================= */
+
 .grants{
-  padding:80px 22px 140px;
+  padding: 80px 22px 140px;
   background: #0a0c11;
 }
 
 .grants-inner{
-  max-width: 920px;
-  margin:0 auto;
+  max-width: 920px; /* igual ao about */
+  margin: 0 auto;
 }
 
 .grants-title{
@@ -272,8 +349,10 @@ main{ padding-top: var(--hdr-h); }
   font-size:2rem;
   color:var(--muted);
   text-transform:uppercase;
-  margin-bottom:48px;
+  margin: 0 0 48px;
 }
+
+/* lista editorial */
 
 .grants-list{
   list-style:none;
@@ -284,9 +363,9 @@ main{ padding-top: var(--hdr-h); }
 .grants-list li{
   display:grid;
   grid-template-columns: 80px 1fr;
-  gap:20px;
-  padding:14px 0;
-  border-bottom:1px solid rgba(242,244,247,.12);
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(242,244,247,.12);
 }
 
 .grants-list .year{
@@ -300,17 +379,21 @@ main{ padding-top: var(--hdr-h); }
   color:var(--muted);
 }
 
+/* =======================
+   PRESENTATION PHOTOS
+======================= */
+
 .presentation-photos{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap:20px;
+  gap: 20px;
 }
 
 .presentation-photos img{
   width:100%;
-  aspect-ratio:4/3;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius:12px;
+  border-radius: 12px;
   opacity:.9;
   filter: contrast(1.05) saturate(.9);
   transition: opacity .3s ease, transform .3s ease;
@@ -321,105 +404,173 @@ main{ padding-top: var(--hdr-h); }
   transform: scale(1.02);
 }
 
-/* Responsive */
-@media(max-width:920px){
-  .about-inner{ flex-direction:column; align-items:center; gap:40px; }
-  .about-side{ width:100%; align-items:center; }
-}
-</style>
+  </style>
 </head>
 <body>
+ <header>
+      <nav>
+        <!-- clica no nome para ir ao Home -->
+        <a href="index.html" class="brand">MARIANA TORRES</a>
 
-<header>
-  <nav>
-    <a href="index.html" class="brand">MARIANA TORRES</a>
-    <ul class="menu">
-      <li><a href="about.html">About</a></li>
-      <li class="dropdown">
-        <a href="projects.html">Projects</a>
-        <ul class="dropdown-content">
-          <li><a href="artistic-works.html">Send Me a Color</a></li>
-          <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
+        <ul class="menu">
+          <!-- removemos "Home" aqui, como combinámos -->
+          <li><a href="about.html">About</a></li>
+
+          <li class="dropdown">
+            <a href="projects.html">Projects</a>
+            <ul class="dropdown-content">
+              <li><a href="artistic-works.html">Send Me a color</a></li>
+              <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="analogue-film.html">Analogue Film Practice</a>
+            <ul class="dropdown-content">
+              <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
+              <li><a href="technical-documentation.html">Technical Documentation</a></li>
+              <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
+            </ul>
+          </li>
         </ul>
-      </li>
-      <li class="dropdown">
-        <a href="analogue-film.html">Analogue Film Practice</a>
-        <ul class="dropdown-content">
-          <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
-          <li><a href="technical-documentation.html">Technical Documentation</a></li>
-          <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-</header>
+      </nav>
+    </header>
 
-<main>
-  <section class="about">
-    <div class="about-inner">
-      <!-- Texto -->
-      <div class="about-text-col">
-        <h2>About</h2>
-        <p>
-          I work with moving image preservation, analogue film practices,
-          and archival processes, focusing on the transmission of photochemical 
-          knowledge and its contemporary relevance. My practice intersects archival
-          research, expanded cinema, and contemporary digital environments.
-        </p>
-        <p>
-          Film preservation specialist with a Master’s degree from Elías Querejeta Zine Eskola (2023),
-          supported by the AMIA George Blood LP Women in Audiovisual Archiving and Technology Scholarship.
-          And a bachelor in Film Studies at ESTC (2021).
-        </p>
-        <p>
-          Experience in analog, digital film restoration, and archival research for the Portuguese
-          Cinematheque, through the restoration company Cineric P. Participated in various audiovisual
-          projects as editing assistant. Short-term research grant from the Portuguese Cinematheque.
-        </p>
-      </div>
+  <main>
+<section class="about">
+  <div class="about-inner">
 
-      <!-- Foto + Info -->
-      <div class="about-side">
-        <img src="pag2.png" alt="Mariana Torres" class="about-photo">
-        <div class="about-name">Mariana Torres</div>
-        <div class="about-contacts">
-          <div class="contact-item"><span>✉</span> <a href="mailto:mariana1108.torres@gmail.com">mariana1108.torres@gmail.com</a></div>
-          <div class="contact-item"><span>☎</span> <a href="tel:+351912473730">+351 912 473 730</a></div>
-          <div class="contact-item"><span>↗</span> <a href="https://vimeo.com/teuvimeo" target="_blank">Vimeo</a></div>
-        </div>
-        <a href="https://drive.google.com/your-cv-link" target="_blank" class="cv-button">CV</a>
-      </div>
+    <!-- COLUNA ESQUERDA — TEXTO LONGO -->
+    <div class="about-text-col">
+      <h2>About</h2>
+
+      <p>
+        I work with moving image preservation, analogue film practices,
+        and archival processes, focusing on the transmission of photochemical 
+        knowledge and its contemporary relevance.My practice intersects archival
+        research, expanded cinema,and contemporary digital environments.
+      </p>
+
+      <p>
+      Film preservation specialist with a Master’s degree from Elías Querejeta Zine Eskola (2023),
+      supported by the AMIA George Blood LP Women in Audiovisual Archiving and Technology Scholarship.
+      And a bachelor in Film Studies at ESTC (2021).
+      </p>
+      <p>
+      Have Experience in analog, digital film restoration, and archival research for the Portuguese
+      Cinematheque,through the restoration company Cineric P. in the department of film prep. and digitization.
+      Participated in various multidisciplinary audiovisual projects as an editing assistant to the artist 
+      and director Salomé Lamas. And received a short-term research grant from the Portuguese Cinematheque
+      to study the work of the Portuguese avant-garde artist Ernesto de Sousa’s.</p>
+
+      <!-- aqui podes continuar a acrescentar texto, listas, etc -->
     </div>
 
-    <!-- Association Memberships -->
-    <section class="about-associations">
-      <h2 class="about-section-title">Association Memberships</h2>
-      <ul class="associations-list">
-        <li><span class="assoc-name">AMIA — Association of Moving Image Archivists</span><span class="assoc-role">Member</span></li>
-        <li><span class="assoc-name">FIAF — International Federation of Film Archives</span><span class="assoc-role">Research Affiliate</span></li>
-        <li><span class="assoc-name">APORDOC — Associação Portuguesa de Documentaristas</span><span class="assoc-role">Member</span></li>
-      </ul>
-    </section>
+    <!-- COLUNA DIREITA — FOTO + INFO -->
+    <div class="about-side">
 
-    <!-- Grants & Conferences -->
-    <section class="grants">
-      <div class="grants-inner">
-        <h2 class="grants-title">Grants & Conferences</h2>
-        <ul class="grants-list">
-          <li><span class="year">2024</span><span class="desc">Conference Presentation — FIAF Symposium, Paris</span></li>
-          <li><span class="year">2023</span><span class="desc">AMIA George Blood LP Women in Audiovisual Archiving and Technology Scholarship</span></li>
-          <li><span class="year">2022</span><span class="desc">Short-term Research Grant — Cinemateca Portuguesa</span></li>
-        </ul>
-        <div class="presentation-photos">
-          <figure><img src="presenting1.jpg" alt="Conference"><figcaption>FIAF Symposium, Paris — conference presentation</figcaption></figure>
-          <figure><img src="presenting2.jpg" alt="Panel"><figcaption>Panel discussion on audiovisual archiving</figcaption></figure>
-          <figure><img src="presenting3.jpg" alt="Lecture"><figcaption>Lecture session — research presentation</figcaption></figure>
+      <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+
+      <div class="about-name">Mariana Torres</div>
+
+      <div class="about-contacts">
+        <div class="contact-item">
+          <span class="icon">✉</span>
+          <a href="mailto:mariana1108.torres@gmail.com">
+            mariana1108.torres@gmail.com
+          </a>
         </div>
-      </div>
-    </section>
 
-  </section>
-</main>
+        <div class="contact-item">
+          <span class="icon">☎</span>
+          <a href="tel:+351912473730">
+            +351 912 473 730
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <span class="icon">↗</span>
+          <a href="https://vimeo.com/teuvimeo" target="_blank">
+            Vimeo
+           </a>
+    </div>
+  </div>
+
+    <!-- BOTÃO DE DOWNLOAD CV -->
+   <a href="https://drive.google.com/your-cv-link" target="_blank" class="cv-button">
+    cv
+   </a>
+  </div>  
+ </div>
+  <section class="about-associations">
+
+  <h2 class="about-section-title">Association Memberships</h2>
+
+  <ul class="associations-list">
+    <li>
+      <span class="assoc-name">AMIA — Association of Moving Image Archivists</span>
+      <span class="assoc-role">Member</span>
+    </li>
+
+    <li>
+      <span class="assoc-name">FIAF — International Federation of Film Archives</span>
+      <span class="assoc-role">Research Affiliate</span>
+    </li>
+
+    <li>
+      <span class="assoc-name">APORDOC — Associação Portuguesa de Documentaristas</span>
+      <span class="assoc-role">Member</span>
+    </li>
+  </ul>
+
+</section>
+
+</section>
+<!-- BREATHING SPACE -->
+<section class="about-breath"></section>
+<!-- GRANTS & CONFERENCES -->
+<section class="grants">
+  <div class="grants-inner">
+
+    <h2 class="grants-title">Grants & Conferences</h2>
+
+    <ul class="grants-list">
+      <li>
+        <span class="year">2024</span>
+        <span class="desc">Conference Presentation — FIAF Symposium, Paris</span>
+      </li>
+      <li>
+        <span class="year">2023</span>
+        <span class="desc">AMIA George Blood LP Women in Audiovisual Archiving and Technology Scholarship</span>
+      </li>
+      <li>
+        <span class="year">2022</span>
+        <span class="desc">Short-term Research Grant — Cinemateca Portuguesa</span>
+      </li>
+    </ul>
+
+
+   <div class="presentation-photos">
+
+  <figure class="presentation-item">
+    <img src="presenting1.jpg" alt="Conference presentation at FIAF Symposium, Paris">
+    <figcaption>FIAF Symposium, Paris — conference presentation</figcaption>
+  </figure>
+
+  <figure class="presentation-item">
+    <img src="presenting2.jpg" alt="Panel discussion at audiovisual archiving conference">
+    <figcaption>Panel discussion on audiovisual archiving</figcaption>
+  </figure>
+
+  <figure class="presentation-item">
+    <img src="presenting3.jpg" alt="Lecture moment during academic conference">
+    <figcaption>Lecture session — research presentation</figcaption>
+  </figure>
+
+</div>
+
+  </div>
+</section>
+ </main>
 </body>
 </html>
-
