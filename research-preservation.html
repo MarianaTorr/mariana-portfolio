@@ -141,72 +141,73 @@
       padding: 0 20px 70px;
     }
 
-    .intro-text {
-      text-align: left;
-      color: var(--text-muted);
-      max-width: 850px;
-      margin: 0 auto 40px;
-      font-size: 1.02rem;
-      line-height: 1.7;
-    }
+/* ==== Research & Preservation Works === */
 
-    /* Media layout (igual filosofia do Artistic Works) */
+.research-hero {
+  padding: 100px 22px 48px;
+  background: #0a0c11;
+  text-align: center;
+}
 
-    .media-block {
-      max-width: 1200px;
-      margin: 0 auto 50px;
-    }
+.research-hero h1 {
+  font-family: "Bebas Kai", sans-serif;
+  font-size: 2.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  margin-bottom: 16px;
+}
 
-    /* PRIMEIRA LINHA: imagem + vídeo lado a lado em ecrã grande */
-    .media-row-top {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      margin-bottom: 32px;
-    }
+.research-hero .subtitle {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: var(--muted2);
+  max-width: 860px;
+  margin: 0 auto;
+}
 
-    @media (min-width: 900px) {
-      .media-row-top {
-        grid-template-columns: 1.1fr 1fr; /* ligeiro destaque para o slide */
-      }
-    }
+.research-gallery {
+  padding: 40px 22px 120px;
+  background: #0a0c11;
+}
 
-    .media-cell img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 6px;
-    }
+.research-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  gap: 48px;
+}
 
-    /* Vídeo Vimeo com proporção fixa 16:9 */
-    .video-fixed {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 16:9 */
-      border-radius: 6px;
-      overflow: hidden;
-    }
+/* grid responsivo: duas colunas em desktop, uma no mobile */
 
-    .video-fixed iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+@media (min-width: 720px) {
+  .research-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-    /* STILLS EM BAIXO (se adicionares mais) */
-    .stills-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
+.research-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: contrast(1.05) saturate(.9);
+  opacity: .9;
+  transition: opacity .3s ease, transform .3s ease;
+}
 
-    @media (min-width: 900px) {
-      .stills-row {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+.research-item img:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.research-item figcaption {
+  font-size: .95rem;
+  color: var(--muted2);
+  text-align: center;
+  margin-top: 12px;
+}
+
   </style>
 </head>
 
@@ -242,42 +243,32 @@
     </nav>
   </header>
 
-  <!-- ---------------- CONTENT ---------------- -->
-  <div class="page-wrapper">
-    <p class="intro-text">
-      Digital restorations, research on unfinished films, collaborations with archives and collectives,
-      technical tests and documentation around analogue and digital workflows.
-    </p>
+  <main>
+  <section class="research-hero">
+    <div class="research-inner">
+      <h1>Research & Preservation Works</h1>
+      <p class="subtitle">
+        Digital restorations, research on unfinished films, collaborations with archives and collectives, technical tests and documentation around analogue and digital workflows.
+      </p>
+    </div>
+  </section>
 
-    <section class="media-block">
-      <!-- TOPO: SLIDE + VÍDEO COM A MESMA ESCALA DO ARTISTIC WORKS -->
-      <div class="media-row-top">
-        <div class="media-cell">
-          <img src="pag4.png" alt="La Cruz de Mayo – digital restoration slide" />
-        </div>
+  <section class="research-gallery">
+    <div class="research-inner">
 
-        <div class="media-cell">
-          <div class="video-fixed">
-            <iframe
-              src="https://player.vimeo.com/video/1084541446?h=b19ced0966"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-      </div>
+      <figure class="research-item">
+        <img src="./img/restoration-slide.jpg" alt="La Cruz de Mayo – digital restoration">
+        <figcaption>La Cruz de Mayo — Digital Restoration Slide</figcaption>
+      </figure>
 
-      <!-- STILLS EM BAIXO (podes acrescentar mais se quiseres) -->
-      <div class="stills-row">
-        <div class="media-cell">
-          <img src="color3.png" alt="Additional still 1" />
-        </div>
-        <!-- Se tiveres outra still, duplica este bloco:
-        <div class="media-cell">
-          <img src="NOME_DA_TUA_IMAGEM.png" alt="Additional still 2" />
-        </div>
-        -->
-      </div>
+      <figure class="research-item">
+        <img src="./img/additional-still1.jpg" alt="Additional still from research work">
+        <figcaption>Still from research work</figcaption>
+      </figure>
+
+    </div>
+  </section>
+</main>
     </section>
   </div>
 
