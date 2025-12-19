@@ -41,7 +41,7 @@ html lang="en">
 
     header, main{ position: relative; z-index: 1; }
 
-    /* ===== header minimal ===== */
+   /* ===== header minimal ===== */
     header{
       position: fixed;
       inset: 0 0 auto 0;
@@ -61,18 +61,24 @@ html lang="en">
       justify-content: space-between;
       gap: 16px;
     }
+  .brand{
+  font-family:"Bebas Kai", system-ui, sans-serif;
+  letter-spacing:.18em;
+  white-space: nowrap;
 
-    .brand{
-      font-family:"Bebas Kai", system-ui, sans-serif;
-      letter-spacing:.18em;
-      white-space: nowrap;
-      color: var(--muted);        /* 👈 fixa a cor */
-      text-decoration: none;     /* 👈 remove sublinhado */
-      opacity: .9;
-    }
+  color: var(--muted);        /* 👈 fixa a cor */
+  text-decoration: none;     /* 👈 remove sublinhado */
+  opacity: .9;
+}
+
+.brand:hover{
+  color: var(--text);        /* igual ao menu */
+  opacity: 1;
+}
 
     .menu{
       list-style:none;
+      color: var(--muted);
       display:flex;
       gap: 14px;
       margin:0;
@@ -80,15 +86,12 @@ html lang="en">
       font-size:.94rem;
       color: var(--muted);
     }
-
     .menu a{
       text-decoration:none;
-      color: var(--muted);
       color: inherit;
       opacity:.9;
       white-space: nowrap;
     }
-
     .menu a:hover{ opacity:1; color: var(--text); }
 
     main{ padding-top: var(--hdr-h); }
