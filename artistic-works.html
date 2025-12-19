@@ -47,24 +47,7 @@
       pointer-events: none;
     }
 
-    /* overlay igual ao About */
-    body::before{
-      content:"";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(
-          1200px 700px at 50% 40%,
-          rgba(6,7,11,.30),
-          rgba(6,7,11,.18) 55%,
-          rgba(6,7,11,.38) 100%
-        ),
-        linear-gradient(to bottom, rgba(6,7,11,.32), rgba(6,7,11,.32));
-      pointer-events:none;
-      z-index:-1;
-    }
-
-    header, main{ position: relative; z-index: 1; }
+    header, main{ position: relative; z-index: 2; }
 
     /* ===== header ===== */
     header{
