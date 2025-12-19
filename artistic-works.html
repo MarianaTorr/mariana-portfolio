@@ -25,18 +25,8 @@
       font-family:"Source Serif 4", serif;
       color: var(--text);
       background-color: var(--bg);
-      
+      background: url("Timeline2.gif.gif") center/cover no-repeat fixed;
     }
-    .bg-video{
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-  opacity: .12; /* controla a intensidade do vídeo */
-  pointer-events: center;
-}
 
     body::before{
       content:"";
@@ -144,140 +134,375 @@
       display: block;
     }
 
-    /* ===== Main project section ===== */
-    main.project-main{
-    background:#0a0c11;
-     padding:100px 22px 140px;
-    }
+    /* ===== about section ===== */
+  .about{
+  background:#0a0c11;
+  padding:100px 22px 140px;
+}
 
-    .project-hero{ display: flex;
-      flex-direction: row;
-      max-width: 920px;   /* mesmo max-width do hero */
-      margin: 0 auto;     /* centraliza horizontalmente */    /* ajusta o espaçamento entre colunas */
-       align-items: center;
-       gap: 120px; }
-    .project-title{
-      font-family:"Bebas Kai", system-ui, sans-serif;
-       letter-spacing:.18em;
-       font-size:2.2rem;
-       margin:0 0 32px;
-     color:var(--muted);
-      text-transform:uppercase;
-      margin-top: 0;
-    }
-    .project-meta{
-      font-family:"Bebas Kai", system-ui, sans-serif;
-       letter-spacing:.18em;
-       font-size:2.2rem;
-       margin:0 0 32px;
-       color:var(--muted);
-       text-transform:uppercase;
-       margin-top: 0;
-    }
+.about-inner{
+  display: flex;
+  flex-direction: row;
+  max-width: 920px;   /* mesmo max-width do hero */
+  margin: 0 auto;     /* centraliza horizontalmente */    /* ajusta o espaçamento entre colunas */
+  align-items: center;
+  gap: 120px;
+}
 
-    .project-overview{ margin-bottom:60px; }
-    .project-description{
-      font-family:"Bebas Kai", system-ui, sans-serif;
-        letter-spacing:.18em;
-        font-size:2.2rem;
-       margin:0 0 32px;
-       color:var(--muted);
-       text-transform:uppercase;
-       margin-top: 0;
-    }
-    .project-credits{
-      list-style:none;
-      padding:0;
-      margin:0;
-      font-size:1rem;
-      color: var(--muted2);
-    }
-    .project-credits li{ margin-bottom:16px; }
+/* =======================
+   COLUNA ESQUERDA — TEXTO
+======================= */
 
-    .project-gallery{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap:40px;
-    }
-    .project-gallery figure{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .project-gallery img{
-      width:100%;
-      height:auto;
-      object-fit:cover;
-      border:1px solid rgba(255,255,255,.15);
-      border-radius:8px;
-    }
-    .project-gallery figcaption{
-      font-size:.85rem;
-      color: var(--muted2);
-      text-align:center;
-    }
+.about-text-col{
+  flex:1;
+  max-width:620px;
+  order: 2;
+  align-items: flex-start
+}
+
+.about-text-col h2{
+  font-family:"Bebas Kai", system-ui, sans-serif;
+  letter-spacing:.18em;
+  font-size:2.2rem;
+  margin:0 0 32px;
+  color:var(--muted);
+  text-transform:uppercase;
+  margin-top: 0;
+}
+
+.about-text-col p{
+  font-size:1.02rem;
+  line-height:1.6;
+  color:var(--muted);
+  margin:0 0 22px;
+}
+
+/* =======================
+   COLUNA DIREITA — FOTO + INFO
+======================= */
+
+.about-side{
+  width:260px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  order: 1;
+}
+
+/* foto */
+.about-photo{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  object-fit:none;
+  object-position:-150px -60px;
+  opacity:.92;
+  filter:contrast(1.08) saturation(1);
+}
+
+/* nome */
+.about-name{
+  margin-top:18px;
+  font-family:"Bebas Kai", system-ui, sans-serif;
+  letter-spacing:.18em;
+  font-size:1.9rem;
+  color:var(--muted);
+  text-transform:uppercase;
+  text-align:center;
+}
+
+/* =======================
+   CONTACTOS (1 A 1)
+======================= */
+
+.about-contacts{
+  margin-top:28px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  font-size:.9rem;
+  color:var(--muted2);
+}
+
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  opacity:.8;
+  transition:opacity .3s ease, transform .3s ease;
+}
+
+.contact-item:hover{
+  opacity:1;
+  transform:translateX(2px);
+}
+
+.contact-item a{
+  color:inherit;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+}
+
+.contact-item a:hover{
+  border-bottom-color:var(--muted2);
+}
+/* Botão CV alinhado com os contactos na vertical */
+/* =======================
+   BOTÃO CV
+======================= */
+.cv-button {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 10px 24px;
+  background: rgba(242,244,247,.08);
+  border: 3px double #f2f4f7;
+  color: var(--muted);
+  text-decoration: none;
+  font-family: "Bebas Kai", system-ui, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transition: all .3s ease;
+  border-radius: 1px;
+  text-align: center;
+  align-self: center;  /* centraliza dentro do flex container .about-side */
+  
+}
+
+.cv-button:hover {
+  background: rgba(242,244,247,.15);
+  border-color: rgba(242,244,247,.35);
+  color: var(--text);
+}
+
+/* =======================
+   BREATHING SPACE
+======================= */
+
+.about-breath{
+   height: 2vh;
+  min-height: 10px;
+  max-height: 30px;
+}
+
+/* =======================
+   GRANTS SECTION
+======================= */
+
+.grants{
+  padding: 80px 22px 140px;
+  background: #0a0c11;
+}
+
+.grants-inner{
+  max-width: 920px; /* igual ao about */
+  margin: 0 auto;
+}
+
+.grants-title{
+  font-family:"Bebas Kai", system-ui, sans-serif;
+  letter-spacing:.18em;
+  font-size:2rem;
+  color:var(--muted);
+  text-transform:uppercase;
+  margin: 0 0 48px;
+}
+
+/* lista editorial */
+
+.grants-list{
+  list-style:none;
+  padding:0;
+  margin:0 0 64px;
+}
+
+.grants-list li{
+  display:grid;
+  grid-template-columns: 80px 1fr;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(242,244,247,.12);
+}
+
+.grants-list .year{
+  font-size:.85rem;
+  color:var(--muted2);
+}
+
+.grants-list .desc{
+  font-size:.95rem;
+  line-height:1.5;
+  color:var(--muted);
+}
+
+/* =======================
+   PRESENTATION PHOTOS
+======================= */
+
+.presentation-photos{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.presentation-photos img{
+  width:100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity:.9;
+  filter: contrast(1.05) saturate(.9);
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.presentation-photos img:hover{
+  opacity:1;
+  transform: scale(1.02);
+}
 
   </style>
 </head>
 <body>
+ <header>
+      <nav>
+        <!-- clica no nome para ir ao Home -->
+        <a href="index.html" class="brand">MARIANA TORRES</a>
 
-  <!-- Vídeo de fundo -->
-  <video class="bg-video" autoplay muted loop playsinline>
-    <source src="smc2.mp4" type="video/mp4">
-  </video>
+        <ul class="menu">
+          <!-- removemos "Home" aqui, como combinámos -->
+          <li><a href="about.html">About</a></li>
 
-  <!-- Header -->
-  <header>
-    <nav>
-      <a href="index.html" class="brand">MARIANA TORRES</a>
-      <ul class="menu">
-        <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="projects.html">Projects</a>
+            <ul class="dropdown-content">
+              <li><a href="artistic-works.html">Send Me a color</a></li>
+              <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
+            </ul>
+          </li>
 
-        <li class="dropdown">
-          <a href="projects.html">Projects</a>
-          <ul class="dropdown-content">
-            <li><a href="artistic-works.html">Send Me a Color</a></li>
-            <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="analogue-film.html">Analogue Film Practice</a>
-          <ul class="dropdown-content">
-            <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
-            <li><a href="technical-documentation.html">Technical Documentation</a></li>
-            <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Main Project Section -->
-  <main class="project-main">
-    <header class="project-hero">
-      <h1 class="project-title">Mandame un Color</h1>
-      <p class="project-meta">2025 • Instalação Interativa • Lisboa</p>
+          <li class="dropdown">
+            <a href="analogue-film.html">Analogue Film Practice</a>
+            <ul class="dropdown-content">
+              <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
+              <li><a href="technical-documentation.html">Technical Documentation</a></li>
+              <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </header>
 
-    <section class="project-overview">
-      <p class="project-description">
-        “Mandame un Color” é um projeto de instalação interativa que explora as interações do público com cores e luz. Inspirado pelo conceito de movimento subtil e respiração visual, cria experiências sensoriais únicas.
+  <main>
+<section class="about">
+  <div class="about-inner">
+
+    <!-- COLUNA ESQUERDA — TEXTO LONGO -->
+    <div class="about-text-col">
+      <h2>About</h2>
+
+      <p>
+        I work with moving image preservation, analogue film practices,
+        and archival processes, focusing on the transmission of photochemical 
+        knowledge and its contemporary relevance.My practice intersects archival
+        research, expanded cinema,and contemporary digital environments.
       </p>
-      <ul class="project-credits">
-        <li><strong>Conceito:</strong> Mariana Torres</li>
-        <li><strong>Produção:</strong> Mariana Torres Studio</li>
-        <li><strong>Design Interativo:</strong> Equipa Colaboradora</li>
-        <li><strong>Som & Luz:</strong> Colaboradores</li>
-      </ul>
-    </section>
 
-    <section class="project-gallery">
-      <figure><img src="proj1.jpg" alt="Instalação vista geral"><figcaption>Vista Geral</figcaption></figure>
-      <figure><img src="proj2.jpg" alt="Detalhe da luz"><figcaption>Detalhe da Luz</figcaption></figure>
-      <figure><img src="proj3.jpg" alt="Participação do público"><figcaption>Participação do Público</figcaption></figure>
-    </section>
-  </main>
+      <p>
+      Film preservation specialist with a Master’s degree from Elías Querejeta Zine Eskola (2023),
+      supported by the AMIA George Blood LP Women in Audiovisual Archiving and Technology Scholarship.
+      And a bachelor in Film Studies at ESTC (2021).
+      </p>
+      <p>
+      Have Experience in analog, digital film restoration, and archival research for the Portuguese
+      Cinematheque,through the restoration company Cineric P. in the department of film prep. and digitization.
+      Participated in various multidisciplinary audiovisual projects as an editing assistant to the artist 
+      and director Salomé Lamas. And received a short-term research grant from the Portuguese Cinematheque
+      to study the work of the Portuguese avant-garde artist Ernesto de Sousa’s.</p>
 
+      <!-- aqui podes continuar a acrescentar texto, listas, etc -->
+    </div>
+
+    <!-- COLUNA DIREITA — FOTO + INFO -->
+    <div class="about-side">
+
+      <img src="pag2.png" alt="Mariana Torres" class="about-photo" />
+
+      <div class="about-name">Mariana Torres</div>
+
+      <div class="about-contacts">
+        <div class="contact-item">
+          <span class="icon">✉</span>
+          <a href="mailto:mariana1108.torres@gmail.com">
+            mariana1108.torres@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <span class="icon">☎</span>
+          <a href="tel:+351912473730">
+            +351 912 473 730
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <span class="icon">↗</span>
+          <a href="https://vimeo.com/teuvimeo" target="_blank">
+            Vimeo
+           </a>
+    </div>
+  </div>
+
+    <!-- BOTÃO DE DOWNLOAD CV -->
+   <a href="https://drive.google.com/your-cv-link" target="_blank" class="cv-button">
+    cv
+   </a>
+  </div>  
+ </div>
+</section>
+<!-- BREATHING SPACE -->
+<section class="about-breath"></section>
+<!-- GRANTS & CONFERENCES -->
+<section class="grants">
+  <div class="grants-inner">
+
+    <h2 class="grants-title">Grants & Conferences</h2>
+
+    <ul class="grants-list">
+      <li>
+        <span class="year">2024</span>
+        <span class="desc">Conference Presentation — FIAF Symposium, Paris</span>
+      </li>
+      <li>
+        <span class="year">2023</span>
+        <span class="desc">AMIA George Blood LP Women in Audiovisual Archiving and Technology Scholarship</span>
+      </li>
+      <li>
+        <span class="year">2022</span>
+        <span class="desc">Short-term Research Grant — Cinemateca Portuguesa</span>
+      </li>
+    </ul>
+
+
+   <div class="presentation-photos">
+
+  <figure class="presentation-item">
+    <img src="presenting1.jpg" alt="Conference presentation at FIAF Symposium, Paris">
+    <figcaption>FIAF Symposium, Paris — conference presentation</figcaption>
+  </figure>
+
+  <figure class="presentation-item">
+    <img src="presenting2.jpg" alt="Panel discussion at audiovisual archiving conference">
+    <figcaption>Panel discussion on audiovisual archiving</figcaption>
+  </figure>
+
+  <figure class="presentation-item">
+    <img src="presenting3.jpg" alt="Lecture moment during academic conference">
+    <figcaption>Lecture session — research presentation</figcaption>
+  </figure>
+
+</div>
+
+  </div>
+</section>
+ </main>
 </body>
 </html>
