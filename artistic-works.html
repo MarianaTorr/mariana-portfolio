@@ -25,20 +25,18 @@
       font-family:"Source Serif 4", serif;
       color: var(--text);
       background-color: var(--bg);
-      background: url("smc2.mp4") center/cover no-repeat fixed;
     }
 
-    body::before{
-      content:"";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(1200px 700px at 50% 40%, rgba(6,7,11,.34), rgba(6,7,11,.12) 55%, rgba(6,7,11,.28) 100%),
-        linear-gradient(to bottom, rgba(6,7,11,.24), rgba(6,7,11,.24));
-      pointer-events:none;
-      z-index:0;
-    }
-
+  .bg-video{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: .12; /* controla a intensidade do vídeo */
+  pointer-events: none;
+}
     header, main{ position: relative; z-index: 1; }
 
     /* ===== header minimal ===== */
