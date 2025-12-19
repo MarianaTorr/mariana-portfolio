@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Mariana Torres - Send me a Color</title>
+  <title>Mariana Torres - Mandame un Color</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
@@ -16,53 +17,54 @@
       --muted2: rgba(242,244,247,.55);
       --max: 1120px;
       --hdr-h: 64px;
+      --line: rgba(255,255,255,.22);
+      --overlay: rgba(6,7,11,.24);
     }
 
     *{ box-sizing:border-box; }
-html, body{ height:100%; margin:0; }
+    html, body{ height:100%; margin:0; }
 
-body{
-  font-family:"Source Serif 4", serif;
-  color: var(--text);
-  background-color: var(--bg);
-  position: relative;
-  overflow-x: hidden;
-}
+    body{
+      font-family:"Source Serif 4", serif;
+      color: var(--text);
+      background-color: var(--bg);
+      position: relative;
+      overflow-x: hidden;
+    }
 
-/* vídeo de fundo */
-.bg-video{
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* equivalente a background-size: cover */
-  z-index: -2;
-}
+    /* vídeo de fundo subtis */
+    .bg-video{
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      opacity: .12;
+      filter: brightness(.7) contrast(.9);
+      pointer-events: none;
+    }
 
-/* overlay (o teu, intacto) */
-body::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(
-      1200px 700px at 50% 40%,
-      rgba(6,7,11,.34),
-      rgba(6,7,11,.12) 55%,
-      rgba(6,7,11,.28) 100%
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(6,7,11,.24),
-      rgba(6,7,11,.24)
-    );
-  pointer-events:none;
-  z-index:-1;
-}
+    /* overlay igual ao About */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(
+          1200px 700px at 50% 40%,
+          rgba(6,7,11,.30),
+          rgba(6,7,11,.18) 55%,
+          rgba(6,7,11,.38) 100%
+        ),
+        linear-gradient(to bottom, rgba(6,7,11,.32), rgba(6,7,11,.32));
+      pointer-events:none;
+      z-index:-1;
+    }
 
     header, main{ position: relative; z-index: 1; }
 
-    /* ===== header minimal ===== */
+    /* ===== header ===== */
     header{
       position: fixed;
       inset: 0 0 auto 0;
@@ -72,6 +74,7 @@ body::before{
       border-bottom: 1px solid rgba(255,255,255,.08);
       backdrop-filter: blur(10px);
     }
+
     nav{
       max-width: var(--max);
       margin:0 auto;
@@ -87,10 +90,12 @@ body::before{
       font-family:"Bebas Kai", system-ui, sans-serif;
       letter-spacing:.18em;
       white-space: nowrap;
-      color: var(--muted);        /* 👈 fixa a cor */
-      text-decoration: none;     /* 👈 remove sublinhado */
+      color: var(--muted);
+      text-decoration: none;
       opacity: .9;
     }
+
+    .brand:hover{ color: var(--text); opacity:1; }
 
     .menu{
       list-style:none;
@@ -104,7 +109,6 @@ body::before{
 
     .menu a{
       text-decoration:none;
-      color: var(--muted);
       color: inherit;
       opacity:.9;
       white-space: nowrap;
@@ -112,192 +116,169 @@ body::before{
 
     .menu a:hover{ opacity:1; color: var(--text); }
 
-    main{ padding-top: var(--hdr-h); }
-    /* Dropdowns */
-    .dropdown {
-      position: relative;
+    .dropdown{ position: relative; }
+
+    .dropdown > a::after{
+      content:" ▾";
+      font-size:0.7em;
     }
 
-    .dropdown > a::after {
-      content: " ▾";
-      font-size: 0.7em; /* seta mais discreta */
-    }
-
-    .dropdown-content {
+    .dropdown-content{
       display: none;
       position: absolute;
       top: 26px;
-      left: 0;
+      left:0;
       min-width: 220px;
-      background: rgba(5, 6, 8, 0.97);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 0;
-      list-style: none;
+      background: rgba(5,6,8,.97);
+      border: 1px solid rgba(255,255,255,.1);
+      padding:10px 0;
+      list-style:none;
       z-index: 999;
     }
 
-    .dropdown-content li {
-      padding: 4px 14px;
-      white-space: nowrap;
+    .dropdown-content li{ padding:4px 14px; white-space:nowrap; }
+    .dropdown-content li a{ display:block; color: var(--muted2); }
+    .dropdown-content li a:hover{ color: var(--text); background: rgba(255,255,255,.06); }
+
+    .dropdown:hover .dropdown-content{ display:block; }
+
+    /* ===== main section ===== */
+    main.project-main{
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 80px 22px;
+      color: var(--text);
+      background: var(--bg); /* igual ao About, tapa o vídeo */
     }
 
-    .dropdown-content li a {
-      display: block;
-      color: var(--text-muted);
+    .project-hero{ text-align: center; margin-bottom: 56px; }
+
+    .project-title{
+      font-family: "Bebas Kai", sans-serif;
+      font-size: 3.5rem;
+      letter-spacing: .18em;
+      margin:0;
+      color: var(--text);
     }
 
-    .dropdown-content li a:hover {
-      color: var(--accent);
-      background: rgba(255, 255, 255, 0.06);
+    .project-meta{
+      font-size:1rem;
+      color: var(--muted2);
+      margin-top: 10px;
     }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
+    .project-overview{ margin-bottom:46px; }
+
+    .project-description{
+      font-size:1.1rem;
+      line-height:1.6;
+      color: var(--muted);
+      margin-bottom:34px;
     }
-    
-    /* main section */
 
-.project-main{
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 80px 22px;
-  color: var(--text);
-  background: var(--bg);
-}
+    .project-credits{
+      list-style:none;
+      padding:0;
+      margin:0;
+      font-size:.95rem;
+      color: var(--muted2);
+    }
 
-.project-hero{
-  text-align: center;
-  margin-bottom: 56px;
-}
+    .project-credits li{ margin-bottom:8px; }
 
-.project-title{
-  font-family: "Bebas Kai", sans-serif;
-  font-size: 3.5rem;
-  letter-spacing: .18em;
-  margin: 0;
-  color: var(--text);
-}
+    .project-gallery{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:28px;
+    }
 
-.project-meta{
-  font-size: 1rem;
-  color: var(--muted2);
-  margin-top: 10px;
-}
+    .project-gallery figure{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
 
-.project-overview{
-  margin-bottom: 46px;
-}
+    .project-gallery img{
+      width:100%;
+      height:auto;
+      object-fit:cover;
+      border:1px solid var(--line);
+    }
 
-.project-description{
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--muted);
-  margin-bottom: 34px;
-}
+    .project-gallery figcaption{
+      font-size:.82rem;
+      color: var(--muted2);
+      text-align:center;
+    }
 
-.project-credits{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: .95rem;
-  color: var(--muted2);
-}
-
-.project-credits li{
-  margin-bottom: 8px;
-}
-
-.project-gallery{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 28px;
-}
-
-.project-gallery figure{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.project-gallery img{
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border: 1px solid var(--line-soft);
-}
-
-.project-gallery figcaption{
-  font-size: .82rem;
-  color: var(--muted2);
-  text-align: center;
-}
+    /* responsive */
+    @media (max-width:720px){
+      main.project-main{ padding:60px 18px; }
+      .project-title{ font-size:2.7rem; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- vídeo de fundo subtis -->
   <video class="bg-video" autoplay muted loop playsinline>
-  <source src="smc2.mp4" type="video/mp4">
-</video>
- <header>
-      <nav>
-        <!-- clica no nome para ir ao Home -->
-        <a href="index.html" class="brand">MARIANA TORRES</a>
+    <source src="smc2.mp4" type="video/mp4">
+  </video>
 
-        <ul class="menu">
-          <!-- removemos "Home" aqui, como combinámos -->
-          <li><a href="about.html">About</a></li>
+  <!-- header com menu igual ao About -->
+  <header>
+    <nav>
+      <a href="index.html" class="brand">MARIANA TORRES</a>
+      <ul class="menu">
+        <li><a href="about.html">About</a></li>
 
-          <li class="dropdown">
-            <a href="projects.html">Projects</a>
-            <ul class="dropdown-content">
-              <li><a href="artistic-works.html">Send Me a color</a></li>
-              <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
-            </ul>
-          </li>
+        <li class="dropdown">
+          <a href="projects.html">Projects</a>
+          <ul class="dropdown-content">
+            <li><a href="artistic-works.html">Send Me a Color</a></li>
+            <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
+          </ul>
+        </li>
 
-          <li class="dropdown">
-            <a href="analogue-film.html">Analogue Film Practice</a>
-            <ul class="dropdown-content">
-              <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
-              <li><a href="technical-documentation.html">Technical Documentation</a></li>
-              <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-  <main class="project-main">
-
-  <header class="project-hero">
-    <h1 class="project-title">Título do Projeto</h1>
-    <p class="project-meta">Ano • Duração / Formato • Localização</p>
+        <li class="dropdown">
+          <a href="analogue-film.html">Analogue Film Practice</a>
+          <ul class="dropdown-content">
+            <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
+            <li><a href="technical-documentation.html">Technical Documentation</a></li>
+            <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </header>
 
-  <section class="project-overview">
-    <p class="project-description">
-      Aqui vai uma sinopse forte e envolvente que contextualiza o projeto —
-      o que é, porquê é importante, como nasceu a ideia e o impacto desejado.
-    </p>
+  <!-- main section do projeto -->
+  <main class="project-main">
+    <header class="project-hero">
+      <h1 class="project-title">Mandame un Color</h1>
+      <p class="project-meta">2025 • Instalação Interativa • Lisboa</p>
+    </header>
 
-    <ul class="project-credits">
-      <li><strong>Direção:</strong> Nome da/o diretora/or principal</li>
-      <li><strong>Produção:</strong> Equipa / Produtoras</li>
-      <li><strong>Fotografia:</strong> Nome da/o cinematógrafa/o</li>
-      <li><strong>Edição:</strong> Nome da/o editora/or</li>
-      <li><strong>Som:</strong> Colaboradores de som / música</li>
-    </ul>
-  </section>
+    <section class="project-overview">
+      <p class="project-description">
+        “Mandame un Color” é um projeto de instalação interativa que explora as interações do público com cores e luz. Inspirado pelo conceito de movimento subtil e respiração visual, cria experiências sensoriais únicas.
+      </p>
 
-  <section class="project-gallery">
-    <figure><img src="proj1.jpg" alt="Descrição 1"><figcaption>Legenda da Imagem 1</figcaption></figure>
-    <figure><img src="proj2.jpg" alt="Descrição 2"><figcaption>Legenda da Imagem 2</figcaption></figure>
-    <figure><img src="proj3.jpg" alt="Descrição 3"><figcaption>Legenda da Imagem 3</figcaption></figure>
-  </section>
+      <ul class="project-credits">
+        <li><strong>Conceito:</strong> Mariana Torres</li>
+        <li><strong>Produção:</strong> Mariana Torres Studio</li>
+        <li><strong>Design Interativo:</strong> Equipa Colaboradora</li>
+        <li><strong>Som & Luz:</strong> Colaboradores</li>
+      </ul>
+    </section>
 
-</main>
+    <section class="project-gallery">
+      <figure><img src="proj1.jpg" alt="Instalação vista geral"><figcaption>Vista Geral</figcaption></figure>
+      <figure><img src="proj2.jpg" alt="Detalhe da luz"><figcaption>Detalhe da Luz</figcaption></figure>
+      <figure><img src="proj3.jpg" alt="Participação do público"><figcaption>Participação do Público</figcaption></figure>
+    </section>
 
-  </div>
-</section>
- </main>
+  </main>
+
 </body>
 </html>
