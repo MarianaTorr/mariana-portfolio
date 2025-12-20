@@ -134,236 +134,99 @@
       display: block;
     }
 
-    /* ===== about section ===== */
-  .about{
-   opacity: 0.92;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(54, 54, 54, 0.5)),
-              repeating-linear-gradient(
-                0deg,
-                rgba(255, 255, 255, 0.005),
-                rgba(255, 255, 255, 0.005) 1px,
-                transparent 4px,
-                transparent 6px
-              );
-  padding: 80px 22px 120px;
+/* ===============================
+   PROJECT — EDITORIAL LAYOUT
+   Alinhado com Artistic Works
+================================ */
+
+:root{
+  --ink: #111;
+  --muted: rgba(17,17,17,.55);
+  --accent: rgba(17,17,17,.38);
 }
 
-.about-inner{
-  display: flex;
-  flex-direction: row;
-  max-width: 920px;   /* mesmo max-width do hero */
-  margin: 0 auto;     /* centraliza horizontalmente */    /* ajusta o espaçamento entre colunas */
-  align-items: flex-start;
-  gap: 20px;
-  padding-left: 60px;
-}
-
-/* =======================
-   COLUNA ESQUERDA — TEXTO
-======================= */
-
-.about-text-col {
-  max-width: 920px;
-  align-items: flex-start;
-   padding-left: 60px;
-}
-
-.about-text-col h2{
-  font-family:"Bebas Kai", system-ui, sans-serif;
-  letter-spacing:.18em;
-  font-size:2.2rem;
-  margin:0 0 30px;
-  color:var(--muted);
-  text-transform:uppercase;
-  margin-top: 0;
-}
-
-.about-text-col p{
-  font-size:1.02rem;
-  line-height:1.6;
-  color:var(--muted);
-  margin:0 0 22px;
-}
-
-/* =======================
-   COLUNA DIREITA — FOTO + INFO
-======================= */
-
-.about-side{
-  width:60px;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-}
-
-/* foto */
-.about-photo{
-  width:220px;
-  height:220px;
-  object-fit:none;
-  object-position:-150px -60px;
-  opacity:.92;
-}
-
-/* nome */
-.about-name{
-  margin-top:18px;
-  font-family:"Bebas Kai", system-ui, sans-serif;
-  letter-spacing:.18em;
-  font-size:1.9rem;
-  color:var(--muted);
-  text-transform:uppercase;
-  text-align:center;
-}
-
-/* =======================
-   CONTACTOS (1 A 1)
-======================= */
-
-.about-contacts{
-  margin-top:28px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  font-size:.9rem;
-  color:var(--muted2);
-}
-
-.contact-item{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  opacity:.8;
-  transition:opacity .3s ease, transform .3s ease;
-}
-
-.contact-item:hover{
-  opacity:1;
-  transform:translateX(2px);
-}
-
-.contact-item a{
-  color:inherit;
-  text-decoration:none;
-  border-bottom:1px solid transparent;
-}
-
-.contact-item a:hover{
-  border-bottom-color:var(--muted2);
-}
-/* Botão CV alinhado com os contactos na vertical */
-/* =======================
-   BOTÃO CV
-======================= */
-.cv-button {
-  display: inline-block;
-  margin-top: 28px;
-  padding: 10px 24px;
-  background: rgba(242,244,247,.08);
-  border: 3px double #f2f4f7;
-  color: var(--muted);
-  text-decoration: none;
-  font-family: "Bebas Kai", system-ui, sans-serif;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  transition: all .3s ease;
-  border-radius: 1px;
-  text-align: center;
-  align-self: center;  /* centraliza dentro do flex container .about-side */
-  
-}
-
-.cv-button:hover {
-  background: rgba(242,244,247,.15);
-  border-color: rgba(242,244,247,.35);
-  color: var(--text);
-}
-
-/* =======================
-   BREATHING SPACE
-======================= */
-
-.about-breath{
-   height: 2vh;
-  min-height: 10px;
-  max-height: 30px;
-}
-
-/* =======================
-   GRANTS SECTION
-======================= */
-
-.grants{
-  padding: 80px 22px 140px;
-  background: #0a0c11;
-}
-
-.grants-inner{
-  max-width: 920px; /* igual ao about */
+/* CONTAINER */
+.project-layout{
+  display: grid;
+  grid-template-columns: 420px minmax(0, 1fr);
+  gap: 140px;
+  max-width: 1380px;
   margin: 0 auto;
+  padding: 120px 64px 160px;
 }
 
-.grants-title{
-  font-family:"Bebas Kai", system-ui, sans-serif;
-  letter-spacing:.18em;
-  font-size:2rem;
-  color:var(--muted);
-  text-transform:uppercase;
-  margin: 0 0 48px;
+/* TEXTO */
+.project-text{
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.6px;
+  line-height: 1.62;
+  letter-spacing: .015em;
+  color: var(--ink);
 }
 
-/* lista editorial */
-
-.grants-list{
-  list-style:none;
-  padding:0;
-  margin:0 0 64px;
+/* TÍTULO */
+.project-header h1{
+  font-size: 13.8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 18px;
 }
 
-.grants-list li{
-  display:grid;
-  grid-template-columns: 80px 1fr;
-  gap: 20px;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(242,244,247,.12);
+.project-header h1 span{
+  display: block;
+  margin-top: 6px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: .02em;
+  text-transform: none;
+  color: var(--muted);
 }
 
-.grants-list .year{
-  font-size:.85rem;
-  color:var(--muted2);
+/* META */
+.project-meta{
+  display: grid;
+  gap: 3px;
+  font-size: 12.4px;
+  letter-spacing: .04em;
+  color: var(--accent);
+  margin-bottom: 44px;
 }
 
-.grants-list .desc{
-  font-size:.95rem;
-  line-height:1.5;
-  color:var(--muted);
+.project-meta .year{
+  margin-top: 12px;
 }
 
-/* =======================
-   PRESENTATION PHOTOS
-======================= */
-
-.presentation-photos{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
+/* BLOCOS */
+.project-block{
+  margin-bottom: 30px;
 }
 
-.presentation-photos img{
-  width:100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 12px;
-  opacity:.9;
-  filter: contrast(1.05) saturate(.9);
-  transition: opacity .3s ease, transform .3s ease;
+.project-block strong{
+  display: block;
+  font-weight: 500;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  font-size: 11.2px;
+  margin-bottom: 6px;
+  color: var(--muted);
 }
 
-.presentation-photos img:hover{
-  opacity:1;
-  transform: scale(1.02);
+/* SINOPSE */
+.synopsis{
+  margin-top: 64px;
 }
 
+.synopsis p{
+  max-width: 34ch;
+}
+
+/* IMAGEM */
+.project-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
   </style>
 </head>
 <body>
