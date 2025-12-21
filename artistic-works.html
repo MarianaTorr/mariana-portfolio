@@ -142,23 +142,20 @@
       max-width: 1120px;
       margin: 0 auto;
       padding: 0 22px;
-      display: flex;
-      gap: 20px; /* espaçamento entre texto e vídeo */
     }
 
     .project-layout {
       background:#0a0c11;
-      padding: 90px 0 140px;  /* remove padding lateral */
+      padding: 90px 0 140px;
     }
 
     .project-wrapper {
       display: flex;
-       flex-wrap: wrap;
-       gap: 60px;
-       align-items: flex-start;
+      gap: 2px; /* espaço mínimo quase zero entre texto e vídeo */
+      align-items: flex-start;
     }
 
-    .project-text{
+    .project-text {
       font-family:"Source Serif 4", serif;
       color: var(--text);
       font-size: 13.6px;
@@ -166,11 +163,7 @@
       letter-spacing: .015em;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
       flex: 0 0 55%;
-      margin: 0;
-      flex: 1; /* ocupa espaço restante */
     }
 
     .project-header h1{
@@ -178,8 +171,7 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: .08em;
-      margin-bottom: 18px;
-      display: flex-end;
+      margin-bottom: 0px; /* remover margem inferior para ficar próximo do vídeo */
     }
 
     .project-header h1 span{
@@ -199,38 +191,8 @@
       font-size: 12.4px;
       letter-spacing: .04em;
       color: var(--accent);
-      margin-bottom: 44px;
+      margin-bottom: 10px; /* reduzir para aproximar ainda mais o vídeo */
     }
-
-    .project-meta .year{
-      margin-top: 12px;
-    }
- /* Vimeo video responsivo */
-    .video-fixed {
-      flex: 0 0 40%; /* vídeo ocupa 40% */
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  border-radius: 6px;
-    }
-
-    .video-fixed iframe {
-     position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-    }
-/* foto */
-.about-photo{
-  width:220px;
-  height:220px;
-  object-fit:none;
-
-  opacity:.92;
-}
 
     .project-block strong{
       display: block;
@@ -242,30 +204,33 @@
       color: var(--muted);
     }
 
-    .synopsis{
-      margin-top: 64px;
-    }
-
-    .synopsis p{
-      max-width: 34ch;
-    }
+    .synopsis{ margin-top: 64px; }
+    .synopsis p{ max-width: 34ch; }
 
     .project-image{
-      flex: 0 0 45%;
+      flex: 0 0 100%;
+      margin-top: 40px;
+    }
+    .project-image img{ width: 100%; height: auto; display: block; }
+
+    /* VÍDEO RESPONSIVO */
+    .video-fixed {
+      flex: 0 0 50%; /* vídeo grande */
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 6px;
     }
 
-    .project-image img{
+    .video-fixed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
+      border: 0;
     }
-
-
-
-      .project-text,
-      .project-image{
-        flex:1 1 100%;
-      }
   </style>
 </head>
 <body>
