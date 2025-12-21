@@ -124,167 +124,186 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
-    /* ---------------- PAGE LAYOUT ---------------- */
+    /* ================= MAIN ================= */
 
-    .page-wrapper {
-      padding-top: 130px; /* espaço para o header fixo */
-      max-width: 1200px;  /* MESMA ESCALA do Artistic Works */
-      margin: 0 auto;
-      padding: 0 20px 70px;
+    main{
+      padding-top: var(--hdr-h);
     }
 
-/* Secção geral */
-.research-projects {
-  max-width: 1200px;
-  margin: auto;
-  padding: 4rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-}
+    /* ================= PROJECT LAYOUT ================= */
 
-/* Cada projeto */
-.research-project {
-  display: flex;
-  gap: 2.5rem;
-  align-items: flex-start;
-}
+    .project-layout{
+      background: var(--panel);
+      padding: 90px 22px 140px;
+    }
 
-/* Imagem à esquerda */
-.project-image {
-  flex: 0 0 45%;
-}
+    .project-wrapper{
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      gap: 72px;
+      align-items: flex-start;
+    }
 
-.project-image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
+    /* TEXTO */
 
-/* Texto à direita */
-.project-text {
-  flex: 1;
-  font-family: "Georgia", serif;
-  color: #2a2a2a;
-}
+    .project-text{
+      flex: 0 0 55%;
+      font-size: 14px;
+      color: var(--text);
+    }
 
-.project-text h2 {
-  margin: 0 0 1rem;
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: #b35c4c; /* mesma lógica cromática do Send Me a Color */
-}
+    .project-header h1{
+      font-size: 13.8px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin: 0 0 22px;
+    }
 
-.project-text p {
-  line-height: 1.6;
-  font-size: 1rem;
-}
+    .project-header h1 span{
+      display:block;
+      margin-top: 10px;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: .02em;
+      text-transform: none;
+      color: var(--muted);
+    }
 
-/* Responsivo */
-@media (max-width: 900px) {
-  .research-project {
-    flex-direction: column;
-  }
+    .project-meta{
+      display: grid;
+      gap: 6px;
+      font-size: 12.2px;
+      letter-spacing: .05em;
+      color: var(--muted2);
+      margin-bottom: 48px;
+    }
 
-  .project-image,
-  .project-text {
-    flex: 1 1 100%;
-  }
-}
+    .project-meta .year{
+      margin-top: 10px;
+    }
+
+    .project-block{
+      margin-bottom: 36px;
+    }
+
+    .project-block strong{
+      display:block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .synopsis{
+      margin-top: 64px;
+    }
+
+    .synopsis p{
+      max-width: 36ch;
+    }
+
+    /* IMAGEM */
+
+    .project-image{
+      flex: 0 0 45%;
+    }
+
+    .project-image img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px){
+      .project-wrapper{
+        flex-direction: column;
+        gap: 48px;
+      }
+
+      .project-text,
+      .project-image{
+        flex: 1 1 100%;
+      }
+    }
 
   </style>
 </head>
 
 <body>
 
-  <!-- ---------------- HEADER ---------------- -->
-  <header>
-    <nav>
-      <a href="index.html" class="brand">MARIANA TORRES</a>
+<header>
+  <nav>
+    <a href="index.html" class="brand">MARIANA TORRES</a>
 
-      <ul class="menu">
-        <li><a href="about.html">About</a></li>
+    <ul class="menu">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="analogue-film.html">Analogue Film Practice</a></li>
+    </ul>
+  </nav>
+</header>
 
-        <li class="dropdown">
-          <a href="projects.html">Projects ▾</a>
-          <ul class="dropdown-content">
-            <li><a href="artistic-works.html">Artistic Works</a></li>
-            <li><a href="research-preservation.html">Research & Preservation Works</a></li>
-          </ul>
-        </li>
+<main>
 
-        <li class="dropdown">
-          <a href="analogue-film.html">Analogue Film Practice ▾</a>
-          <ul class="dropdown-content">
-            <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
-            <li><a href="technical-documentation.html">Technical Documentation</a></li>
-            <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
-          </ul>
-        </li>
+<section class="project-layout">
+  <div class="project-wrapper">
 
-        <li><a href="writing-publications.html">Writing & Publications</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="research-projects">
-
-  <!-- Projeto 1 -->
-  <article class="research-project">
-    <figure class="project-image">
-      <img src="images/cruz-de-maio.jpg" alt="Cruz de Maio Restauro">
-    </figure>
+    <!-- TEXTO -->
     <div class="project-text">
-      <h2>Cruz de Maio — Restauro</h2>
-      <p>
-        Descrição do projeto Cruz de Maio. Texto sobre o processo de restauro,
-        contexto histórico, metodologias e resultados.
-      </p>
-    </div>
-  </article>
 
-  <!-- Projeto 2 -->
-  <article class="research-project">
-    <figure class="project-image">
-      <img src="images/ernesto-sousa.jpg" alt="Ernesto de Sousa Focus">
-    </figure>
-    <div class="project-text">
-      <h2>Ernesto de Sousa — Focus</h2>
-      <p>
-        Descrição do projeto Ernesto de Sousa Focus, enquadramento curatorial,
-        investigação e objetivos.
-      </p>
-    </div>
-  </article>
+      <div class="project-header">
+        <h1>
+          Research & Preservation Works
+          <span>Film, archival practices and preservation research</span>
+        </h1>
 
-  <!-- Projeto 3 -->
-  <article class="research-project">
-    <figure class="project-image">
-      <img src="images/c3.jpg" alt="C3 Project">
-    </figure>
-    <div class="project-text">
-      <h2>C3</h2>
-      <p>
-        Texto sobre o projeto C3, preservação, investigação artística e técnica.
-      </p>
-    </div>
-  </article>
+        <div class="project-meta">
+          <span>Film preservation · archival research</span>
+          <span class="year">Selected projects</span>
+        </div>
+      </div>
 
-  <!-- Projeto 4 -->
-  <article class="research-project">
-    <figure class="project-image">
-      <img src="images/cantrill-filmnotes.jpg" alt="Cantrill Filmnotes">
-    </figure>
-    <div class="project-text">
-      <h2>Cantrill Filmnotes</h2>
-      <p>
-        Descrição do projeto Cantrill Filmnotes, investigação editorial,
-        preservação fílmica e análise crítica.
-      </p>
+      <div class="project-block">
+        <strong>Cruz de Maio — Restauro</strong>
+        <p>Film restoration project focused on preservation methodologies and historical context.</p>
+      </div>
+
+      <div class="project-block">
+        <strong>Ernesto de Sousa — Focus</strong>
+        <p>Archival research and curatorial investigation on Ernesto de Sousa’s work.</p>
+      </div>
+
+      <div class="project-block">
+        <strong>C3</strong>
+        <p>Preservation and research project involving experimental film materials.</p>
+      </div>
+
+      <div class="project-block synopsis">
+        <strong>Cantrill Filmnotes</strong>
+        <p>
+          Editorial and archival research project focused on film analysis, documentation
+          and preservation of experimental cinema practices.
+        </p>
+      </div>
+
     </div>
-  </article>
+
+    <!-- IMAGEM -->
+    <div class="project-image">
+      <img src="img/projeto.jpg" alt="Research and Preservation project image">
+    </div>
+
+  </div>
 </section>
+
+</main>
+
 </body>
 </html>
-
-
