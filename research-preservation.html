@@ -27,77 +27,70 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ---------------- HEADER ---------------- */
+    header, main{ position: relative; z-index: 1; }
 
-    header {
+    /* ===== header minimal ===== */
+    header{
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 68px;
-      background: rgba(5, 6, 8, 0.80);
-      backdrop-filter: blur(6px);
+      inset: 0 0 auto 0;
+      height: var(--hdr-h);
       z-index: 1000;
+      background: linear-gradient(to bottom, rgba(6,7,11,.88), rgba(6,7,11,.35));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
     }
-
-    nav {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      height: 100%;
-      padding: 0 20px;
-      display: flex;
+    nav{
+      max-width: var(--max);
+      margin:0 auto;
+      height:100%;
+      padding:0 22px;
+      display:flex;
+      align-items:center;
       justify-content: space-between;
-      align-items: center;
+      gap: 16px;
     }
+  .brand{
+  font-family:"Bebas Kai", system-ui, sans-serif;
+  letter-spacing:.18em;
+  white-space: nowrap;
 
-    .brand {
-      font-family: "Bebas Kai";
-      font-size: 1.2rem;
-      letter-spacing: 0.17em;
-      color: var(--text-main);
-      text-decoration: none;
+  color: var(--muted);        /* 👈 fixa a cor */
+  text-decoration: none;     /* 👈 remove sublinhado */
+  opacity: .9;
+}
+
+.brand:hover{
+  color: var(--text);        /* igual ao menu */
+  opacity: 1;
+}
+
+    .menu{
+      list-style:none;
+      color: var(--muted);
+      display:flex;
+      gap: 14px;
+      margin:0;
+      padding:0;
+      font-size:.94rem;
+      color: var(--muted);
     }
-
-    .menu {
-      list-style: none;
-      display: flex;
-      gap: 22px;
-      margin: 0;
-      padding: 0;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      align-items: center;
-    }
-
-    .menu a {
+    .menu a{
+      text-decoration:none;
       color: inherit;
-      text-decoration: none;
-      position: relative;
-      padding-bottom: 2px;
+      opacity:.9;
       white-space: nowrap;
     }
+    .menu a:hover{ opacity:1; color: var(--text); }
 
-    .menu a:hover {
-      color: var(--accent);
-    }
-
-    .menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0%;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.2s;
-    }
-
-    .menu a:hover::after {
-      width: 100%;
-    }
-
+    main{ padding-top: var(--hdr-h); }
+    /* Dropdowns */
     .dropdown {
       position: relative;
+    }
+
+    .dropdown > a::after {
+      content: " ▾";
+      font-size: 0.7em; /* seta mais discreta */
     }
 
     .dropdown-content {
@@ -131,7 +124,6 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
     /* ---------------- PAGE LAYOUT ---------------- */
 
     .page-wrapper {
