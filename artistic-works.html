@@ -215,13 +215,11 @@
 
     /* VÍDEO RESPONSIVO */
     .video-fixed {
-      position: relative;
-      top: 120px;  /* ajuste vertical */
-      left: -40px; /* ajuste horizontal */ 
-      width: 50%;  /* largura do vídeo */
-      padding-bottom: 36.56%; /* mantém proporção 16:9 */
-      border-radius: 6px;
-      overflow: hidden;
+       position: relative; /* deixa fluir no flex */
+  width: 45%;         /* largura do vídeo */
+  aspect-ratio: 16/9; /* mantém proporção */
+  border-radius: 6px;
+  overflow: hidden;
     }
 
     .video-fixed iframe {
