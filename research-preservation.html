@@ -141,71 +141,63 @@
       padding: 0 20px 70px;
     }
 
-/* ==== Research & Preservation Works === */
-
-.research-hero {
-  padding: 100px 22px 48px;
-  background: #0a0c11;
-  text-align: center;
+/* Secção geral */
+.research-projects {
+  max-width: 1200px;
+  margin: auto;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }
 
-.research-hero h1 {
-  font-family: "Bebas Kai", sans-serif;
-  font-size: 2.8rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  margin-bottom: 16px;
+/* Cada projeto */
+.research-project {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
 }
 
-.research-hero .subtitle {
-  font-size: 1.12rem;
-  line-height: 1.6;
-  color: var(--muted2);
-  max-width: 860px;
-  margin: 0 auto;
+/* Imagem à esquerda */
+.project-image {
+  flex: 0 0 45%;
 }
 
-.research-gallery {
-  padding: 40px 22px 120px;
-  background: #0a0c11;
-}
-
-.research-inner {
-  max-width: 920px;
-  margin: 0 auto;
-  display: grid;
-  gap: 48px;
-}
-
-/* grid responsivo: duas colunas em desktop, uma no mobile */
-
-@media (min-width: 720px) {
-  .research-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.research-item img {
+.project-image img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
   object-fit: cover;
-  border-radius: 12px;
-  filter: contrast(1.05) saturate(.9);
-  opacity: .9;
-  transition: opacity .3s ease, transform .3s ease;
 }
 
-.research-item img:hover {
-  opacity: 1;
-  transform: scale(1.02);
+/* Texto à direita */
+.project-text {
+  flex: 1;
+  font-family: "Georgia", serif;
+  color: #2a2a2a;
 }
 
-.research-item figcaption {
-  font-size: .95rem;
-  color: var(--muted2);
-  text-align: center;
-  margin-top: 12px;
+.project-text h2 {
+  margin: 0 0 1rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #b35c4c; /* mesma lógica cromática do Send Me a Color */
+}
+
+.project-text p {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .research-project {
+    flex-direction: column;
+  }
+
+  .project-image,
+  .project-text {
+    flex: 1 1 100%;
+  }
 }
 
   </style>
@@ -243,35 +235,63 @@
     </nav>
   </header>
 
-  <main>
-  <section class="research-hero">
-    <div class="research-inner">
-      <h1>Research & Preservation Works</h1>
-      <p class="subtitle">
-        Digital restorations, research on unfinished films, collaborations with archives and collectives, technical tests and documentation around analogue and digital workflows.
+  <section class="research-projects">
+
+  <!-- Projeto 1 -->
+  <article class="research-project">
+    <figure class="project-image">
+      <img src="images/cruz-de-maio.jpg" alt="Cruz de Maio Restauro">
+    </figure>
+    <div class="project-text">
+      <h2>Cruz de Maio — Restauro</h2>
+      <p>
+        Descrição do projeto Cruz de Maio. Texto sobre o processo de restauro,
+        contexto histórico, metodologias e resultados.
       </p>
     </div>
-  </section>
+  </article>
 
-  <section class="research-gallery">
-    <div class="research-inner">
-
-      <figure class="research-item">
-        <img src="./img/restoration-slide.jpg" alt="La Cruz de Mayo – digital restoration">
-        <figcaption>La Cruz de Mayo — Digital Restoration Slide</figcaption>
-      </figure>
-
-      <figure class="research-item">
-        <img src="./img/additional-still1.jpg" alt="Additional still from research work">
-        <figcaption>Still from research work</figcaption>
-      </figure>
-
+  <!-- Projeto 2 -->
+  <article class="research-project">
+    <figure class="project-image">
+      <img src="images/ernesto-sousa.jpg" alt="Ernesto de Sousa Focus">
+    </figure>
+    <div class="project-text">
+      <h2>Ernesto de Sousa — Focus</h2>
+      <p>
+        Descrição do projeto Ernesto de Sousa Focus, enquadramento curatorial,
+        investigação e objetivos.
+      </p>
     </div>
-  </section>
-</main>
-    </section>
-  </div>
+  </article>
 
+  <!-- Projeto 3 -->
+  <article class="research-project">
+    <figure class="project-image">
+      <img src="images/c3.jpg" alt="C3 Project">
+    </figure>
+    <div class="project-text">
+      <h2>C3</h2>
+      <p>
+        Texto sobre o projeto C3, preservação, investigação artística e técnica.
+      </p>
+    </div>
+  </article>
+
+  <!-- Projeto 4 -->
+  <article class="research-project">
+    <figure class="project-image">
+      <img src="images/cantrill-filmnotes.jpg" alt="Cantrill Filmnotes">
+    </figure>
+    <div class="project-text">
+      <h2>Cantrill Filmnotes</h2>
+      <p>
+        Descrição do projeto Cantrill Filmnotes, investigação editorial,
+        preservação fílmica e análise crítica.
+      </p>
+    </div>
+  </article>
+</section>
 </body>
 </html>
 
