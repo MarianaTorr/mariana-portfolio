@@ -90,102 +90,46 @@
       padding: 90px 22px 140px;
     }
 
-    .project-wrapper{
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      gap: 72px;
-      align-items: flex-end;
-      flex-direction: row-reverse; /* texto à direita, imagem à esquerda */
-    }
+ .project-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* para mobile */
+}
 
-    /* TEXTO */
-    .project-text{
-      flex: 0 0 58%; /* ligeiro aumento para alinhar número de linhas */
-      font-size: 14px;
-      line-height: 1.62; /* igual ao projeto anterior */
-      color: var(--text-main);
-      display: flex;
-      align-items: flex-end;
-    }
+.project-text {
+  flex: 1; /* ocupa metade ou mais do espaço */
+  display: flex;
+  flex-direction: column;
+}
 
-    .project-header h1{
-      font-size: 13.8px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin: 0 0 22px;
-    }
+.video-fixed {
+  flex: 1; /* mesma proporção do texto */
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 6px;
+  overflow: hidden;
+}
 
-    .project-header h1 span{
-      display:block;
-      margin-top: 10px;
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: .02em;
-      text-transform: none;
-      color: var(--text-muted);
-    }
+.video-fixed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
-    .project-meta{
-      display: grid;
-      gap: 6px;
-      font-size: 12.2px;
-      letter-spacing: .05em;
-      color: var(--text-muted);
-      margin-bottom: 48px;
-    }
+.project-image {
+  width: 100%;
+  margin-top: 40px;
+}
 
-    .project-meta .year{
-      margin-top: 10px;
-    }
-
-    .project-block{
-      margin-bottom: 36px;
-    }
-
-    .project-block strong{
-      display:block;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      color: var(--text-muted);
-    }
-
-    .synopsis{
-      margin-top: 64px;
-    }
-
-    .synopsis p{
-      max-width: 36ch;
-    }
-
-    /* IMAGEM */
-    .project-image{
-      flex: 0 0 42%; /* ligeira redução para o texto caber melhor */
-    }
-
-    .project-image img{
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 2px;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px){
-      .project-wrapper{
-        flex-direction: column;
-        gap: 48px;
-      }
-
-      .project-text,
-      .project-image{
-        flex: 1 1 100%;
-      }
-    }
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
   </style>
 </head>
 
@@ -206,56 +150,67 @@
 <main>
 
 <section class="project-layout">
-  <div class="project-wrapper">
-
-    <!-- TEXTO -->
+  <div class="project-wrapper container">
+    <!-- COLUNA TEXTO -->
     <div class="project-text">
-
       <div class="project-header">
         <h1>
-          Research & Preservation Works
-          <span>Film, archival practices and preservation research</span>
+          Send me a color
+          <span>Mechanical Gestures to Preserve Flowers:<br>An essay on color reproduction using contact duplication systems</span>
         </h1>
-
         <div class="project-meta">
-          <span>Film preservation · archival research</span>
-          <span class="year">Selected projects</span>
+          <span>Film performance | research project</span>
+          <span>16mm film | 12min</span>
+          <span class="year">2024</span>
         </div>
       </div>
 
       <div class="project-block">
-        <strong>Cruz de Maio — Restauro</strong>
-        <p>Film restoration project focused on preservation methodologies and historical context.</p>
+        <p><strong>Director</strong><br>Mariana Torres</p>
+        <p><strong>Países de producción</strong><br>Portugal | Spain</p>
+        <p><strong></strong> | Archive | Color</p>
       </div>
 
       <div class="project-block">
-        <strong>Ernesto de Sousa — Focus</strong>
-        <p>Archival research and curatorial investigation on Ernesto de Sousa’s work.</p>
-      </div>
-
-      <div class="project-block">
-        <strong>C3</strong>
-        <p>Preservation and research project involving experimental film materials.</p>
-      </div>
-
-      <div class="project-block synopsis">
-        <strong>Cantrill Filmnotes</strong>
+        <p><strong>Con el apoyo de</strong></p>
         <p>
-          Editorial and archival research project focused on film analysis, documentation
-          and preservation of experimental cinema practices.
+          Elías Querejeta Zine Eskola (País Vasco)<br>
+          2Deo laboratorio centro cultural Tabakalera (País Vasco)<br>
+          Casa Estrela Association (Portugal)<br>
         </p>
       </div>
 
+      <div class="project-block">
+        <p><strong>C</strong></p>
+        <p>
+          Production: Elias Querjeta Zine Eskola<br>
+          Cinematographer: Helena Estrela<br>
+          Development and duplication: Mariana Torres<br>
+          Sound Design: Catalina Giordani & Veronica Boggio<br>
+          Projectionists: Lorena Garcia | Matias Fajn | Inés Vasquez<br>
+          Photoquimical Laboratory: Elias Querjeta Zine Eskola
+        </p>
+      </div>
+
+      <div class="project-block synopsis">
+        <p><strong>Sinopsis</strong></p>
+        <p>
+          <em>It is a filmic performance that explores the mechanical gestures of 16mm projectors to reveal light as a material origin and color as an empirical exploration of vision, through a process of duplication in analog film that employs an old color technique from 1861 by Marxwell, called the chromatic separation technique. On the screen, thousands of chromatic possibilities unfold through filters and crystals, exploring the refraction and reflection of light in delicate flashes of melancholy. The images are flowers, where color generates new flowers, and where color itself acquires movement and will.</em>
+        </p>
+      </div>
     </div>
 
-    <!-- IMAGEM -->
-    <div class="project-image">
-      <img src="img/projeto.jpg" alt="Research and Preservation project image">
+    <!-- COLUNA VÍDEO -->
+    <div class="video-fixed">
+      <iframe src="https://player.vimeo.com/video/1081106970?h=70594f4e3f" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
+  </div>
 
+  <!-- IMAGEM ABAIXO -->
+  <div class="project-image container">
+    <img src="img/projeto.jpg" alt="Projeto">
   </div>
 </section>
-
 </main>
 
 </body>
