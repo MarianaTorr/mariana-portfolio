@@ -2,20 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Photochemical Techniques — Mariana Torres</title>
+  <title>Research & Preservation Works – Mariana Torres</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <!-- Fonts -->
   <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    :root{--text:#f5f5f5;--muted:#a6a9b5;--accent:#78d3ff;--max:1100px}
-    html,body{height:100%}
-    body{
-      margin:0;background: url('Timeline2.gif.gif') center/cover fixed no-repeat;
-      color:var(--text);font-family:"Source Serif 4",serif;-webkit-font-smoothing:antialiased
+    :root {
+      --bg-soft: #090b10;
+      --text-main: #f5f5f5;
+      --text-muted: #a6a9b5;
+      --accent: #78d3ff;
+      --max-width: 1120px;
+      --hdr-h: 64px;
     }
 
-   header, main{ position: relative; z-index: 1; }
+    *{ box-sizing:border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #050608;
+      color: var(--text-main);
+      font-family: "Source Serif 4", serif;
+    }
+
+    header, main{ position: relative; z-index: 1; }
 
     /* ===== header minimal ===== */
     header{
@@ -27,8 +40,9 @@
       border-bottom: 1px solid rgba(255,255,255,.08);
       backdrop-filter: blur(10px);
     }
+
     nav{
-      max-width: var(--max);
+      max-width: var(--max-width);
       margin:0 auto;
       height:100%;
       padding:0 22px;
@@ -37,155 +51,184 @@
       justify-content: space-between;
       gap: 16px;
     }
-    
-  .brand{
-  font-family:"Bebas Kai", system-ui, sans-serif;
-  letter-spacing:.18em;
-  white-space: nowrap;
 
-  color: var(--muted);        /* 👈 fixa a cor */
-  text-decoration: none;     /* 👈 remove sublinhado */
-  opacity: .9;
-}
+    .brand{
+      font-family:"Bebas Kai", system-ui, sans-serif;
+      letter-spacing:.18em;
+      white-space: nowrap;
+      color: var(--text-muted);
+      text-decoration: none;
+      opacity: .9;
+    }
 
-.brand:hover{
-  color: var(--text);        /* igual ao menu */
-  opacity: 1;
-}
+    .brand:hover{ color: var(--text-main); opacity:1; }
 
     .menu{
       list-style:none;
-      color: var(--muted);
       display:flex;
       gap: 14px;
       margin:0;
       padding:0;
       font-size:.94rem;
-      color: var(--muted);
+      color: var(--text-muted);
     }
+
     .menu a{
       text-decoration:none;
       color: inherit;
       opacity:.9;
       white-space: nowrap;
     }
-    .menu a:hover{ opacity:1; color: var(--text); }
+    .menu a:hover{ opacity:1; color: var(--text-main); }
 
     main{ padding-top: var(--hdr-h); }
-    /* Dropdowns */
-    .dropdown {
-      position: relative;
+
+    /* ================= PROJECT LAYOUT ================= */
+
+    .project-layout{
+      background: #0a0c11;
+      padding: 90px 22px 140px;
     }
 
-    .dropdown > a::after {
-      content: " ▾";
-      font-size: 0.7em; /* seta mais discreta */
-    }
+ .project-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* para mobile */
+}
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 26px;
-      left: 0;
-      min-width: 220px;
-      background: rgba(5, 6, 8, 0.97);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 0;
-      list-style: none;
-      z-index: 999;
-    }
+.project-text {
 
-    .dropdown-content li {
-      padding: 4px 14px;
-      white-space: nowrap;
-    }
+  display: flex;
+  flex-direction: column;
+}
 
-    .dropdown-content li a {
-      display: block;
-      color: var(--text-muted);
-    }
+.video-fixed {
+  flex: 1; /* mesma proporção do texto */
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 6px;
+  overflow: hidden;
+}
 
-    .dropdown-content li a:hover {
-      color: var(--accent);
-      background: rgba(255, 255, 255, 0.06);
-    }
+.video-fixed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    /* HERO */
-    .hero{ background:#0a0c11;
-       padding:0;
-      text-align:center
-    }
-    .hero h1{font-family:"Bebas Kai";font-size:3.1rem;letter-spacing:.12em;margin:0 0 .3rem}
-    .hero p{color:var(--muted);margin:.2rem 0 0}
-    @media (max-width:600px){.hero h1{font-size:2.6rem;letter-spacing:.1em}}
+.project-image {
+  width: 100%;
+  margin-top: 40px;
+}
 
-
-  
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
   </style>
 </head>
+
 <body>
-  <header>
-    <nav>
-      <a class="brand" href="index.html">MARIANA TORRES</a>
-      <ul class="menu">
-        <li><a href="about.html">About</a></li>
-        <li class="dropdown">
-          <a href="projects.html">Projects <span class="caret">▾</span></a>
-          <ul class="dropdown-content">
-            <li><a href="artistic-works.html">Artistic Works</a></li>
-            <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="analogue-film.html">Analogue Film Practice <span class="caret">▾</span></a>
-          <ul class="dropdown-content">
-            <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
-            <li><a href="technical-documentation.html">Technical Documentation</a></li>
-            <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
-          </ul>
-        </li>
-        <li><a href="writing-publications.html">Writing &amp; Publications</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h1>PHOTOCHEMICAL TECHNIQUES</h1>
-    <p>Manual inspection · wet-gate · RGB separations · duplication · optical effects</p>
-  </section>
+<header>
+  <nav>
+    <a href="index.html" class="brand">MARIANA TORRES</a>
 
-  <main class="wrap">
-    <section class="card">
-      <h2>Overview</h2>
-      <p>
-        Practical notes on film handling and photochemical workflows used across projects:
-        repair of perforations, cement/tape splices, shrinkage checks, cleaning, and
-        preparation for scanning.
-      </p>
-    </section>
+    <ul class="menu">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="analogue-film.html">Analogue Film Practice</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <section class="card">
-      <h2>Selected Processes</h2>
-      <ul>
-        <li>Wet-gate passes to minimize surface scratches and enhance base uniformity.</li>
-        <li>RGB separation &amp; recombination tests for color reconstruction.</li>
-        <li>Contact duplication and printer-light testing for density control.</li>
-        <li>Registration/stabilization prep for post workflows (TIFF/DPX).</li>
-      </ul>
-    </section>
+<main>
 
-    <section class="card">
-      <h2>Notes &amp; Safety</h2>
-      <ul>
-        <li>Handling protocols by stock/base; ventilation &amp; PPE for solvents.</li>
-        <li>Documentation of each intervention and calibration reference frames.</li>
-      </ul>
-    </section>
-  </main>
+<section class="project-layout">
+  <div class="project-wrapper container">
+    <!-- COLUNA TEXTO -->
+    <div class="project-text">
+      <div class="project-header">
+        <h1>
+          Digital Restoration Short-Film La Cruz de Mayo
+          <span>Mechanical Gestures to Preserve Flowers:<br>An essay on color reproduction using contact duplication systems</span>
+        </h1>
+        <div class="project-meta">
+          <span>Digital Film Restoration | research project</span>
+          <span>16mm film | 22min</span>
+          <span class="year">1978</span>
+        </div>
+      </div>
+
+      <div class="project-block">
+        <p><strong>Director</strong><br>Miguel Secades y Miguel García</p>
+        <p><strong>País de producción</strong><br>Cuba</p>
+      </div>
+
+      <div class="project-block">
+        <p><strong> Archive Colletion</strong></p>
+        <p>
+          Archivistas Selvages Collective<br>
+          In colaboration With<br>
+          Elias Querjeta Zine Eskola (spain) <br>
+        </p>
+      </div>
+
+      <div class="project-block">
+        <p>
+          Production: Archivistas Selvages Collective<br>
+          Post producion Cordination: Lucia Malandro <br>
+          Digital Image Restoration: Mariana Torres<br>
+          Color grading: Mariana Torres & Lourenço Pinheiro<br>
+         Sound Restoration: Franco Bosco<br>
+        
+        </p>
+      </div>
+      <div class="project-block presentations">
+        <p><strong>Presentations</strong></p>
+        <p>
+          <em>Cineteca de Madrid -Matadero-2024<br>
+            Focus Short films dedicated to Cuban amateur cinema.</em>
+          </p>
+      </div>
+
+      <div class="project-block synopsis">
+        <p><strong>Sinopsis</strong></p>
+        <p>
+          <em>La Cruz de Mayo (1983) It is one significant recoveries
+             in the context of Cuban amateur cinema, as it is a short 
+             film about religious practices in a country politically 
+             assumed to be atheist, where any expression of religious
+              belief is censored.  
+              
+            the Archivistas Selvajes Collective has located and rescued
+            230 of the 546 films reported to them, originating from 17
+            creative cineclubs or independent collectives among the 84
+            registered with the National Federation of Cineclubs (FNCC)
+            before 1994. This work reflects a deep commitment to preserving 
+            cultural and historical records vital to Cuba’s identity, despite
+            the lack of institutional support.</em>
+        </p>
+      </div>
+    </div>
+
+    <!-- COLUNA VÍDEO -->
+    <div class="video-fixed">
+      <iframe src="https://vimeo.com/1084541446/b19ced0966?share=copy&fl=sv&fe=ci" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- IMAGEM ABAIXO -->
+  <div class="project-image container">
+    <img src="cruz de mayo still1.tif" alt="Projeto">
+  </div>
+</section>
+</main>
+
 </body>
 </html>
-
-
