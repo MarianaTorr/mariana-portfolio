@@ -2,45 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Mariana Torres — Artistic Works</title>
+  <title>Research & Preservation Works – Mariana Torres</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- CSS PRINCIPAL (CAMINHO RELATIVO CORRETO) -->
-  <link rel="stylesheet" href="./style.css" />
 
   <!-- Fonts -->
   <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    :root{
-      --bg:#06070b;
-      --text:#f2f4f7;
-      --muted: rgba(242,244,247,.70);
-      --muted2: rgba(242,244,247,.55);
-      --max: 1120px;
+    :root {
+      --bg-soft: #090b10;
+      --text-main: #f5f5f5;
+      --text-muted: #a6a9b5;
+      --accent: #78d3ff;
+      --max-width: 1120px;
       --hdr-h: 64px;
     }
 
     *{ box-sizing:border-box; }
-    html, body{ height:100%; margin:0; }
-
-    body{
-      font-family:"Source Serif 4", serif;
-      color: var(--text);
-      background-color: var(--bg);
-      background: url("smc2 (1).gif") center/cover no-repeat fixed;
-    }
-
-    body::before{
-      content:"";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(1200px 700px at 20% 10%, rgba(6,7,11,.34), rgba(6,7,11,.12) 55%, rgba(6,7,11,.28) 100%),
-        linear-gradient(to bottom, rgba(6,7,11,.24), rgba(6,7,11,.24));
-      pointer-events:center;
-      z-index:0;
+    body {
+      margin: 0;
+      padding: 0;
+      background: #050608;
+      color: var(--text-main);
+      font-family: "Source Serif 4", serif;
     }
 
     header, main{ position: relative; z-index: 1; }
@@ -55,8 +40,9 @@
       border-bottom: 1px solid rgba(255,255,255,.08);
       backdrop-filter: blur(10px);
     }
+
     nav{
-      max-width: var(--max);
+      max-width: var(--max-width);
       margin:0 auto;
       height:100%;
       padding:0 22px;
@@ -70,10 +56,12 @@
       font-family:"Bebas Kai", system-ui, sans-serif;
       letter-spacing:.18em;
       white-space: nowrap;
-      color: var(--muted);
+      color: var(--text-muted);
       text-decoration: none;
       opacity: .9;
     }
+
+    .brand:hover{ color: var(--text-main); opacity:1; }
 
     .menu{
       list-style:none;
@@ -82,7 +70,7 @@
       margin:0;
       padding:0;
       font-size:.94rem;
-      color: var(--muted);
+      color: var(--text-muted);
     }
 
     .menu a{
@@ -91,249 +79,139 @@
       opacity:.9;
       white-space: nowrap;
     }
-
-    .menu a:hover{ opacity:1; color: var(--text); }
+    .menu a:hover{ opacity:1; color: var(--text-main); }
 
     main{ padding-top: var(--hdr-h); }
 
-    .dropdown {
-      position: relative;
+    /* ================= PROJECT LAYOUT ================= */
+
+    .project-layout{
+      background: #0a0c11;
+      padding: 90px 22px 140px;
     }
 
-    .dropdown > a::after {
-      content: " ▾";
-      font-size: 0.7em;
-    }
+ .project-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* para mobile */
+}
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 26px;
-      left: 0;
-      min-width: 220px;
-      background: rgba(5, 6, 8, 0.97);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 0;
-      list-style: none;
-      z-index: 999;
-    }
+.project-text {
 
-    .dropdown-content li {
-      padding: 4px 14px;
-      white-space: nowrap;
-    }
+  display: flex;
+  flex-direction: column;
+}
 
-    .dropdown-content li a {
-      display: block;
-      color: var(--muted);
-    }
-
-    .dropdown-content li a:hover {
-      color: var(--accent);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    /* =============================== PROJECT — EDITORIAL LAYOUT ================= */
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 22px;
-    }
-
-    .project-layout {
-      background:#0a0c11;
-      padding: 90px 0 140px;
-    }
-
-    .project-wrapper {
-      display: flex;
-      gap: 0; /* espaço mínimo quase zero entre texto e vídeo */
-      align-items: flex-start;
-      flex-wrap: nowrap;
-    }
-
-    .project-text {
-      font-family:"Source Serif 4", serif;
-      color: var(--text);
-      font-size: 13.6px;
-      line-height: 1.62;
-      letter-spacing: .015em;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .project-header h1{
-      font-size: 13.8px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: 0px; /* remover margem inferior para ficar próximo do vídeo */
-    }
-
-    .project-header h1 span{
-      display: flex;
-      align-items: flex-end;
-      margin-top: 6px;
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: .02em;
-      text-transform: none;
-      color: var(--muted);
-    }
-
-    .project-meta{
-      display: grid;
-      gap: 3px;
-      font-size: 12.4px;
-      letter-spacing: .04em;
-      color: var(--accent);
-      margin-bottom: 10px; /* reduzir para aproximar ainda mais o vídeo */
-    }
-
-    .project-block strong{
-      display: block;
-      font-weight: 500;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      font-size: 11.2px;
-      margin-bottom: 6px;
-      color: var(--muted);
-    }
-
-    .synopsis{ margin-top: 64px; }
-    .synopsis p{ max-width: 34ch; }
-
-    .project-image{
-      width: 100%;
-  margin-top: 60px;
-
-    }
-    .project-image img{ width: 100%; height: auto; display: block; }
-
-    /* VÍDEO RESPONSIVO */
-    .video-fixed {
+.video-fixed {
+  flex: 1; /* mesma proporção do texto */
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
   border-radius: 6px;
   overflow: hidden;
-    }
+}
 
-    .video-fixed iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+.video-fixed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.project-image {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
   </style>
 </head>
+
 <body>
- <header>
-      <nav class="container">
-        <a href="index.html" class="brand">MARIANA TORRES</a>
 
-        <ul class="menu">
-          <li><a href="about.html">About</a></li>
+<header>
+  <nav>
+    <a href="index.html" class="brand">MARIANA TORRES</a>
 
-          <li class="dropdown">
-            <a href="projects.html">Projects</a>
-            <ul class="dropdown-content">
-              <li><a href="artistic-works.html">Send Me a color</a></li>
-              <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
-            </ul>
-          </li>
+    <ul class="menu">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="analogue-film.html">Analogue Film Practice</a></li>
+    </ul>
+  </nav>
+</header>
 
-          <li class="dropdown">
-            <a href="analogue-film.html">Analogue Film Practice</a>
-            <ul class="dropdown-content">
-              <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
-              <li><a href="technical-documentation.html">Technical Documentation</a></li>
-              <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </header>
+<main>
 
- <main>
 <section class="project-layout">
-<div class="project-wrapper container">
+  <div class="project-wrapper container">
+    <!-- COLUNA TEXTO -->
+    <div class="project-text">
+      <div class="project-header">
+        <h1>
+          Send me a color
+          <span>Mechanical Gestures to Preserve Flowers:<br>An essay on color reproduction using contact duplication systems</span>
+        </h1>
+        <div class="project-meta">
+          <span>Film performance | research project</span>
+          <span>16mm film | 12min</span>
+          <span class="year">2024</span>
+        </div>
+      </div>
 
+      <div class="project-block">
+        <p><strong>Director</strong><br>Mariana Torres</p>
+        <p><strong>Países de producción</strong><br>Portugal | Spain</p>
+        <p><strong></strong> | Archive | Color</p>
+      </div>
 
-<!-- COLUNA TEXTO -->
-<div class="project-text">
-<div class="project-header">
-<h1>
-Send me a color
-<span>Mechanical Gestures to Preserve Flowers:<br>An essay on color reproduction using contact duplication systems</span>
-</h1>
-<div class="project-meta">
-<span>Film performance| research project</span>
-<span>16mm film | 12min</span>
-<span class="year">2024</span>
-</div>
-</div>
+      <div class="project-block">
+        <p><strong>Con el apoyo de</strong></p>
+        <p>
+          Elías Querejeta Zine Eskola (País Vasco)<br>
+          2Deo laboratorio centro cultural Tabakalera (País Vasco)<br>
+          Casa Estrela Association (Portugal)<br>
+        </p>
+      </div>
 
+      <div class="project-block">
+        <p><strong>C</strong></p>
+        <p>
+          Production: Elias Querjeta Zine Eskola<br>
+          Cinematographer: Helena Estrela<br>
+          Development and duplication: Mariana Torres<br>
+          Sound Design: Catalina Giordani & Veronica Boggio<br>
+          Projectionists: Lorena Garcia | Matias Fajn | Inés Vasquez<br>
+          Photoquimical Laboratory: Elias Querjeta Zine Eskola
+        </p>
+      </div>
 
-<div class="project-block">
-<p><strong>Director</strong><br>Mariana Torres</p>
-<p><strong>Países de producción</strong><br>Portugal| Spain</p>
-<p><strong></strong> | Archive | Color</p>
-</div>
+      <div class="project-block synopsis">
+        <p><strong>Sinopsis</strong></p>
+        <p>
+          <em>It is a filmic performance that explores the mechanical gestures of 16mm projectors to reveal light as a material origin and color as an empirical exploration of vision, through a process of duplication in analog film that employs an old color technique from 1861 by Marxwell, called the chromatic separation technique. On the screen, thousands of chromatic possibilities unfold through filters and crystals, exploring the refraction and reflection of light in delicate flashes of melancholy. The images are flowers, where color generates new flowers, and where color itself acquires movement and will.</em>
+        </p>
+      </div>
+    </div>
 
+    <!-- COLUNA VÍDEO -->
+    <div class="video-fixed">
+      <iframe src="https://player.vimeo.com/video/1081106970?h=70594f4e3f" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
 
-<div class="project-block">
-<p><strong>Con el apoyo de</strong></p>
-<p>
-Elías Querejeta Zine Eskola (País Vasco)<br>
-2Deo laboratorio centro cultural Tabakalera (País Vasco)<br>
-Casa Estrela Association (Portugal)<br>
-</p>
-</div>
-
-
-<div class="project-block">
-<p><strong>C</strong></p>
-<p>
-Production: Elias Querjeta Zine Eskola<br>
-Cinematographer: Helena Estrela<br>
-development and duplication: Mariana Torres<br>
-Sound Design: Catalina Giordani & Veronica Boggio<br>
-Projectionists: Lorena Garcia | Matias Fajn | Inés Vasquez<br>
-Photoquimical Laboratory: Elias Querjeta Zine Eskola <br>
-</p>
-</div>
-
-
-<div class="project-block synopsis">
-<p><strong>Sinopsis</strong></p>
-<p>
-<em>It is a filmic performance that explores the mechanical gestures of 16mm projectors to reveal light as a material origin and color as an empirical exploration of vision, through a process of duplication in analog film that employs an old color technique from 1861 by Marxwell, called the chromatic separation technique. On the screen, thousands of chromatic possibilities unfold through filters and crystals, exploring the refraction and reflection of light in delicate flashes of melancholy. The images are flowers, where color generates new flowers, and where color itself acquires movement and will.</em>
-</p>
-</div>
-</div>
-
-
-<!-- COLUNA VÍDEO -->
-<div class="video-fixed">
-<iframe src="https://player.vimeo.com/video/1081106970?h=70594f4e3f" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-
-<!-- COLUNA IMAGEM -->
-<div class="project-image">
-<img src="img/projeto.jpg" alt="">
-</div>
-
-
-</div>
+  <!-- IMAGEM ABAIXO -->
+  <div class="project-image container">
+    <img src="img/projeto.jpg" alt="Projeto">
+  </div>
 </section>
 </main>
+
 </body>
 </html>
