@@ -24,9 +24,8 @@ close.addEventListener("click", () => {
   overlayVideo.pause();
 });
 
-// Fechar ao clicar **fora da imagem ou vídeo**
+// Fechar ao clicar fora da imagem ou vídeo
 overlay.addEventListener("click", (e) => {
-  // Verifica se o clique foi no overlay, não no conteúdo
   if(e.target === overlay) {
     overlay.style.display = "none";
     overlayVideo.pause();
