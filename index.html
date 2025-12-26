@@ -523,6 +523,22 @@
     justify-content: center;
   }
 }
+.project-image {
+  columns: 3;
+  column-gap: 0.5rem;
+}
+
+.project-image img,
+.project-image video {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  break-inside: avoid;
+  filter: brightness(80%) contrast(115%);
+  display: block;
+  object-fit: cover;
+  cursor: pointer;
+}
+
   </style>
 </head>
 <body>
@@ -615,10 +631,33 @@
         </div>
       </div>
     </div>
-
   </div>
-</section>
+ <div class="project-image container">
+  <a href="portfolio.html">
+    <img src="Send me a color/Captura de ecrã 2025-12-19 173446.png" alt="Projeto">
+  </a>
 
+  <a href="portfolio.html">
+    <img src="Send me a color/Untitled_1.1.20.jpg" alt="Projeto">
+  </a>
+
+  <a href="portfolio.html">
+    <img src="Send me a color/Untitled_1.2.2.jpg" alt="Projeto">
+  </a>
+
+  <a href="portfolio.html">
+    <img src="Send me a color/Untitled_1.18.1.jpg" alt="Projeto">
+  </a>
+
+  <a href="portfolio.html">
+    <video src="Send me a color/Untitled_1.18.1.mp4" muted loop></video>
+  </a>
+
+  <a href="portfolio.html">
+    <img src="Send me a color/Prueva de color.jpeg" alt="Projeto">
+  </a>
+  
+</section>
   </main>
 </body>
 </html>
