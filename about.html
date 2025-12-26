@@ -280,11 +280,15 @@ html lang="en">
 ======================= */
 
 .about-associations{
-  display: flex-start;
-  justify-content: center; /* eixo horizontal */
-  align-items: center;         /* eixo vertical (opcional) */
+  display: flex;
+  justify-content: center;
   text-align: center;
+  margin-top: 3rem;
+}
 
+.associations-inner{
+  max-width: 560px; /* igual ao texto acima */
+  width: 100%;
 }
 
 .about-section-title{
@@ -293,36 +297,35 @@ html lang="en">
   letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--muted2);
+  margin-bottom: 2rem;
 }
 
 .associations-list{
   list-style: none;
   padding: 0;
-  margin: 0 auto;
-  max-width: 560px;
-
-  display: flex-start;
+  margin: 0;
+  display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.5rem;
 }
 
 .associations-list li{
-  display: flex-start;
+  display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: .35rem;
 }
 
 .assoc-name{
   font-size: 1rem;
   color: var(--text);
-  opacity: .9;
-  gap: 18px;
+  opacity: .95;
+  line-height: 1.4;
 }
 
 .assoc-role{
   font-size: .9rem;
   color: var(--muted2);
-  gap: 20px;
+  line-height: 1.5;
 }
 
 /* =======================
