@@ -422,8 +422,9 @@ li a:hover .desc{
   cursor: zoom-in;
 }
 
+/* Overlay */
 .overlay {
-  display: none; /* escondido por padrão */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -435,7 +436,7 @@ li a:hover .desc{
   z-index: 9999;
 }
 
-.overlay img{
+.overlay img {
   max-width: 90%;
   max-height: 90%;
 }
@@ -631,11 +632,11 @@ li a:hover .desc{
     <figcaption>Lecture session — research presentation</figcaption>
    </figure>
 
-      <div id="overlay" class="overlay">
+  <!-- Overlay para exibir item ampliado -->
+     <div id="overlay" class="overlay">
       <span id="close">&times;</span>
-      <img id="overlay-img" src="" alt="">
-  
-  </div>
+     <img id="overlay-img" src="" alt="">
+      </div>
 
   </div>
 </section>
