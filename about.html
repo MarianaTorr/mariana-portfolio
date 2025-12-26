@@ -443,8 +443,11 @@ li a:hover .desc{
 }
 
 .overlay img {
-  max-width: 90%;
-  max-height: 90%;
+   max-width: 80vw;      /* nunca mais que 80% da largura do ecrã */
+  max-height: 80vh;     /* nunca mais que 80% da altura */
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 #close {
