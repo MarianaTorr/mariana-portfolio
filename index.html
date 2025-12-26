@@ -35,6 +35,14 @@
       background: url("Timeline2.gif.gif") center/cover no-repeat fixed;
       background-color: var(--bg);
     }
+    .bg-gif {
+  position: fixed;
+  inset: 0;
+  background: url("Timeline2.gif.gif") center / cover no-repeat;
+  filter: brightness(60%) contrast(120%);
+  z-index: -1;
+  pointer-events: none;
+}
 
     /* soft layer over GIF */
     body::before{
@@ -518,6 +526,7 @@
   </style>
 </head>
 <body>
+  <div class="bg-gif"></div>
  <header>
       <nav>
         <!-- clica no nome para ir ao Home -->
