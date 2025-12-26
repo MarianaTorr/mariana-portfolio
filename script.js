@@ -18,7 +18,17 @@ document.querySelectorAll(".project-image img, .project-image video").forEach(it
   });
 });
 
+// Fechar ao clicar no botão "×"
 close.addEventListener("click", () => {
   overlay.style.display = "none";
   overlayVideo.pause();
+});
+
+// Fechar ao clicar **fora da imagem ou vídeo**
+overlay.addEventListener("click", (e) => {
+  // Verifica se o clique foi no overlay, não no conteúdo
+  if(e.target === overlay) {
+    overlay.style.display = "none";
+    overlayVideo.pause();
+  }
 });
