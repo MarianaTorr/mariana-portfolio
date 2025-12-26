@@ -200,19 +200,14 @@
 
 .project-image {
   flex: 1; /* mesma proporção do texto */
-  width: 100%;
-  margin-top: 40px;
-  position: relative;
-  aspect-ratio: 16/9;
-  border-radius: 6px;
-  overflow: hidden;
+  columns: 3;
+  column-gap: 1.2rem;
 }
 
 .project-image img {
   width: 100%;
-  height: auto;
-  display: block;
-  
+  margin-bottom: 1.2rem;
+  break-inside: avoid;
 }
   </style>
 </head>
