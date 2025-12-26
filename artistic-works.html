@@ -154,8 +154,6 @@
       display: block;
     }
 
-
-
     /* ================= PROJECT LAYOUT ================= */
 
     .project-layout{
@@ -216,14 +214,33 @@
 
 <header>
   <nav>
-    <a href="index.html" class="brand">MARIANA TORRES</a>
+        <!-- clica no nome para ir ao Home -->
+        <a href="index.html" class="brand">MARIANA TORRES</a>
 
-    <ul class="menu">
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="analogue-film.html">Analogue Film Practice</a></li>
-    </ul>
-  </nav>
+        <ul class="menu">
+          <!-- removemos "Home" aqui, como combinámos -->
+          <li><a href="about.html">About</a></li>
+
+          <li class="dropdown">
+            <a href="projects.html">Projects</a>
+            <ul class="dropdown-content">
+              <li><a href="artistic-works.html">Artistic Works</a></li>
+              <li><a href="research-preservation.html">Research &amp; Preservation Works</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="analogue-film.html">Analogue Film Practice</a>
+            <ul class="dropdown-content">
+              <li><a href="photochemical-techniques.html">Photochemical Techniques</a></li>
+              <li><a href="technical-documentation.html">Technical Documentation</a></li>
+              <li><a href="darkroom-lab.html">Darkroom / Lab Work</a></li>
+            </ul>
+          </li>
+
+
+        </ul>
+      </nav>
 </header>
 
 <main>
