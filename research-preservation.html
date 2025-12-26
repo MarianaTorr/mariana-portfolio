@@ -9,28 +9,55 @@
   <link href="https://fonts.cdnfonts.com/css/bebas-kai" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <style>
-    :root {
-      --bg-soft: #090b10;
-      --text-main: #f5f5f5;
-      --text-muted: #a6a9b5;
-      --accent: #78d3ff;
-      --max-width: 1120px;
+ <style>
+    :root{
+      --bg:#06070b;
+      --text:#f2f4f7;
+      --muted: rgba(242,244,247,.70);
+      --muted2: rgba(242,244,247,.55);
+
+      --max: 1120px;
       --hdr-h: 64px;
+
+      --line: rgba(255,255,255,.22);
+      --line-soft: rgba(255,255,255,.14);
+      --overlay: rgba(6,7,11,.24);
     }
 
     *{ box-sizing:border-box; }
-    body {
-      margin: 0;
-      padding: 0;
-      background: #050608;
-      color: var(--text-main);
-      font-family: "Source Serif 4", serif;
+    html, body{ height:100%; }
+
+    body{
+      margin:0;
+      color: var(--text);
+      font-family:"Source Serif 4", serif;
+      -webkit-font-smoothing: antialiased;
+      background: url("Timeline2.gif.gif") center/cover no-repeat fixed;
+      background-color: var(--bg);
+    }
+    .bg-gif {
+  position: fixed;
+  inset: 0;
+  background: url("Timeline2.gif.gif") center / cover no-repeat;
+  filter: brightness(80%) contrast(115%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+    /* soft layer over GIF */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(1200px 700px at 50% 40%, rgba(6,7,11,.34), rgba(6,7,11,.12) 55%, rgba(6,7,11,.28) 90%),
+        linear-gradient(to bottom, var(--overlay), var(--overlay));
+      pointer-events:none;
+      z-index:0;
     }
 
     header, main{ position: relative; z-index: 1; }
 
-    header, main{ position: relative; z-index: 1; }
     /* ===== header minimal ===== */
     header{
       position: fixed;
