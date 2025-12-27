@@ -103,32 +103,53 @@
   flex-direction: column;
 }
 
-.video-fixed {
-  flex: 1; /* mesma proporção do texto */
-  position: relative;
-  aspect-ratio: 16/9;
-  border-radius: 6px;
-  overflow: hidden;
+
+.project-image {
+  columns: 3;
+  column-gap: 0.5rem;
 }
 
-.video-fixed iframe {
-  position: absolute;
+.project-image img,
+.project-image video {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  break-inside: avoid;
+  filter: brightness(80%) contrast(115%);
+  display: block;
+  object-fit: cover;
+  cursor: pointer;
+}
+/* Overlay */
+.overlay {
+  display: none; /* escondido por padrão */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-.project-image {
-  width: 100%;
-  margin-top: 40px;
-}
-
-.project-image img {
-  width: 100%;
+.overlay img,
+.overlay video {
+   max-width: 80vw;      /* nunca mais que 80% da largura do ecrã */
+  max-height: 80vh;     /* nunca mais que 80% da altura */
+  width: auto;
   height: auto;
-  display: block;
+  object-fit: contain;
+  filter: brightness(80%) contrast(115%);
+}
+
+#close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
 }
   </style>
 </head>
@@ -196,10 +217,22 @@
 
   <!-- IMAGEM ABAIXO -->
   <div class="project-image container">
-    <img src="cruz de mayo still1.tif" alt="Projeto">
+    <img src="tequenics/Captura de ecrã 2025-12-19 173055.png" alt="Projeto">
+    <img src="tequenics/Captura de ecrã 2025-12-19 173130.png" alt="Projeto">
+    <img src="tequenics/Captura de ecrã 2025-12-19 173156.png" alt="Projeto">
+    <img src="tequenics/Captura de ecrã 2025-12-19 173232.png" alt="Projeto">
+    <img src="tequenics/Captura de ecrã 2025-12-19 173750.png" alt="Projeto">
+    <img src="tequenics/Captura de ecrã 2025-12-19 190630.png" alt="Projeto">
+    <img src="tequenics/Captura de ecrã 2025-12-19 190652.png" alt="Projeto">
   </div>
+  
+<div id="overlay" class="overlay">
+  <span id="close">&times;</span>
+  <img id="overlay-img" src="" alt="">
+  <video id="overlay-video" src="" controls autoplay></video>
+</div>
 </section>
 </main>
-
+<script src="script.js"></script>
 </body>
 </html>
