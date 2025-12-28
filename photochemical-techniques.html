@@ -103,95 +103,40 @@
   flex-direction: column;
 }
 .manual-section {
-  padding: 5rem 6vw;
-  background: radial-gradient(circle at top, #141824, #0a0c11 70%);
-  color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  background-color: #f9f9f9; /* leve fundo */
+  text-align: center;
 }
 
-/* título */
-.manual-title {
-  font-size: 2.3rem;
-  font-weight: 600;
-  margin-bottom: 3rem;
-  max-width: 1200px;
+.manual-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  padding-right: 2rem;
 }
 
-/* layout em duas colunas */
-.manual-layout {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 6rem;
-  max-width: 1200px;
-  margin-left: 8rem;
-}
-
-/* páginas */
-.manual-pages {
-  display: center;
-  gap: 24px;
-  align-items: flex-end;
+.manual-section a {
+  display: block;
   text-decoration: none;
   transition: transform 0.3s ease;
 }
 
-.manual-pages:hover {
-  transform: scale(1.02);
+.manual-section a:hover {
+  transform: scale(1.05); /* efeito de zoom ao passar o mouse */
 }
 
 .manual-img {
-  width: 240px;
-  aspect-ratio: 3 / 4;
+  width: 210mm; /* equivalente A4 em largura */
+  max-width: 100%;
   height: auto;
-  background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
-/* coluna de texto */
-.manual-info {
-  max-width: 420px;
-}
-
-/* descrição */
-.manual-description {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 2.5rem;
-}
-
-/* metadata */
-.manual-meta {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 2.5rem 0;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.7);
-}
-
-.manual-meta li {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  padding: 0.35rem 0;
-}
-
-.manual-meta span {
-  color: rgba(255,255,255,0.45);
-}
-
-/* link */
-.manual-link {
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
-  text-decoration: none;
-}
-
-.manual-link:hover {
-  color: #ffffff;
-}
 
 
 .project-image {
@@ -344,7 +289,13 @@
       </div> 
         </p>
       </div>
-
+      <div class="project-block presentations">
+        <p><strong>Presentations</strong></p>
+        <p>
+          <em>Cineteca de Madrid -Matadero-2024<br>
+            Focus Short films dedicated to Cuban amateur cinema.</em>
+          </p>
+      </div>
 
       <div class="project-block synopsis">
         <p><strong>Statment</strong></p>
@@ -358,66 +309,12 @@
         </p>
       </div>
     </div>
-   <section class="manual-section">
-
-  <h2 class="manual-title">Lab Notes on Color Correction</h2>
-
-  <div class="manual-layout">
-
-    <!-- COLUNA ESQUERDA — OBJETO -->
-    <a
-      href="https://drive.google.com/your-pdf-link"
-      target="_blank"
-      class="manual-pages"
-    >
-      <img
-        src="documentationLAB/1_page-0001.jpg"
-        alt="Manual page 1"
-        class="manual-img"
-      >
-
-      <img
-        src="documentationLAB/apuntes lab.png"
-        alt="Manual page 2"
-        class="manual-img"
-      >
-    </a>
-
-    <!-- COLUNA DIREITA — CONTEXTO -->
-    <div class="manual-info">
-
-      <p class="manual-description">
-        These notes document colour balance decisions, filtration strategies,
-        and tonal control methods developed through analogue film laboratory
-        practice.
-        <br><br>
-        The material focuses on the relationship between exposure, contrast,
-        and chromatic adjustment, with particular attention to colour points
-        equivalent to printing lights used in film processing machinery.
-      </p>
-
-      <ul class="manual-meta">
-        <li><span>Type</span>Working notes / Laboratory manual</li>
-        <li><span>Context</span>Analogue film colour correction practice</li>
-        <li><span>Medium</span>16mm film</li>
-        <li><span>Format</span>Digital document (PDF)</li>
-        <li><span>Year</span>2024</li>
-      </ul>
-
-      <a
-        href="https://drive.google.com/your-pdf-link"
-        target="_blank"
-        class="manual-link"
-      >
-        View full document (PDF)
-      </a>
-
-    </div>
-
-  </div>
-
+    <section class="manual-section">
+  <h2>Manual de Uso da Máquina</h2>
+  <a href="https://drive.google.com/your-pdf-link" target="_blank">
+    <img src="primeira-pagina.pdf.png" alt="Primeira página do manual" class="manual-img">
+  </a>
 </section>
-
 
   <!-- IMAGEM ABAIXO -->
   <div class="project-image container">
@@ -447,6 +344,14 @@
       </div> 
         </p>
       </div>
+      <div class="project-block presentations2">
+        <p><strong>Presentations</strong></p>
+        <p>
+          <em>Cineteca de Madrid -Matadero-2024<br>
+            Focus Short films dedicated to Cuban amateur cinema.</em>
+          </p>
+      </div>
+
       <div class="project-block synopsis2">
         <p><strong>Statment</strong></p>
         <p>
@@ -489,7 +394,13 @@
       </div> 
         </p>
       </div>
-
+      <div class="project-block presentations4">
+        <p><strong>Presentations</strong></p>
+        <p>
+          <em>Cineteca de Madrid -Matadero-2024<br>
+            Focus Short films dedicated to Cuban amateur cinema.</em>
+          </p>
+      </div>
 
       <div class="project-block synopsis4">
         <p><strong>Statment</strong></p>
@@ -530,7 +441,13 @@
       </div> 
         </p>
       </div>
-
+      <div class="project-block presentations4">
+        <p><strong>Presentations</strong></p>
+        <p>
+          <em>Cineteca de Madrid -Matadero-2024<br>
+            Focus Short films dedicated to Cuban amateur cinema.</em>
+          </p>
+      </div>
 
       <div class="project-block synopsis4">
         <p><strong>Statment</strong></p>
