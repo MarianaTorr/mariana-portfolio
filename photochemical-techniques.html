@@ -123,24 +123,27 @@
 
 /* container das páginas */
 .manual-book {
-  display: flex;
-  gap: 0;
+display: flex;
   justify-content: center;
   align-items: center;
+  gap: 28px;              /* 🔥 espaço entre páginas */
   perspective: 1200px;
   transition: transform 0.4s ease;
 }
 
+
 .manual-book:hover {
-  transform: scale(1.03);
+   transform: scale(1.02);
 }
 
 /* páginas */
 .manual-img {
-  width: 230px;              /* 🔥 tamanho certo */
+  width: 240px;           /* um pouco maior */
   aspect-ratio: 3 / 4;
   height: auto;
   background: #fff;
+
+  border-radius: 8px;
   box-shadow: 0 25px 60px rgba(0,0,0,0.55);
 }
 
