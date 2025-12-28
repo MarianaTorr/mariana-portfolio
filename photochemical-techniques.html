@@ -107,33 +107,41 @@
   flex-direction: column;
   align-items: center;
   padding: 3rem 1rem;
-  background-color: #0a0c11; /* leve fundo */
+  background-color: #0a0c11;
   text-align: center;
 }
 
 .manual-section h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #333;
+  color: #f2f2f2; /* ajustado para contraste no fundo escuro */
 }
 
 .manual-section a {
-  display: block;
+  display: inline-block;
   text-decoration: none;
   transition: transform 0.3s ease;
 }
 
 .manual-section a:hover {
-  transform: scale(1.05); /* efeito de zoom ao passar o mouse */
+  transform: scale(1.04);
 }
 
+/* 🔥 AQUI ESTÁ A CORREÇÃO PRINCIPAL */
 .manual-img {
-  width: 210mm; /* equivalente A4 em largura */
-  max-width: 100%;
+  width: 180px;              /* miniatura, não A4 */
+  max-width: 90vw;
   height: auto;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  border: 1px solid #0a0c11;
-  border-radius: 8px;
+  aspect-ratio: 3 / 4;       /* proporção de página/capa */
+
+  border-radius: 6px;
+  border: 1px solid #222;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.45),
+    -6px 0 12px rgba(0, 0, 0, 0.25); /* sombra lateral tipo livro */
+
+  background-color: #fff;
 }
 
 
@@ -308,10 +316,15 @@
         </p>
       </div>
     </div>
-    <section class="manual-section">
-  <h2>Lab Notes on color corretion</h2>
+   <section class="manual-section">
+  <h2>Lab Notes on Color Correction</h2>
+
   <a href="https://drive.google.com/your-pdf-link" target="_blank">
-    <img src="primeira-pagina.pdf.png" alt="Primeira página do manual" class="manual-img">
+    <img
+      src="primeira-pagina.pdf.png"
+      alt="Primeira página do manual"
+      class="manual-img"
+    >
   </a>
 </section>
 
