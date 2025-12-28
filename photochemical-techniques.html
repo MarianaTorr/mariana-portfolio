@@ -103,74 +103,95 @@
   flex-direction: column;
 }
 .manual-section {
-  display: flex;
-  justify-content: center;
-  padding: 4rem 1rem 5rem;
+  padding: 5rem 6vw;
   background: radial-gradient(circle at top, #141824, #0a0c11 70%);
+  color: #f2f2f2;
 }
 
-.manual-wrapper {
-  max-width: 520px;
-  text-align: center;
-}
-
-.manual-wrapper h2 {
-  font-size: 2.2rem;
-  margin-bottom: 2.5rem;
-  color: #f5f6f8;
+/* título */
+.manual-title {
+  font-size: 2.3rem;
   font-weight: 600;
+  margin-bottom: 3rem;
+  max-width: 1200px;
 }
 
-/* container das páginas */
-.manual-book {
-display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 28px;              /* 🔥 espaço entre páginas */
-  perspective: 1200px;
-  transition: transform 0.4s ease;
-}
-
-
-.manual-book:hover {
-   transform: scale(1.02);
+/* layout em duas colunas */
+.manual-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4rem;
+  max-width: 1200px;
 }
 
 /* páginas */
+.manual-pages {
+  display: flex;
+  gap: 24px;
+  align-items: flex-end;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.manual-pages:hover {
+  transform: scale(1.02);
+}
+
 .manual-img {
-  width: 240px;           /* um pouco maior */
+  width: 240px;
   aspect-ratio: 3 / 4;
   height: auto;
   background: #fff;
-
-  border-radius: 8px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.55);
+  border-radius: 6px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
 }
 
-/* página esquerda */
-.manual-img.left {
-  border-radius: 8px 0 0 8px;
-  transform: rotateY(6deg);
-  transform-origin: right center;
-  border-right: 1px solid #ddd;
+/* coluna de texto */
+.manual-info {
+  max-width: 420px;
 }
 
-/* página direita */
-.manual-img.right {
-  border-radius: 0 8px 8px 0;
-  transform: rotateY(-6deg);
-  transform-origin: left center;
-  border-left: 1px solid #ddd;
+/* descrição */
+.manual-description {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 2.5rem;
 }
 
-/* legenda */
-.manual-caption {
-  margin-top: 1.4rem;
-  font-size: 0.8rem;
+/* metadata */
+.manual-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem 0;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.manual-meta li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 0.35rem 0;
+}
+
+.manual-meta span {
+  color: rgba(255,255,255,0.45);
+}
+
+/* link */
+.manual-link {
+  font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
 }
+
+.manual-link:hover {
+  color: #ffffff;
+}
+
 
 .project-image {
   columns: 3;
@@ -343,25 +364,65 @@ display: flex;
       </div>
     </div>
    <section class="manual-section">
-  <div class="manual-wrapper">
-    <h2>Lab Notes on Color Correction</h2>
 
-    <a href="https://drive.google.com/your-pdf-link" target="_blank" class="manual-book">
+  <h2 class="manual-title">Lab Notes on Color Correction</h2>
+
+  <div class="manual-layout">
+
+    <!-- COLUNA ESQUERDA — OBJETO -->
+    <a
+      href="https://drive.google.com/your-pdf-link"
+      target="_blank"
+      class="manual-pages"
+    >
       <img
         src="documentationLAB/1_page-0001.jpg"
-        alt="Página 1 do manual"
-        class="manual-img left"
+        alt="Manual page 1"
+        class="manual-img"
       >
+
       <img
         src="documentationLAB/apuntes lab.png"
-        alt="Página 2 do manual"
-        class="manual-img right"
+        alt="Manual page 2"
+        class="manual-img"
       >
     </a>
 
-    <p class="manual-caption">Visual manual · PDF</p>
+    <!-- COLUNA DIREITA — CONTEXTO -->
+    <div class="manual-info">
+
+      <p class="manual-description">
+        These notes document colour balance decisions, filtration strategies,
+        and tonal control methods developed through analogue film laboratory
+        practice.
+        <br><br>
+        The material focuses on the relationship between exposure, contrast,
+        and chromatic adjustment, with particular attention to colour points
+        equivalent to printing lights used in film processing machinery.
+      </p>
+
+      <ul class="manual-meta">
+        <li><span>Type</span>Working notes / Laboratory manual</li>
+        <li><span>Context</span>Analogue film colour correction practice</li>
+        <li><span>Medium</span>16mm film</li>
+        <li><span>Format</span>Digital document (PDF)</li>
+        <li><span>Year</span>2024</li>
+      </ul>
+
+      <a
+        href="https://drive.google.com/your-pdf-link"
+        target="_blank"
+        class="manual-link"
+      >
+        View full document (PDF)
+      </a>
+
+    </div>
+
   </div>
+
 </section>
+
 
   <!-- IMAGEM ABAIXO -->
   <div class="project-image container">
