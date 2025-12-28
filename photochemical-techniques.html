@@ -104,47 +104,70 @@
 }
 .manual-section {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 1rem;
-  background-color: #0a0c11;
+  justify-content: center;
+  padding: 4rem 1rem 5rem;
+  background: radial-gradient(circle at top, #141824, #0a0c11 70%);
+}
+
+.manual-wrapper {
+  max-width: 520px;
   text-align: center;
 }
 
-.manual-section h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #f2f2f2; /* ajustado para contraste no fundo escuro */
+.manual-wrapper h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: #f5f6f8;
+  font-weight: 600;
 }
 
-.manual-section a {
-  display: inline-block;
-  text-decoration: none;
-  transition: transform 0.3s ease;
+/* container das páginas */
+.manual-book {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+  transition: transform 0.4s ease;
 }
 
-.manual-section a:hover {
-  transform: scale(1.04);
+.manual-book:hover {
+  transform: scale(1.03);
 }
 
-/* 🔥 AQUI ESTÁ A CORREÇÃO PRINCIPAL */
+/* páginas */
 .manual-img {
-  width: 180px;              /* miniatura, não A4 */
-  max-width: 90vw;
+  width: 230px;              /* 🔥 tamanho certo */
+  aspect-ratio: 3 / 4;
   height: auto;
-  aspect-ratio: 3 / 4;       /* proporção de página/capa */
-
-  border-radius: 6px;
-  border: 1px solid #222;
-
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.45),
-    -6px 0 12px rgba(0, 0, 0, 0.25); /* sombra lateral tipo livro */
-
-  background-color: #fff;
+  background: #fff;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.55);
 }
 
+/* página esquerda */
+.manual-img.left {
+  border-radius: 8px 0 0 8px;
+  transform: rotateY(6deg);
+  transform-origin: right center;
+  border-right: 1px solid #ddd;
+}
 
+/* página direita */
+.manual-img.right {
+  border-radius: 0 8px 8px 0;
+  transform: rotateY(-6deg);
+  transform-origin: left center;
+  border-left: 1px solid #ddd;
+}
+
+/* legenda */
+.manual-caption {
+  margin-top: 1.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
 
 .project-image {
   columns: 3;
@@ -317,16 +340,24 @@
       </div>
     </div>
    <section class="manual-section">
-  <h2>Lab Notes on Color Correction</h2>
+  <div class="manual-wrapper">
+    <h2>Lab Notes on Color Correction</h2>
 
-  <a href="https://drive.google.com/your-pdf-link" target="_blank">
-    <img
-      src="documentationLAB/1_page-0001.jpg"
-      src="documentationLAB/apuntes lab.png"
-      alt="Primeira página do manual"
-      class="manual-img"
-    >
-  </a>
+    <a href="https://drive.google.com/your-pdf-link" target="_blank" class="manual-book">
+      <img
+        src="documentationLAB/1_page-0001.jpg"
+        alt="Página 1 do manual"
+        class="manual-img left"
+      >
+      <img
+        src="documentationLAB/apuntes lab.png"
+        alt="Página 2 do manual"
+        class="manual-img right"
+      >
+    </a>
+
+    <p class="manual-caption">Visual manual · PDF</p>
+  </div>
 </section>
 
   <!-- IMAGEM ABAIXO -->
